@@ -7,9 +7,9 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "Type_of_environment")
-data class Type_of_environment (
+@Entity(tableName = "typeOfEnvironment")
+data class TypeOfEnvironment (
     @NonNull
-    @PrimaryKey(autoGenerate = true)
-    val id: Int=0,
-    var name: String = "Type_of_environment")
+    @PrimaryKey(autoGenerate = true) val id: Int=0,
+    val value: String)
+
