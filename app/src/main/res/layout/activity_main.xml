@@ -18,7 +18,7 @@
             android:text="@string/ConductorCrossSection"
             android:textSize="24sp" />
         <Spinner
-            android:id="@+id/spinnerNominalSize"
+            android:id="@+id/SpinnerNominalSize"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:spinnerMode="dialog" />
@@ -129,7 +129,7 @@
     </TableRow>
 
          <Button
-            android:id="@+id/buttonNaytipomochnosti"
+            android:id="@+id/ButtonNaytipomochnosti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
