@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
 
         lateinit var mainActivityViewModel: MainActivityViewModel
 
-        Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
         mainActivityViewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+
+        Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
 
         val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
         val textViewCountPhase = findViewById<TextView>(R.id.TextViewCountPhase)
