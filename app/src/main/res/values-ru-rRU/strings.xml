@@ -12,4 +12,11 @@
     <string name="NumberOfCore">Число жил</string>
     <string name="ConductorCrossSection">Попересное сечение</string>
     <string name="HINT0">0</string>
+    <string name="CountPhase">Число фаз</string>
+    <string name="Voltage">Напряжение</string>
+    <string name="cos_phi">Cos (phi)</string>
+    <string name="odin">1</string>
+    <string name="power">Мощность</string>
+    <string name="raschetniytok">Расчетный ток</string>
+    <string name="podobratykabel">Подобрать кабель</string>
 </resources>

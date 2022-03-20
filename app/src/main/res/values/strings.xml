@@ -11,4 +11,11 @@
     <string name="Resistance_x_ohm_km">Resistance_x_ohm_km</string>
     <string name="ConductorCrossSection">ConductorCrossSection</string>
     <string name="HINT0">0</string>
+    <string name="CountPhase">CountPhase</string>
+    <string name="Voltage">Voltage</string>
+    <string name="cos_phi">Cos</string>
+    <string name="odin">1</string>
+    <string name="power">Power</string>
+    <string name="raschetniytok">Current</string>
+    <string name="podobratykabel">podobratykabel</string>
 </resources>

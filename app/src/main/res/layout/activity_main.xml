@@ -179,5 +179,96 @@
             android:layout_height="match_parent"
             android:spinnerMode="dialog" />
     </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView_CountPhase"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/CountPhase"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/Spinner_CountPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog"/>
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/TextViewVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/Voltage"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/EditTextVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:autofillHints="true"
+            android:hint="380"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/cos_phi"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/EditText_cos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:autofillHints="true"
+            android:hint="@string/odin"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/power"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/EditText_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="true"
+            android:hint="@string/HINT0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/raschetniytok"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/TextView_currentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/button_naytipomochnosti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/podobratykabel"
+            android:textAlignment="center"
+            android:textSize="24sp"
+             />
+    </TableRow>
 
 </TableLayout>
