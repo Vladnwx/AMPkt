@@ -2,15 +2,23 @@ package com.amp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import com.amp.data.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        lateinit var mainActivityViewModel: MainActivityViewModel
+
+        Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
+        mainActivityViewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
 
         val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
         val textViewCountPhase = findViewById<TextView>(R.id.TextViewCountPhase)
