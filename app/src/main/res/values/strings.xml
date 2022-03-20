@@ -10,4 +10,5 @@
     <string name="Resistance_r_ohm_km">Resistance_r_ohm_km</string>
     <string name="Resistance_x_ohm_km">Resistance_x_ohm_km</string>
     <string name="ConductorCrossSection">ConductorCrossSection</string>
+    <string name="HINT0">0</string>
 </resources>

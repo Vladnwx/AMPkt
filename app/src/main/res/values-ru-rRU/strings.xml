@@ -11,4 +11,5 @@
     <string name="TypeAmperage">Тип тока</string>
     <string name="NumberOfCore">Число жил</string>
     <string name="ConductorCrossSection">Попересное сечение</string>
+    <string name="HINT0">0</string>
 </resources>
