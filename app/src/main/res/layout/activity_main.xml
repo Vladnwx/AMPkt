@@ -12,13 +12,13 @@
 
     <TableRow>
         <TextView
-            android:id="@+id/TextView_nominal_size"
+            android:id="@+id/TextViewNominalSize"
             android:layout_width="280sp"
             android:layout_height="match_parent"
             android:text="@string/ConductorCrossSection"
             android:textSize="24sp" />
         <Spinner
-            android:id="@+id/spinner_nominal_size"
+            android:id="@+id/spinnerNominalSize"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:spinnerMode="dialog" />
@@ -26,14 +26,14 @@
 
     <TableRow>
         <TextView
-            android:id="@+id/TextView_CountPhase"
+            android:id="@+id/TextViewCountPhase"
             android:layout_width="280sp"
             android:layout_height="match_parent"
             android:text="@string/CountPhase"
             android:textSize="24sp" />
 
         <Spinner
-            android:id="@+id/Spinner_CountPhase"
+            android:id="@+id/SpinnerCountPhase"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:spinnerMode="dialog"/>
@@ -42,11 +42,14 @@
 
     <TableRow>
         <TextView
+            android:id="@+id/TextViewCable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cable"
             android:textSize="24sp" />
+
         <TextView
+            android:id="@+id/TextViewCableValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="3х1,5"
@@ -54,19 +57,19 @@
             android:textSize="24sp" />
     </TableRow>
 
-
     <TableRow>
         <TextView
+            android:id="@+id/TextViewCurrentAmperage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/raschetniytok"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/TextView_currentCount"
+            android:id="@+id/TextViewCurrentAmperageValue"
             android:layout_width="121dp"
             android:layout_height="wrap_content"
-            android:hint="0"
+            android:hint="@string/HINT0"
             android:textAlignment="center"
             android:textSize="24sp" />
     </TableRow>
@@ -91,12 +94,13 @@
 
     <TableRow>
         <TextView
+            android:id="@+id/TextViewCos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/cos_phi"
             android:textSize="24sp" />
         <EditText
-            android:id="@+id/EditText_cos"
+            android:id="@+id/EditTextCos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:autofillHints="true"
@@ -108,12 +112,13 @@
 
     <TableRow>
         <TextView
+            android:id="@+id/TextViewPower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/power"
             android:textSize="24sp" />
         <EditText
-            android:id="@+id/EditText_power"
+            android:id="@+id/EditTextPower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="true"
@@ -124,7 +129,7 @@
     </TableRow>
 
          <Button
-            android:id="@+id/button_naytipomochnosti"
+            android:id="@+id/buttonNaytipomochnosti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

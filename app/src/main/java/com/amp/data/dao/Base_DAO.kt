@@ -1,32 +1,36 @@
 package com.amp.data.dao
 
-import androidx.lifecycle.ComputableLiveData
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.room.*
-import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Update
 
 
 interface BaseDAO <T> {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract fun insert(entity: T): Long
+    suspend fun insert(entity: T): Long
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract fun insert(entities: List<T>): LongArray
+    suspend fun insert(entities: List<T>): LongArray
+
+  //  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  //  suspend fun insert(entitys: Iterable<T>?)
 
     @Update
-    abstract fun update(entity: T)
+    suspend fun update(entity: T)
 
     @Update
-    abstract fun update(entities: List<T>)
+    suspend fun update(entities: List<T>)
 
     @Delete
-    abstract fun delete(entity: T)
+    suspend fun delete(entity: T)
 
     @Delete
-    abstract fun delete(entities: List<T>)
+    suspend fun delete(entities: List<T>)
+
+  //  @Delete
+  //  fun delete(vararg entitys: T)
 
 
 
