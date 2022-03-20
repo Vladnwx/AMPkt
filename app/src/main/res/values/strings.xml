@@ -20,4 +20,8 @@
     <string name="podobratykabel">podobratykabel</string>
     <string name="cable">Cable</string>
     <string name="amperage">Amperage</string>
+    <string name="title_activity_extendet">ActivityExtendet</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

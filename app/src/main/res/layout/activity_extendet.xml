@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tablelayout_amperage"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:layout_margin="5sp">
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_of_environment"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:text="@string/TypeOfEnvironment"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_type_of_environment"
+            android:layout_width="120sp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:spinnerMode="dialog"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </TableRow>
+
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_number_of_core"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/NumberOfCore"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_number_of_core"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_material_type"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/MaterialType"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_material_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_insulation_type"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/InsulationType"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_insulation_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_method_of_laying"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/MethodOfLaying"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_method_of_laying"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_nominal_size"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/ConductorCrossSection"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_nominal_size"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView_CountPhase"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/CountPhase"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/Spinner_CountPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_amperage"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/TypeAmperage"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_type_amperage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cable"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="3х1,5"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_equivalent_section"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/EquivalentSection"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_equivalent_section_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="@string/HINT0"
+            android:textColorHint="#78909C"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_Resistance_R"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/Resistance_r_ohm_km"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_Resistance_R_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="@string/HINT0"
+            android:textColorHint="#78909C"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_Resistance_X"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/Resistance_x_ohm_km"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_Resistance_X_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="@string/HINT0"
+            android:textColorHint="#78909C"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/raschetniytok"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/TextView_currentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amperage"
+            android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextViewVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/Voltage"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/EditTextVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:autofillHints="true"
+            android:hint="380"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/cos_phi"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/EditText_cos"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:autofillHints="true"
+            android:hint="@string/odin"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/power"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/EditText_power"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="true"
+            android:hint="@string/HINT0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+
+
+    <Button
+        android:id="@+id/button_naytipomochnosti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/podobratykabel"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+</TableLayout>
