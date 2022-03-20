@@ -126,6 +126,21 @@
             android:spinnerMode="dialog"/>
 
     </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_amperage"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/TypeAmperage"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_type_amperage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
     <TableRow>
         <TextView
             android:layout_width="wrap_content"
@@ -140,20 +155,6 @@
             android:textAlignment="center"
             android:textSize="24sp" />
 
-    </TableRow>
-    <TableRow>
-
-        <TextView
-            android:id="@+id/TextView_type_amperage"
-            android:layout_width="280sp"
-            android:layout_height="match_parent"
-            android:text="@string/TypeAmperage"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/spinner_type_amperage"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
     </TableRow>
     <TableRow>
 
