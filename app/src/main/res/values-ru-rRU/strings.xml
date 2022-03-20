@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AMP</string>
+    <string name="TypeOfEnvironment">Окружающая среда</string>
+    <string name="Resistance_r_ohm_km">Сопротивление R</string>
+    <string name="Resistance_x_ohm_km">Сопротивление X</string>
+    <string name="EquivalentSection">Эквивалентное сечение</string>
+    <string name="MethodOfLaying">Способ прокладки</string>
+    <string name="InsulationType">Материал изоляции</string>
+    <string name="MaterialType">Материал проводника</string>
+    <string name="TypeAmperage">Тип тока</string>
+    <string name="NumberOfCore">Число жил</string>
+    <string name="ConductorCrossSection">Попересное сечение</string>
+</resources>

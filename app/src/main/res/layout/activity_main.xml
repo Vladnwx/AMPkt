@@ -1,18 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<TableLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/tablelayout_amperage"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_margin="5sp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_of_environment"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:text="@string/TypeOfEnvironment"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_type_of_environment"
+            android:layout_width="120sp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:spinnerMode="dialog"
+            />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_amperage"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/TypeAmperage"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_type_amperage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_number_of_core"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/NumberOfCore"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_number_of_core"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_material_type"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/MaterialType"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_material_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_insulation_type"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/InsulationType"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_insulation_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_method_of_laying"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/MethodOfLaying"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_method_of_laying"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_equivalent_section"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/EquivalentSection"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_equivalent_section_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="0"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_Resistance_R"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/Resistance_r_ohm_km"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_Resistance_R_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="0"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_Resistance_X"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/Resistance_x_ohm_km"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextView_Resistance_X_value"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="0"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_nominal_size"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/ConductorCrossSection"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_nominal_size"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog" />
+    </TableRow>
+
+</TableLayout>

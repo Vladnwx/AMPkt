@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AMP</string>
+    <string name="TypeOfEnvironment">TypeOfEnvironment</string>
+    <string name="TypeAmperage">TypeAmperage</string>
+    <string name="NumberOfCore">NumberOfCore</string>
+    <string name="MaterialType">MaterialType</string>
+    <string name="InsulationType">InsulationType</string>
+    <string name="MethodOfLaying">MethodOfLaying</string>
+    <string name="EquivalentSection">EquivalentSection</string>
+    <string name="Resistance_r_ohm_km">Resistance_r_ohm_km</string>
+    <string name="Resistance_x_ohm_km">Resistance_x_ohm_km</string>
+    <string name="ConductorCrossSection">ConductorCrossSection</string>
 </resources>
