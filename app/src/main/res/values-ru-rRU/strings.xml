@@ -21,4 +21,6 @@
     <string name="podobratykabel">Подобрать кабель</string>
     <string name="cable">Кабель</string>
     <string name="amperage">Допустимый ток</string>
+    <string name="NominalSize">Поперечное сечение</string>
+    <string name="HINT3x1">3х1,5</string>
 </resources>

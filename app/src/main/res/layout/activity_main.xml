@@ -13,30 +13,33 @@
     <TableRow>
         <TextView
             android:id="@+id/TextViewNominalSize"
-            android:layout_width="280sp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/ConductorCrossSection"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
         <Spinner
             android:id="@+id/SpinnerNominalSize"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="@string/NominalSize"
             android:spinnerMode="dialog" />
     </TableRow>
 
     <TableRow>
         <TextView
             android:id="@+id/TextViewCountPhase"
-            android:layout_width="280sp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/CountPhase"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Spinner
             android:id="@+id/SpinnerCountPhase"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:spinnerMode="dialog"/>
+            android:layout_height="48dp"
+            android:contentDescription="@string/CountPhase"
+            android:spinnerMode="dialog"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
     </TableRow>
 
@@ -52,8 +55,9 @@
             android:id="@+id/TextViewCableValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="3х1,5"
+            android:hint="@string/HINT3x1"
             android:textAlignment="center"
+            android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
@@ -67,10 +71,11 @@
 
         <TextView
             android:id="@+id/TextViewCurrentAmperageValue"
-            android:layout_width="121dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/HINT0"
             android:textAlignment="center"
+            android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
@@ -81,14 +86,16 @@
             android:layout_height="match_parent"
             android:text="@string/Voltage"
             android:textSize="24sp" />
+
         <EditText
             android:id="@+id/EditTextVoltage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:autofillHints="true"
-            android:hint="380"
+            android:hint="@string/StandartVoltage"
             android:inputType="numberDecimal"
             android:textAlignment="center"
+            android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
@@ -99,6 +106,7 @@
             android:layout_height="match_parent"
             android:text="@string/cos_phi"
             android:textSize="24sp" />
+
         <EditText
             android:id="@+id/EditTextCos"
             android:layout_width="wrap_content"
@@ -107,6 +115,7 @@
             android:hint="@string/odin"
             android:inputType="numberDecimal"
             android:textAlignment="center"
+            android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
@@ -117,6 +126,7 @@
             android:layout_height="wrap_content"
             android:text="@string/power"
             android:textSize="24sp" />
+
         <EditText
             android:id="@+id/EditTextPower"
             android:layout_width="wrap_content"
@@ -125,7 +135,9 @@
             android:hint="@string/HINT0"
             android:inputType="numberDecimal"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textColorHint="#78909C"
+            android:textSize="24sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow>
 
          <Button

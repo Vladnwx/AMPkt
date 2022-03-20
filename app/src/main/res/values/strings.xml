@@ -24,4 +24,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="NominalSize">NominalSize</string>
+    <string name="HINT3x1">3х1,5</string>
+    <string name="StandartVoltage">380</string>
 </resources>
