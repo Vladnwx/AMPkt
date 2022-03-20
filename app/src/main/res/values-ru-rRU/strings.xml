@@ -19,4 +19,6 @@
     <string name="power">Мощность</string>
     <string name="raschetniytok">Расчетный ток</string>
     <string name="podobratykabel">Подобрать кабель</string>
+    <string name="cable">Кабель</string>
+    <string name="amperage">Допустимый ток</string>
 </resources>

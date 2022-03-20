@@ -18,4 +18,6 @@
     <string name="power">Power</string>
     <string name="raschetniytok">Current</string>
     <string name="podobratykabel">podobratykabel</string>
+    <string name="cable">Cable</string>
+    <string name="amperage">Amperage</string>
 </resources>

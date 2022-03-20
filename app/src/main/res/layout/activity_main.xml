@@ -32,20 +32,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </TableRow>
 
-    <TableRow>
 
-        <TextView
-            android:id="@+id/TextView_type_amperage"
-            android:layout_width="280sp"
-            android:layout_height="match_parent"
-            android:text="@string/TypeAmperage"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/spinner_type_amperage"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-    </TableRow>
 
     <TableRow>
 
@@ -107,6 +94,67 @@
             android:layout_height="match_parent" />
     </TableRow>
 
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_nominal_size"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/ConductorCrossSection"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_nominal_size"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView_CountPhase"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/CountPhase"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/Spinner_CountPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:spinnerMode="dialog"/>
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cable"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="3х1,5"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextView_type_amperage"
+            android:layout_width="280sp"
+            android:layout_height="match_parent"
+            android:text="@string/TypeAmperage"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_type_amperage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </TableRow>
     <TableRow>
 
         <TextView
@@ -163,38 +211,33 @@
             android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
-
     <TableRow>
-
         <TextView
-            android:id="@+id/TextView_nominal_size"
-            android:layout_width="280sp"
-            android:layout_height="match_parent"
-            android:text="@string/ConductorCrossSection"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/spinner_nominal_size"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:spinnerMode="dialog" />
+            android:layout_height="wrap_content"
+            android:text="@string/raschetniytok"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/TextView_currentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </TableRow>
     <TableRow>
         <TextView
-            android:id="@+id/TextView_CountPhase"
-            android:layout_width="280sp"
-            android:layout_height="match_parent"
-            android:text="@string/CountPhase"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/Spinner_CountPhase"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:spinnerMode="dialog"/>
-
+            android:layout_height="wrap_content"
+            android:text="@string/amperage"
+            android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </TableRow>
-
     <TableRow>
         <TextView
             android:id="@+id/TextViewVoltage"
@@ -245,103 +288,20 @@
             android:textAlignment="center"
             android:textSize="24sp" />
     </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/raschetniytok"
-            android:textSize="24sp" />
-        <TextView
-            android:id="@+id/TextView_currentCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </TableRow>
-    <TableRow>
-        <Button
+
+
+         <Button
             android:id="@+id/button_naytipomochnosti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/podobratykabel"
             android:textAlignment="center"
-            android:textSize="24sp"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:text="@string/cable"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:hint="3"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:hint="x"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:hint="1.5"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:hint="@string/mm2"
-            android:textAlignment="center"
             android:textSize="24sp" />
 
 
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:text="@string/amperage"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:hint="0"
-            android:textAlignment="center"
-            android:textSize="24sp" />
 
 
-    </TableRow>
 
 
 
