@@ -1,17 +1,15 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "typeOfEnvironment")
 data class TypeOfEnvironment (
-    @NonNull
-    @PrimaryKey(autoGenerate = true) val id: Int=0,
+   // @PrimaryKey(autoGenerate = true)
+   // val id: Int,
+
+    @PrimaryKey
+    @ColumnInfo(name = "value")
     val value: String)
-
-
-
