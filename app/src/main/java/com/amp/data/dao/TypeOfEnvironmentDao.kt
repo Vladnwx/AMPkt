@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface TypeOfEnvironmentDao:BaseDAO<TypeOfEnvironment>{
 
    // @Query("SELECT * FROM TypeOfEnvironment")
- //   abstract fun getAll(): List<String?>?
+  // abstract fun getAll(): List<String?>?
 
     @Query("SELECT * FROM TypeOfEnvironment")
     abstract fun getAllLiveData(): LiveData<List<TypeOfEnvironment?>?>?

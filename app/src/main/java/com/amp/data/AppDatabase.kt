@@ -14,7 +14,7 @@ import com.amp.data.entity.TypeOfEnvironment
 
 public abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun typeOfEnvironmentDao():TypeOfEnvironmentDao
+    abstract val typeOfEnvironmentDao:TypeOfEnvironmentDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the

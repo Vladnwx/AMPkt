@@ -17,12 +17,14 @@
             android:layout_height="match_parent"
             android:text="@string/ConductorCrossSection"
             android:textSize="28sp" />
+
         <Spinner
             android:id="@+id/SpinnerNominalSize"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:contentDescription="@string/NominalSize"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow>
 
     <TableRow>
