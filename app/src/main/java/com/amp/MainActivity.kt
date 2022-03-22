@@ -3,10 +3,7 @@ package com.amp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,5 +52,12 @@ class MainActivity : AppCompatActivity() {
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
 
+        buttonNaytipomochnosti.setOnClickListener{
+           // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
+            var i = mainActivityViewModel.calculate(1000, 220, 1.0).toInt()
+            Log.i("Расчетный ток", i.toString())
+            Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
+            textViewCurrentAmperageValue.setText(i.toString())
+        }
     }
 }

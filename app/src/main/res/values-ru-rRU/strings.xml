@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">AMP</string>
     <string name="TypeOfEnvironment">Окружающая среда</string>
-    <string name="Resistance_r_ohm_km">Сопротивление R</string>
-    <string name="Resistance_x_ohm_km">Сопротивление X</string>
+    <string name="Resistance_r_ohm_km">Сопротивление R, Ом</string>
+    <string name="Resistance_x_ohm_km">Сопротивление X, Ом</string>
     <string name="EquivalentSection">Эквивалентное сечение</string>
     <string name="MethodOfLaying">Способ прокладки</string>
     <string name="InsulationType">Материал изоляции</string>
@@ -13,14 +13,14 @@
     <string name="ConductorCrossSection">Поперечное сечение</string>
     <string name="HINT0">0</string>
     <string name="CountPhase">Число фаз</string>
-    <string name="Voltage">Напряжение</string>
+    <string name="Voltage">Напряжение, В</string>
     <string name="cos_phi">Cos (phi)</string>
     <string name="odin">1</string>
-    <string name="power">Мощность</string>
-    <string name="raschetniytok">Расчетный ток</string>
+    <string name="power">Мощность, Вт</string>
+    <string name="raschetniytok">Расчетный ток, А</string>
     <string name="podobratykabel">Подобрать кабель</string>
     <string name="cable">Кабель</string>
-    <string name="amperage">Допустимый ток</string>
+    <string name="amperage">Допустимый ток, А</string>
     <string name="NominalSize">Поперечное сечение</string>
     <string name="HINT3x1">3х1,5</string>
 </resources>

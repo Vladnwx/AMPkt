@@ -14,8 +14,8 @@ interface BaseDAO <T> {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(entities: List<T>): LongArray
 
-  //  @Insert(onConflict = OnConflictStrategy.IGNORE)
-  //  suspend fun insert(entitys: Iterable<T>?)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(entitys: Iterable<T>?)
 
     @Update
     suspend fun update(entity: T)
@@ -29,8 +29,8 @@ interface BaseDAO <T> {
     @Delete
     suspend fun delete(entities: List<T>)
 
-  //  @Delete
-  //  fun delete(vararg entitys: T)
+    @Delete
+    fun delete(vararg entitys: T)
 
 
 

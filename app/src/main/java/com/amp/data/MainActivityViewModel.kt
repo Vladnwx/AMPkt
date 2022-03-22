@@ -22,6 +22,19 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(typeOfEnvironment)
     }
 
+    fun calculate (p:Int, u:Int, cos:Double): Double {
+        return  (p/(u*cos*1.73))
+    }
+
+    fun calculate (p:String, u:String, cos:String): Double {
+       try {
+           return  (p.toInt()/(u.toInt()*cos.toDouble()*1.73))
+       }
+       catch (e: NumberFormatException){
+            return 1.0
+       }
+    }
+
 }
 class MainActivityViewModelFactory(private val repository: AppRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
