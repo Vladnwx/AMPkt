@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonNaytipomochnosti.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
-            var i = mainActivityViewModel.calculate(1000, 220, 1.0).toInt()
+            var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
             Log.i("Расчетный ток", i.toString())
             Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
             textViewCurrentAmperageValue.setText(i.toString())
