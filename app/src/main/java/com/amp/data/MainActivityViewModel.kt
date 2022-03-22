@@ -7,6 +7,26 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
+    private var p:Double = 1.0
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    private var v:Double = 220.0
+        get() = field
+        set(value) {
+            field = value
+        }
+    private var cos:Double = 1.0
+        get() = field
+        set(value) {
+            field = value
+        }
+    private var amperage:Double = p/(1.73*v*cos)
+        get() = field
+
+
     init {
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
