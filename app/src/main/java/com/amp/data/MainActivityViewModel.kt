@@ -7,24 +7,37 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
-    private var p:Double = 1.0
+    private var p: Double = 1.0
         get() = field
         set(value) {
-            field = value
-        }
+            if(value. > 6) value else throw IllegalArgumentException("Passwords is too small")
+            field = when {
+            value < 1 -> 1.0
+            else -> value
+        }}
+
 
     private var v:Double = 220.0
         get() = field
         set(value) {
-            field = value
+            field = when {
+                value < 1 -> 1.0
+                else -> value
+            }
         }
+
     private var cos:Double = 1.0
         get() = field
         set(value) {
-            field = value
+            field = when {
+                value > 1 -> 1.0
+                value < -1 -> -1.0
+                else -> value
+            }
         }
+
+
     private var amperage:Double = p/(1.73*v*cos)
-        get() = field
 
 
     init {
