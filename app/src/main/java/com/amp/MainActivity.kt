@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val textViewCable = findViewById<TextView>(R.id.TextViewCable)
         val textViewCurrentAmperage = findViewById<TextView>(R.id.TextViewCurrentAmperage)
         val textViewVoltage= findViewById<TextView>(R.id.TextViewVoltage)
-        //val textViewCos = findViewById<TextView>(R.id.TextViewCos)
+        val textViewCos = findViewById<TextView>(R.id.TextViewCos)
         val textViewPower = findViewById<TextView>(R.id.TextViewPower)
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
@@ -54,10 +54,15 @@ class MainActivity : AppCompatActivity() {
 
         buttonNaytipomochnosti.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
-            var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
-            Log.i("Расчетный ток", i.toString())
-            Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
-            textViewCurrentAmperageValue.setText(i.toString())
+           // var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
+           // Log.i("Расчетный ток", i.toString())
+            //Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
+            //textViewCurrentAmperageValue.setText(i.toString())
+            mainActivityViewModel.p = editTextPower.text.toString().toDouble()
+            mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
+            mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
+            textViewCurrentAmperageValue.text = mainActivityViewModel.amperage.toString()
+
         }
     }
 }
