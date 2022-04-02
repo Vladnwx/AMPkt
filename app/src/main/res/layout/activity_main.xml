@@ -118,7 +118,7 @@
             android:layout_height="48dp"
             android:autofillHints="true"
             android:hint="@string/StandartVoltage"
-            android:inputType="numberDecimal"
+            android:inputType="textAutoCorrect|numberDecimal"
             android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
