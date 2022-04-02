@@ -51,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         val editTextCos = findViewById<EditText>(R.id.EditTextCos)
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
+        editTextVoltage.setText(mainActivityViewModel.v.toString())
+        editTextCos.setText(mainActivityViewModel.cos.toString())
+        editTextPower.setText(mainActivityViewModel.p.toString())
+
+
+
 
         buttonNaytipomochnosti.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
