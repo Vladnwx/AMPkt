@@ -1,16 +1,16 @@
 package com.amp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amp.data.AppListAdapter
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +43,17 @@ class MainActivity : AppCompatActivity() {
         val textViewPower = findViewById<TextView>(R.id.TextViewPower)
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
+        val NominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.nominalSize)
+        NominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerNominalSize.adapter = NominalSizeAdapter
+
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
+        val CountPhaseAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.CountPhase)
+        CountPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerCountPhase.adapter = CountPhaseAdapter
+
+
+
 
         val textViewCableValue = findViewById<TextView>(R.id.TextViewCableValue)
         val textViewCurrentAmperageValue = findViewById<TextView>(R.id.TextViewCurrentAmperageValue)

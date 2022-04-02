@@ -24,10 +24,6 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             return
         }
 
-
-
-
-
      var v:Double = 220.0
         get() = field
         set(value) {
@@ -47,8 +43,19 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             }
         }
 
-
      var amperage:Double = p/(1.73*v*cos)
+
+    var nominalSize: List<String> = listOf("1,5","2,5", "4")
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    var CountPhase: List<String> = listOf("1","2", "3")
+        get() = field
+        set(value) {
+            field = value
+        }
 
 
     init {
@@ -68,15 +75,6 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     fun calculate() {
         amperage =  (p/(v*cos*1.73))
-    }
-
-    fun calculate (p:String, u:String, cos:String): Double {
-       try {
-           return  (p.toInt()/(u.toInt()*cos.toDouble()*1.73))
-       }
-       catch (e: NumberFormatException){
-            return 1.0
-       }
     }
 
 }
