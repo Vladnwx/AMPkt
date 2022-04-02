@@ -43,14 +43,14 @@ class MainActivity : AppCompatActivity() {
         val textViewPower = findViewById<TextView>(R.id.TextViewPower)
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
-        val NominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.nominalSize)
-        NominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerNominalSize.adapter = NominalSizeAdapter
+        val nominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.nominalSize)
+        nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerNominalSize.adapter = nominalSizeAdapter
 
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
-        val CountPhaseAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.CountPhase)
-        CountPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerCountPhase.adapter = CountPhaseAdapter
+        val countPhaseAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.CountPhase)
+        countPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerCountPhase.adapter = countPhaseAdapter
 
 
 

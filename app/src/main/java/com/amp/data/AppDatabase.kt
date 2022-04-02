@@ -6,19 +6,22 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.amp.data.dao.NominalSizeDao
 import com.amp.data.dao.TypeOfEnvironmentDao
+import com.amp.data.entity.NominalSize
 import com.amp.data.entity.TypeOfEnvironment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities =
-                    arrayOf(TypeOfEnvironment::class),
+                    arrayOf(TypeOfEnvironment::class, NominalSize::class),
                     version = 1,
                     exportSchema = false)
 
 public abstract class AppDatabase: RoomDatabase() {
 
     abstract fun typeOfEnvironmentDao():TypeOfEnvironmentDao
+    abstract fun nominalSizeDao():NominalSizeDao
 
     private class AppDatabaseCallback(
         private val scope: CoroutineScope
@@ -29,19 +32,22 @@ public abstract class AppDatabase: RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     populateDatabase(database.typeOfEnvironmentDao())
+                    populateDatabase(database.nominalSizeDao())
                 }
             }
         }
 
         suspend fun populateDatabase(typeOfEnvironmentDao: TypeOfEnvironmentDao) {
-            // Delete all content here.
             typeOfEnvironmentDao.deleteAll()
             typeOfEnvironmentDao.defaultGreate()
-            Log.i(" typeOfEnvironmentDao", "defaultGreate!")
-
-
-
+            Log.i("typeOfEnvironmentDao", "defaultGreate!")
         }
+        suspend fun populateDatabase(nominalSizeDao: NominalSizeDao) {
+            nominalSizeDao.deleteAll()
+            nominalSizeDao.defaultgreate()
+            Log.i("nominalSizeDao", "defaultGreate!")
+        }
+
     }
 
     companion object {
