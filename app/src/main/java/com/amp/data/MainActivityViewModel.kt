@@ -66,8 +66,8 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(typeOfEnvironment)
     }
 
-    fun calculate (p:Int, u:Int, cos:Double): Double {
-        return  (p/(u*cos*1.73))
+    fun calculate() {
+        amperage =  (p/(v*cos*1.73))
     }
 
     fun calculate (p:String, u:String, cos:String): Double {

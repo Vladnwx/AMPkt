@@ -17,31 +17,37 @@
         tools:listitem="@layout/recyclerview_item"
              />
 
-    <TableRow android:layout_width="match_parent">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/TextViewNominalSize"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="@string/ConductorCrossSection"
-            android:textSize="28sp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/SpinnerNominalSize"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:contentDescription="@string/NominalSize"
             android:spinnerMode="dialog"
             tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewCountPhase"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="@string/CountPhase"
-            android:textSize="28sp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/SpinnerCountPhase"
@@ -54,17 +60,20 @@
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewCable"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="@string/cable"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewCableValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
             android:hint="@string/HINT3x1"
             android:textAlignment="center"
             android:textColorHint="#78909C"
@@ -72,78 +81,90 @@
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewCurrentAmperage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
             android:text="@string/raschetniytok"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewCurrentAmperageValue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
             android:hint="@string/HINT0"
+            android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewVoltage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="@string/Voltage"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/EditTextVoltage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:autofillHints="true"
             android:hint="@string/StandartVoltage"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewCos"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text="@string/cos_phi"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/EditTextCos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:autofillHints="true"
             android:hint="@string/odin"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
     <TableRow android:layout_width="match_parent">
+
         <TextView
             android:id="@+id/TextViewPower"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/power"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/EditTextPower"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:autofillHints="true"
             android:hint="@string/HINT0"
             android:inputType="numberDecimal"
+            android:maxLength="8"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp"

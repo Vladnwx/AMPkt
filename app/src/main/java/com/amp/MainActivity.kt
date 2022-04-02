@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.p = editTextPower.text.toString().toDouble()
             mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
             mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
+            mainActivityViewModel.calculate()
             textViewCurrentAmperageValue.text = mainActivityViewModel.amperage.toString()
 
         }
