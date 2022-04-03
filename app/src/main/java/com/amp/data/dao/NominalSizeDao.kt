@@ -12,7 +12,7 @@ interface NominalSizeDao :BaseDAO<NominalSize> {
     fun getAll(): List<String>
 
     @Query("SELECT * FROM nominalSize")
-    fun getAllLiveData(): LiveData<List<NominalSize?>?>?
+    fun getAllFlow(): Flow<List<NominalSize>>
 
 
     @Query("SELECT * FROM nominalSize ORDER BY value ASC")

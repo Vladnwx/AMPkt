@@ -14,7 +14,7 @@ interface TypeOfEnvironmentDao:BaseDAO<TypeOfEnvironment>{
     fun getAll(): List<String>
 
     @Query("SELECT * FROM typeOfEnvironment")
-    fun getAllLiveData(): LiveData<List<TypeOfEnvironment?>?>?
+    fun getAllFlow(): Flow<List<TypeOfEnvironment>>
 
 
     @Query("SELECT * FROM typeOfEnvironment ORDER BY value ASC")
@@ -29,13 +29,12 @@ interface TypeOfEnvironmentDao:BaseDAO<TypeOfEnvironment>{
   )
           VALUES
           (
-                  'earth'
+                  "earth"
                   ),
       (
-              'air'
+              "air"
               )
     """)
-      fun defaultGreate() {
-     }
+      fun defaultgreate()
 
 }

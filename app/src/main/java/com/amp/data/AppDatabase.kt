@@ -39,8 +39,12 @@ public abstract class AppDatabase: RoomDatabase() {
 
         suspend fun populateDatabase(typeOfEnvironmentDao: TypeOfEnvironmentDao) {
             typeOfEnvironmentDao.deleteAll()
-            typeOfEnvironmentDao.defaultGreate()
+            typeOfEnvironmentDao.defaultgreate()
             Log.i("typeOfEnvironmentDao", "defaultGreate!")
+           // nominalSizeDao.deleteAll()
+           // nominalSizeDao.defaultgreate()
+           // Log.i("nominalSizeDao", "defaultGreate!")
+
         }
         suspend fun populateDatabase(nominalSizeDao: NominalSizeDao) {
             nominalSizeDao.deleteAll()

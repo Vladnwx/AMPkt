@@ -2,7 +2,9 @@ package com.amp.data
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.amp.data.entity.NominalSize
 import com.amp.data.entity.TypeOfEnvironment
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
@@ -45,11 +47,15 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
      var amperage:Double = p/(1.73*v*cos)
 
-    var nominalSize: List<String> = listOf("1,5","2,5", "4")
+ /*   var nominalSize: List<String> = listOf("1,5","2,5", "4")
         get() = field
         set(value) {
             field = value
         }
+    */
+ var nominalSize: MutableLiveData<List<NominalSize>> = repository.allNominalsizes.asLiveData() as MutableLiveData<List<NominalSize>>
+
+
 
     var CountPhase: List<String> = listOf("1","2", "3")
         get() = field
@@ -68,9 +74,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     }
 
     val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
+   // val allNominalSize: List<String> = repository.allNominalsizes()
 
     fun insert(typeOfEnvironment: TypeOfEnvironment) = viewModelScope.launch {
         repository.insert(typeOfEnvironment)
+     //   repository.insert(nominalSize)
     }
 
     fun calculate() {
@@ -78,6 +86,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     }
 
 }
+
+private fun AppRepository.insert(typeOfEnvironment: TypeOfEnvironment) {
+
+}
+
 class MainActivityViewModelFactory(private val repository: AppRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
