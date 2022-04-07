@@ -43,7 +43,29 @@ class MainActivity : AppCompatActivity() {
         val textViewPower = findViewById<TextView>(R.id.TextViewPower)
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
-        val nominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.nominalSize)
+        var list1 : ArrayList<String> = arrayListOf("0")
+
+
+        //list1.add(mainActivityViewModel.allNominalSizeString)
+
+        mainActivityViewModel.allNominalSize.observe(this){
+
+           // list1.add(it[0].toString())
+           // list1.addAll(arrayListOf(it.toTypedArray().toString()))
+            for (i in it.indices) {
+                list1.add(it[i].toString())
+                //println(it[i].toString())
+                Log.i("Exception", it[i].toString())
+            }
+
+
+       // list1 = mutableListOf(it.joinToString())
+         // list1 += it.toList().
+
+            Log.i("Exception", ":LIST")
+        }
+
+        val nominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list1)
         nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNominalSize.adapter = nominalSizeAdapter
 

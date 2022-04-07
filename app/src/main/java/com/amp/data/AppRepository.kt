@@ -12,7 +12,7 @@ public class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentD
 
     // Room executes all queries on a separate thread.
     // Observed Flow will notify the observer when the data has changed.
-   val allTypeOfEnvironments: Flow<List<TypeOfEnvironment>> = typeOfEnvironmentDao.getAllFlow()
+    val allTypeOfEnvironments: Flow<List<TypeOfEnvironment>> = typeOfEnvironmentDao.getAllFlow()
     val allNominalsizes: Flow<List<NominalSize>> = nominalSizeDao.getAllFlow()
 
 
@@ -21,8 +21,13 @@ public class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentD
     // off the main thread.
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insert(typeOfEnvironment: TypeOfEnvironment, nominalSize: NominalSize) {
+    suspend fun insert(typeOfEnvironment: TypeOfEnvironment) {
         typeOfEnvironmentDao.insert(typeOfEnvironment)
+    }
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun insert( nominalSize: NominalSize) {
         nominalSizeDao.insert(nominalSize)
     }
+
 }

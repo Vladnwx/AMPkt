@@ -1,13 +1,19 @@
 package com.amp.data.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 
 @Entity(tableName = "nominalSize")
+
 data class NominalSize (
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-    val value: String)
+
+    val value: String) {
+
+    override fun toString(): String {
+        return value
+    }
+
+}

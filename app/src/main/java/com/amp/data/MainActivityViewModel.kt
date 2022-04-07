@@ -53,9 +53,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             field = value
         }
     */
- var nominalSize: MutableLiveData<List<NominalSize>> = repository.allNominalsizes.asLiveData() as MutableLiveData<List<NominalSize>>
-
-
+ val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalsizes.asLiveData()
 
     var CountPhase: List<String> = listOf("1","2", "3")
         get() = field
@@ -80,6 +78,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(typeOfEnvironment)
      //   repository.insert(nominalSize)
     }
+    fun insert(nominalSize: NominalSize) = viewModelScope.launch {
+        repository.insert(nominalSize)
+          }
+
+
 
     fun calculate() {
         amperage =  (p/(v*cos*1.73))
