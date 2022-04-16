@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "InsulationType")
+@Entity(tableName = "insulationType")
 
 data class InsulationType (
 

@@ -18,7 +18,7 @@ interface TypeOfEnvironmentDao:BaseDAO<TypeOfEnvironment>{
 
 
     @Query("SELECT * FROM typeOfEnvironment ORDER BY value ASC")
-    fun getAlphabetizedTypeOfEnvironment(): Flow<List<TypeOfEnvironment>>
+    fun getAlphabetized(): Flow<List<TypeOfEnvironment>>
 
     @Query("DELETE FROM typeOfEnvironment")
     suspend fun deleteAll()

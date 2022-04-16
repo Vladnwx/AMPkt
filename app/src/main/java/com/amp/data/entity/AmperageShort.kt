@@ -1,21 +1,34 @@
 package com.amp.data.entity
 
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "AmperageShort")
+@Entity(tableName = "amperageShort")
 
 data class AmperageShort (
 
-    @PrimaryKey
-    @ColumnInfo(name = "value")
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    @ColumnInfo(name = "id")
+    val id: Int,
 
-    val value: String) {
+    @NonNull
+    @ColumnInfo(name = "nominalSize", index = true)
+    val nominalSize: Double,
 
-    override fun toString(): String {
-        return value
-    }
+    @NonNull
+    @ColumnInfo(name = "materialType", index = true)
+    val materialType : String,
 
-}
+    @NonNull
+    @ColumnInfo(name = "insulationType", index = true)
+    val insulationType : String,
+
+    @NonNull
+    @ColumnInfo(name = "amperageShort")
+    val  amperageShort : Double
+
+                            )

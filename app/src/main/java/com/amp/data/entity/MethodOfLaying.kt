@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "MethodOfLaying")
+@Entity(tableName = "methodOfLaying")
 
 data class MethodOfLaying(
 

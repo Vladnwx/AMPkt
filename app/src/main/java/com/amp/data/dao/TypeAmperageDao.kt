@@ -16,8 +16,8 @@ interface TypeAmperageDao:BaseDAO<TypeAmperage>{
     fun getAllFlow(): Flow<List<TypeAmperage>>
 
 
-    @Query("SELECT * FROM typeOfEnvironment ORDER BY value ASC")
-    fun getAlphabetizedTypeAmperage(): Flow<List<TypeAmperage>>
+    @Query("SELECT * FROM TypeAmperage ORDER BY value ASC")
+    fun getAlphabetized(): Flow<List<TypeAmperage>>
 
     @Query("DELETE FROM TypeAmperage")
     suspend fun deleteAll()

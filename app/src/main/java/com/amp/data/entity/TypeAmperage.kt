@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "TypeAmperage")
+@Entity(tableName = "typeAmperage")
 
 data class TypeAmperage (
 
