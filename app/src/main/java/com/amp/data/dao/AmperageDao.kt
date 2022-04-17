@@ -24,7 +24,7 @@ interface AmperageDao:BaseDAO<Amperage>{
     @Query("DELETE FROM Amperage")
     suspend fun deleteAll()
 
- /* @Query("""INSERT INTO amperage
+    @Query("""INSERT INTO amperage
                      (
                          methodOfLaying,
                          amperage,
@@ -39,7 +39,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      VALUES
                      (
                          'single laying',
-                         0,
+                         29,
                          'air',
                          'single',
                          'DC',
@@ -50,7 +50,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         37,
                          'air',
                          'single',
                          'DC',
@@ -61,7 +61,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         50,
                          'air',
                          'single',
                          'DC',
@@ -72,7 +72,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         63,
                          'air',
                          'single',
                          'DC',
@@ -83,7 +83,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         86,
                          'air',
                          'single',
                          'DC',
@@ -94,7 +94,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         113,
                          'air',
                          'single',
                          'DC',
@@ -105,7 +105,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         153,
                          'air',
                          'single',
                          'DC',
@@ -116,7 +116,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         187,
                          'air',
                          'single',
                          'DC',
@@ -127,7 +127,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         227,
                          'air',
                          'single',
                          'DC',
@@ -138,7 +138,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         286,
                          'air',
                          'single',
                          'DC',
@@ -149,7 +149,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         354,
                          'air',
                          'single',
                          'DC',
@@ -160,7 +160,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         413,
                          'air',
                          'single',
                          'DC',
@@ -171,7 +171,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         473,
                          'air',
                          'single',
                          'DC',
@@ -182,7 +182,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         547,
                          'air',
                          'single',
                          'DC',
@@ -193,7 +193,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         655,
                          'air',
                          'single',
                          'DC',
@@ -204,7 +204,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         760,
                          'air',
                          'single',
                          'DC',
@@ -215,7 +215,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         894,
                          'air',
                          'single',
                          'DC',
@@ -226,7 +226,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1054,
                          'air',
                          'single',
                          'DC',
@@ -237,7 +237,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1252,
                          'air',
                          'single',
                          'DC',
@@ -248,7 +248,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1481,
                          'air',
                          'single',
                          'DC',
@@ -259,7 +259,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1718,
                          'air',
                          'single',
                          'DC',
@@ -270,7 +270,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         41,
                          'earth',
                          'single',
                          'DC',
@@ -281,7 +281,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         55,
                          'earth',
                          'single',
                          'DC',
@@ -292,7 +292,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         71,
                          'earth',
                          'single',
                          'DC',
@@ -303,7 +303,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         90,
                          'earth',
                          'single',
                          'DC',
@@ -314,7 +314,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         124,
                          'earth',
                          'single',
                          'DC',
@@ -325,7 +325,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         159,
                          'earth',
                          'single',
                          'DC',
@@ -336,7 +336,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         207,
                          'earth',
                          'single',
                          'DC',
@@ -347,7 +347,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         249,
                          'earth',
                          'single',
                          'DC',
@@ -358,7 +358,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         295,
                          'earth',
                          'single',
                          'DC',
@@ -369,7 +369,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         364,
                          'earth',
                          'single',
                          'DC',
@@ -380,7 +380,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         436,
                          'earth',
                          'single',
                          'DC',
@@ -391,7 +391,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         499,
                          'earth',
                          'single',
                          'DC',
@@ -402,7 +402,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         561,
                          'earth',
                          'single',
                          'DC',
@@ -413,7 +413,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         637,
                          'earth',
                          'single',
                          'DC',
@@ -424,7 +424,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         743,
                          'earth',
                          'single',
                          'DC',
@@ -435,7 +435,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         845,
                          'earth',
                          'single',
                          'DC',
@@ -446,7 +446,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         971,
                          'earth',
                          'single',
                          'DC',
@@ -457,7 +457,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1121,
                          'earth',
                          'single',
                          'DC',
@@ -468,7 +468,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1299,
                          'earth',
                          'single',
                          'DC',
@@ -479,7 +479,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1502,
                          'earth',
                          'single',
                          'DC',
@@ -490,7 +490,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1709,
                          'earth',
                          'single',
                          'DC',
@@ -501,7 +501,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         22,
                          'air',
                          'single',
                          'AC',
@@ -512,7 +512,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         30,
                          'air',
                          'single',
                          'AC',
@@ -523,7 +523,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         39,
                          'air',
                          'single',
                          'AC',
@@ -534,7 +534,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         50,
                          'air',
                          'single',
                          'AC',
@@ -545,7 +545,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         68,
                          'air',
                          'single',
                          'AC',
@@ -556,7 +556,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         89,
                          'air',
                          'single',
                          'AC',
@@ -567,7 +567,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         121,
                          'air',
                          'single',
                          'AC',
@@ -578,7 +578,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         147,
                          'air',
                          'single',
                          'AC',
@@ -589,7 +589,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         179,
                          'air',
                          'single',
                          'AC',
@@ -600,7 +600,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         226,
                          'air',
                          'single',
                          'AC',
@@ -611,7 +611,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         280,
                          'air',
                          'single',
                          'AC',
@@ -622,7 +622,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         326,
                          'air',
                          'single',
                          'AC',
@@ -633,7 +633,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         373,
                          'air',
                          'single',
                          'AC',
@@ -644,7 +644,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         431,
                          'air',
                          'single',
                          'AC',
@@ -655,7 +655,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         512,
                          'air',
                          'single',
                          'AC',
@@ -666,7 +666,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         591,
                          'air',
                          'single',
                          'AC',
@@ -677,7 +677,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         685,
                          'air',
                          'single',
                          'AC',
@@ -688,7 +688,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         792,
                          'air',
                          'single',
                          'AC',
@@ -699,7 +699,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         910,
                          'air',
                          'single',
                          'AC',
@@ -710,7 +710,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1030,
                          'air',
                          'single',
                          'AC',
@@ -721,7 +721,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1143,
                          'air',
                          'single',
                          'AC',
@@ -732,7 +732,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         30,
                          'earth',
                          'single',
                          'AC',
@@ -743,7 +743,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         39,
                          'earth',
                          'single',
                          'AC',
@@ -754,7 +754,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         50,
                          'earth',
                          'single',
                          'AC',
@@ -765,7 +765,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         62,
                          'earth',
                          'single',
                          'AC',
@@ -776,7 +776,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         83,
                          'earth',
                          'single',
                          'AC',
@@ -787,7 +787,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         107,
                          'earth',
                          'single',
                          'AC',
@@ -798,7 +798,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         137,
                          'earth',
                          'single',
                          'AC',
@@ -809,7 +809,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         163,
                          'earth',
                          'single',
                          'AC',
@@ -820,7 +820,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         194,
                          'earth',
                          'single',
                          'AC',
@@ -831,7 +831,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         237,
                          'earth',
                          'single',
                          'AC',
@@ -842,7 +842,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         285,
                          'earth',
                          'single',
                          'AC',
@@ -853,7 +853,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         324,
                          'earth',
                          'single',
                          'AC',
@@ -864,7 +864,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         364,
                          'earth',
                          'single',
                          'AC',
@@ -875,7 +875,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         412,
                          'earth',
                          'single',
                          'AC',
@@ -886,7 +886,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         477,
                          'earth',
                          'single',
                          'AC',
@@ -897,7 +897,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         539,
                          'earth',
                          'single',
                          'AC',
@@ -908,7 +908,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         612,
                          'earth',
                          'single',
                          'AC',
@@ -919,7 +919,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         690,
                          'earth',
                          'single',
                          'AC',
@@ -930,7 +930,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         774,
                          'earth',
                          'single',
                          'AC',
@@ -941,7 +941,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         856,
                          'earth',
                          'single',
                          'AC',
@@ -952,7 +952,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         933,
                          'earth',
                          'single',
                          'AC',
@@ -1422,10 +1422,27 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'Cu',
                          1000,
                          126
-                     ),
+                     );
+
+    """)
+    fun defaultgreate1()
+
+    @Query("""INSERT INTO amperage
+                     (
+                         methodOfLaying,
+                         amperage,
+                         typeOfEnvironment,
+                         numberOfCore,
+                         typeAmperage,
+                         insulationType,
+                         materialType,
+                         nominalSize,
+                         id
+                     )
+                     VALUES
                      (
                          'single laying',
-                         0,
+                         35,
                          'air',
                          'single',
                          'DC',
@@ -1436,7 +1453,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         46,
                          'air',
                          'single',
                          'DC',
@@ -1447,7 +1464,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         60,
                          'air',
                          'single',
                          'DC',
@@ -1458,7 +1475,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         76,
                          'air',
                          'single',
                          'DC',
@@ -1469,7 +1486,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         105,
                          'air',
                          'single',
                          'DC',
@@ -1480,7 +1497,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         139,
                          'air',
                          'single',
                          'DC',
@@ -1491,7 +1508,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         188,
                          'air',
                          'single',
                          'DC',
@@ -1502,7 +1519,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         230,
                          'air',
                          'single',
                          'DC',
@@ -1513,7 +1530,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         281,
                          'air',
                          'single',
                          'DC',
@@ -1524,7 +1541,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         356,
                          'air',
                          'single',
                          'DC',
@@ -1535,7 +1552,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         440,
                          'air',
                          'single',
                          'DC',
@@ -1546,7 +1563,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         514,
                          'air',
                          'single',
                          'DC',
@@ -1557,7 +1574,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         591,
                          'air',
                          'single',
                          'DC',
@@ -1568,7 +1585,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         685,
                          'air',
                          'single',
                          'DC',
@@ -1579,7 +1596,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         821,
                          'air',
                          'single',
                          'DC',
@@ -1590,7 +1607,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         956,
                          'air',
                          'single',
                          'DC',
@@ -1601,7 +1618,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1124,
                          'air',
                          'single',
                          'DC',
@@ -1612,7 +1629,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1328,
                          'air',
                          'single',
                          'DC',
@@ -1623,7 +1640,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1576,
                          'air',
                          'single',
                          'DC',
@@ -1634,7 +1651,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1857,
                          'air',
                          'single',
                          'DC',
@@ -1645,7 +1662,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         2163,
                          'air',
                          'single',
                          'DC',
@@ -1656,7 +1673,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         48,
                          'earth',
                          'single',
                          'DC',
@@ -1667,7 +1684,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         63,
                          'earth',
                          'single',
                          'DC',
@@ -1678,7 +1695,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         82,
                          'earth',
                          'single',
                          'DC',
@@ -1689,7 +1706,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         102,
                          'earth',
                          'single',
                          'DC',
@@ -1700,7 +1717,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         136,
                          'earth',
                          'single',
                          'DC',
@@ -1711,7 +1728,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         175,
                          'earth',
                          'single',
                          'DC',
@@ -1722,7 +1739,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         228,
                          'earth',
                          'single',
                          'DC',
@@ -1733,7 +1750,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         274,
                          'earth',
                          'single',
                          'DC',
@@ -1744,7 +1761,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         325,
                          'earth',
                          'single',
                          'DC',
@@ -1755,7 +1772,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         399,
                          'earth',
                          'single',
                          'DC',
@@ -1766,7 +1783,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         478,
                          'earth',
                          'single',
                          'DC',
@@ -1777,7 +1794,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         546,
                          'earth',
                          'single',
                          'DC',
@@ -1788,7 +1805,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         614,
                          'earth',
                          'single',
                          'DC',
@@ -1799,7 +1816,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         695,
                          'earth',
                          'single',
                          'DC',
@@ -1810,7 +1827,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         812,
                          'earth',
                          'single',
                          'DC',
@@ -1821,7 +1838,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         924,
                          'earth',
                          'single',
                          'DC',
@@ -1832,7 +1849,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1060,
                          'earth',
                          'single',
                          'DC',
@@ -1843,7 +1860,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1223,
                          'earth',
                          'single',
                          'DC',
@@ -1854,7 +1871,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1416,
                          'earth',
                          'single',
                          'DC',
@@ -1865,7 +1882,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1632,
                          'earth',
                          'single',
                          'DC',
@@ -1876,7 +1893,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1862,
                          'earth',
                          'single',
                          'DC',
@@ -1887,7 +1904,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         28,
                          'air',
                          'single',
                          'AC',
@@ -1898,7 +1915,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         36,
                          'air',
                          'single',
                          'AC',
@@ -1909,7 +1926,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         47,
                          'air',
                          'single',
                          'AC',
@@ -1920,7 +1937,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         59,
                          'air',
                          'single',
                          'AC',
@@ -1931,7 +1948,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         82,
                          'air',
                          'single',
                          'AC',
@@ -1942,7 +1959,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         108,
                          'air',
                          'single',
                          'AC',
@@ -1953,7 +1970,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         146,
                          'air',
                          'single',
                          'AC',
@@ -1964,7 +1981,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         180,
                          'air',
                          'single',
                          'AC',
@@ -1975,7 +1992,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         220,
                          'air',
                          'single',
                          'AC',
@@ -1986,7 +2003,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         279,
                          'air',
                          'single',
                          'AC',
@@ -1997,7 +2014,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         345,
                          'air',
                          'single',
                          'AC',
@@ -2008,7 +2025,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         403,
                          'air',
                          'single',
                          'AC',
@@ -2019,7 +2036,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         464,
                          'air',
                          'single',
                          'AC',
@@ -2030,7 +2047,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         538,
                          'air',
                          'single',
                          'AC',
@@ -2041,7 +2058,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         641,
                          'air',
                          'single',
                          'AC',
@@ -2052,7 +2069,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         739,
                          'air',
                          'single',
                          'AC',
@@ -2063,7 +2080,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         860,
                          'air',
                          'single',
                          'AC',
@@ -2074,7 +2091,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         997,
                          'air',
                          'single',
                          'AC',
@@ -2085,7 +2102,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1149,
                          'air',
                          'single',
                          'AC',
@@ -2096,7 +2113,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1302,
                          'air',
                          'single',
                          'AC',
@@ -2107,7 +2124,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1451,
                          'air',
                          'single',
                          'AC',
@@ -2118,7 +2135,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         33,
                          'earth',
                          'single',
                          'AC',
@@ -2129,7 +2146,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         42,
                          'earth',
                          'single',
                          'AC',
@@ -2140,7 +2157,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         54,
                          'earth',
                          'single',
                          'AC',
@@ -2151,7 +2168,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         67,
                          'earth',
                          'single',
                          'AC',
@@ -2162,7 +2179,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         89,
                          'earth',
                          'single',
                          'AC',
@@ -2173,7 +2190,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         115,
                          'earth',
                          'single',
                          'AC',
@@ -2184,7 +2201,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         147,
                          'earth',
                          'single',
                          'AC',
@@ -2195,7 +2212,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         176,
                          'earth',
                          'single',
                          'AC',
@@ -2206,7 +2223,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         208,
                          'earth',
                          'single',
                          'AC',
@@ -2217,7 +2234,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         255,
                          'earth',
                          'single',
                          'AC',
@@ -2228,7 +2245,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         306,
                          'earth',
                          'single',
                          'AC',
@@ -2239,7 +2256,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         348,
                          'earth',
                          'single',
                          'AC',
@@ -2250,7 +2267,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         392,
                          'earth',
                          'single',
                          'AC',
@@ -2261,7 +2278,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         443,
                          'earth',
                          'single',
                          'AC',
@@ -2272,7 +2289,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         515,
                          'earth',
                          'single',
                          'AC',
@@ -2283,7 +2300,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         575,
                          'earth',
                          'single',
                          'AC',
@@ -2294,7 +2311,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         661,
                          'earth',
                          'single',
                          'AC',
@@ -2305,7 +2322,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         746,
                          'earth',
                          'single',
                          'AC',
@@ -2316,7 +2333,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         840,
                          'earth',
                          'single',
                          'AC',
@@ -2327,7 +2344,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         932,
                          'earth',
                          'single',
                          'AC',
@@ -2338,7 +2355,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1019,
                          'earth',
                          'single',
                          'AC',
@@ -2349,7 +2366,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         25,
                          'air',
                          'multicore3',
                          'AC',
@@ -2360,7 +2377,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         34,
                          'air',
                          'multicore3',
                          'AC',
@@ -2371,7 +2388,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         45,
                          'air',
                          'multicore3',
                          'AC',
@@ -2382,7 +2399,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         56,
                          'air',
                          'multicore3',
                          'AC',
@@ -2393,7 +2410,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         78,
                          'air',
                          'multicore3',
                          'AC',
@@ -2404,7 +2421,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         104,
                          'air',
                          'multicore3',
                          'AC',
@@ -2415,7 +2432,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         141,
                          'air',
                          'multicore3',
                          'AC',
@@ -2426,7 +2443,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         172,
                          'air',
                          'multicore3',
                          'AC',
@@ -2437,7 +2454,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         209,
                          'air',
                          'multicore3',
                          'AC',
@@ -2448,7 +2465,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         265,
                          'air',
                          'multicore3',
                          'AC',
@@ -2459,7 +2476,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         327,
                          'air',
                          'multicore3',
                          'AC',
@@ -2470,7 +2487,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         381,
                          'air',
                          'multicore3',
                          'AC',
@@ -2481,7 +2498,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         437,
                          'air',
                          'multicore3',
                          'AC',
@@ -2492,7 +2509,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         504,
                          'air',
                          'multicore3',
                          'AC',
@@ -2503,7 +2520,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         598,
                          'air',
                          'multicore3',
                          'AC',
@@ -2514,7 +2531,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         688,
                          'air',
                          'multicore3',
                          'AC',
@@ -2525,7 +2542,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         807,
                          'air',
                          'multicore3',
                          'AC',
@@ -2580,7 +2597,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         31,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2591,7 +2608,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         40,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2602,7 +2619,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         52,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2613,7 +2630,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         64,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2624,7 +2641,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         86,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2635,7 +2652,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         112,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2646,7 +2663,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         144,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2657,7 +2674,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         173,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2668,7 +2685,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         205,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2679,7 +2696,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         253,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2690,7 +2707,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         304,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2701,7 +2718,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         347,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2712,7 +2729,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         391,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2723,7 +2740,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         442,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2734,7 +2751,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         515,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2745,7 +2762,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         583,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2756,7 +2773,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         669,
                          'earth',
                          'multicore3',
                          'AC',
@@ -2808,7 +2825,24 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'Cu',
                          1000,
                          252
-                     ),
+                     );
+    """)
+    fun defaultgreate2()
+
+
+    @Query("""INSERT INTO amperage
+                     (
+                         methodOfLaying,
+                         amperage,
+                         typeOfEnvironment,
+                         numberOfCore,
+                         typeAmperage,
+                         insulationType,
+                         materialType,
+                         nominalSize,
+                         id
+                     )
+                     VALUES
                      (
                          'single laying',
                          0,
@@ -2822,7 +2856,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         30,
                          'air',
                          'single',
                          'DC',
@@ -2833,7 +2867,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         40,
                          'air',
                          'single',
                          'DC',
@@ -2844,7 +2878,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         51,
                          'air',
                          'single',
                          'DC',
@@ -2855,7 +2889,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         69,
                          'air',
                          'single',
                          'DC',
@@ -2866,7 +2900,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         93,
                          'air',
                          'single',
                          'DC',
@@ -2877,7 +2911,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         117,
                          'air',
                          'single',
                          'DC',
@@ -2888,7 +2922,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         143,
                          'air',
                          'single',
                          'DC',
@@ -2899,7 +2933,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         176,
                          'air',
                          'single',
                          'DC',
@@ -2910,7 +2944,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         223,
                          'air',
                          'single',
                          'DC',
@@ -2921,7 +2955,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         275,
                          'air',
                          'single',
                          'DC',
@@ -2932,7 +2966,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         320,
                          'air',
                          'single',
                          'DC',
@@ -2943,7 +2977,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         366,
                          'air',
                          'single',
                          'DC',
@@ -2954,7 +2988,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         425,
                          'air',
                          'single',
                          'DC',
@@ -2965,7 +2999,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         508,
                          'air',
                          'single',
                          'DC',
@@ -2976,7 +3010,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         589,
                          'air',
                          'single',
                          'DC',
@@ -2987,7 +3021,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         693,
                          'air',
                          'single',
                          'DC',
@@ -2998,7 +3032,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         819,
                          'air',
                          'single',
                          'DC',
@@ -3009,7 +3043,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         971,
                          'air',
                          'single',
                          'DC',
@@ -3020,7 +3054,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1146,
                          'air',
                          'single',
                          'DC',
@@ -3031,7 +3065,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1334,
                          'air',
                          'single',
                          'DC',
@@ -3053,7 +3087,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         32,
                          'earth',
                          'single',
                          'DC',
@@ -3064,7 +3098,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         41,
                          'earth',
                          'single',
                          'DC',
@@ -3075,7 +3109,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         52,
                          'earth',
                          'single',
                          'DC',
@@ -3086,7 +3120,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         68,
                          'earth',
                          'single',
                          'DC',
@@ -3097,7 +3131,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         83,
                          'earth',
                          'single',
                          'DC',
@@ -3108,7 +3142,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         159,
                          'earth',
                          'single',
                          'DC',
@@ -3119,7 +3153,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         192,
                          'earth',
                          'single',
                          'DC',
@@ -3130,7 +3164,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         229,
                          'earth',
                          'single',
                          'DC',
@@ -3141,7 +3175,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         282,
                          'earth',
                          'single',
                          'DC',
@@ -3152,7 +3186,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         339,
                          'earth',
                          'single',
                          'DC',
@@ -3163,7 +3197,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         388,
                          'earth',
                          'single',
                          'DC',
@@ -3174,7 +3208,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         434,
                          'earth',
                          'single',
                          'DC',
@@ -3185,7 +3219,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         494,
                          'earth',
                          'single',
                          'DC',
@@ -3196,7 +3230,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         576,
                          'earth',
                          'single',
                          'DC',
@@ -3207,7 +3241,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         654,
                          'earth',
                          'single',
                          'DC',
@@ -3218,7 +3252,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         753,
                          'earth',
                          'single',
                          'DC',
@@ -3229,7 +3263,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         870,
                          'earth',
                          'single',
                          'DC',
@@ -3240,7 +3274,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1007,
                          'earth',
                          'single',
                          'DC',
@@ -3251,7 +3285,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1162,
                          'earth',
                          'single',
                          'DC',
@@ -3262,7 +3296,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1327,
                          'earth',
                          'single',
                          'DC',
@@ -3284,7 +3318,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         22,
                          'air',
                          'single',
                          'AC',
@@ -3295,7 +3329,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         30,
                          'air',
                          'single',
                          'AC',
@@ -3306,7 +3340,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         37,
                          'air',
                          'single',
                          'AC',
@@ -3317,7 +3351,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         50,
                          'air',
                          'single',
                          'AC',
@@ -3328,7 +3362,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         68,
                          'air',
                          'single',
                          'AC',
@@ -3339,7 +3373,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         92,
                          'air',
                          'single',
                          'AC',
@@ -3350,7 +3384,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         113,
                          'air',
                          'single',
                          'AC',
@@ -3361,7 +3395,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         139,
                          'air',
                          'single',
                          'AC',
@@ -3372,7 +3406,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         176,
                          'air',
                          'single',
                          'AC',
@@ -3383,7 +3417,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         217,
                          'air',
                          'single',
                          'AC',
@@ -3394,7 +3428,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         253,
                          'air',
                          'single',
                          'AC',
@@ -3405,7 +3439,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         290,
                          'air',
                          'single',
                          'AC',
@@ -3416,7 +3450,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         336,
                          'air',
                          'single',
                          'AC',
@@ -3427,7 +3461,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         401,
                          'air',
                          'single',
                          'AC',
@@ -3438,7 +3472,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         464,
                          'air',
                          'single',
                          'AC',
@@ -3449,7 +3483,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         544,
                          'air',
                          'single',
                          'AC',
@@ -3460,7 +3494,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         636,
                          'air',
                          'single',
                          'AC',
@@ -3471,7 +3505,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         744,
                          'air',
                          'single',
                          'AC',
@@ -3482,7 +3516,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         858,
                          'air',
                          'single',
                          'AC',
@@ -3493,7 +3527,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         972,
                          'air',
                          'single',
                          'AC',
@@ -3515,7 +3549,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         30,
                          'earth',
                          'single',
                          'AC',
@@ -3526,7 +3560,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         39,
                          'earth',
                          'single',
                          'AC',
@@ -3537,7 +3571,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         48,
                          'earth',
                          'single',
                          'AC',
@@ -3548,7 +3582,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         63,
                          'earth',
                          'single',
                          'AC',
@@ -3559,7 +3593,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         82,
                          'earth',
                          'single',
                          'AC',
@@ -3570,7 +3604,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         106,
                          'earth',
                          'single',
                          'AC',
@@ -3581,7 +3615,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         127,
                          'earth',
                          'single',
                          'AC',
@@ -3592,7 +3626,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         150,
                          'earth',
                          'single',
                          'AC',
@@ -3603,7 +3637,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         184,
                          'earth',
                          'single',
                          'AC',
@@ -3614,7 +3648,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         221,
                          'earth',
                          'single',
                          'AC',
@@ -3625,7 +3659,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         252,
                          'earth',
                          'single',
                          'AC',
@@ -3636,7 +3670,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         283,
                          'earth',
                          'single',
                          'AC',
@@ -3647,7 +3681,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         321,
                          'earth',
                          'single',
                          'AC',
@@ -3658,7 +3692,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         374,
                          'earth',
                          'single',
                          'AC',
@@ -3669,7 +3703,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         423,
                          'earth',
                          'single',
                          'AC',
@@ -3680,7 +3714,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         485,
                          'earth',
                          'single',
                          'AC',
@@ -3691,7 +3725,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         556,
                          'earth',
                          'single',
                          'AC',
@@ -3702,7 +3736,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         633,
                          'earth',
                          'single',
                          'AC',
@@ -3713,7 +3747,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         713,
                          'earth',
                          'single',
                          'AC',
@@ -3724,7 +3758,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         793,
                          'earth',
                          'single',
                          'AC',
@@ -4194,7 +4228,27 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'Al',
                          1000,
                          378
-                     ),
+                     );
+
+        
+        
+    """)
+    fun defaultgreate3()
+
+
+    @Query("""INSERT INTO amperage
+                     (
+                         methodOfLaying,
+                         amperage,
+                         typeOfEnvironment,
+                         numberOfCore,
+                         typeAmperage,
+                         insulationType,
+                         materialType,
+                         nominalSize,
+                         id
+                     )
+                     VALUES
                      (
                          'single laying',
                          0,
@@ -4208,7 +4262,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         35,
                          'air',
                          'single',
                          'DC',
@@ -4219,7 +4273,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         46,
                          'air',
                          'single',
                          'DC',
@@ -4230,7 +4284,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         59,
                          'air',
                          'single',
                          'DC',
@@ -4241,7 +4295,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         80,
                          'air',
                          'single',
                          'DC',
@@ -4252,7 +4306,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         108,
                          'air',
                          'single',
                          'DC',
@@ -4263,7 +4317,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         144,
                          'air',
                          'single',
                          'DC',
@@ -4274,7 +4328,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         176,
                          'air',
                          'single',
                          'DC',
@@ -4285,7 +4339,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         217,
                          'air',
                          'single',
                          'DC',
@@ -4296,7 +4350,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         276,
                          'air',
                          'single',
                          'DC',
@@ -4307,7 +4361,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         340,
                          'air',
                          'single',
                          'DC',
@@ -4318,7 +4372,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         399,
                          'air',
                          'single',
                          'DC',
@@ -4329,7 +4383,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         457,
                          'air',
                          'single',
                          'DC',
@@ -4340,7 +4394,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         531,
                          'air',
                          'single',
                          'DC',
@@ -4351,7 +4405,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         636,
                          'air',
                          'single',
                          'DC',
@@ -4362,7 +4416,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         738,
                          'air',
                          'single',
                          'DC',
@@ -4373,7 +4427,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         871,
                          'air',
                          'single',
                          'DC',
@@ -4384,7 +4438,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1030,
                          'air',
                          'single',
                          'DC',
@@ -4395,7 +4449,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1221,
                          'air',
                          'single',
                          'DC',
@@ -4406,7 +4460,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1437,
                          'air',
                          'single',
                          'DC',
@@ -4417,7 +4471,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1676,
                          'air',
                          'single',
                          'DC',
@@ -4439,7 +4493,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         36,
                          'earth',
                          'single',
                          'DC',
@@ -4450,7 +4504,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         46,
                          'earth',
                          'single',
                          'DC',
@@ -4461,7 +4515,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         59,
                          'earth',
                          'single',
                          'DC',
@@ -4472,7 +4526,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         77,
                          'earth',
                          'single',
                          'DC',
@@ -4483,7 +4537,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         94,
                          'earth',
                          'single',
                          'DC',
@@ -4494,7 +4548,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         176,
                          'earth',
                          'single',
                          'DC',
@@ -4505,7 +4559,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         211,
                          'earth',
                          'single',
                          'DC',
@@ -4516,7 +4570,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         251,
                          'earth',
                          'single',
                          'DC',
@@ -4527,7 +4581,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         309,
                          'earth',
                          'single',
                          'DC',
@@ -4538,7 +4592,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         371,
                          'earth',
                          'single',
                          'DC',
@@ -4549,7 +4603,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         423,
                          'earth',
                          'single',
                          'DC',
@@ -4560,7 +4614,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         474,
                          'earth',
                          'single',
                          'DC',
@@ -4571,7 +4625,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         539,
                          'earth',
                          'single',
                          'DC',
@@ -4582,7 +4636,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         629,
                          'earth',
                          'single',
                          'DC',
@@ -4593,7 +4647,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         713,
                          'earth',
                          'single',
                          'DC',
@@ -4604,7 +4658,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         822,
                          'earth',
                          'single',
                          'DC',
@@ -4615,7 +4669,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         949,
                          'earth',
                          'single',
                          'DC',
@@ -4626,7 +4680,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1098,
                          'earth',
                          'single',
                          'DC',
@@ -4637,7 +4691,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1262,
                          'earth',
                          'single',
                          'DC',
@@ -4648,7 +4702,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1443,
                          'earth',
                          'single',
                          'DC',
@@ -4670,7 +4724,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         26,
                          'air',
                          'single',
                          'AC',
@@ -4681,7 +4735,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         35,
                          'air',
                          'single',
                          'AC',
@@ -4692,7 +4746,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         43,
                          'air',
                          'single',
                          'AC',
@@ -4703,7 +4757,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         58,
                          'air',
                          'single',
                          'AC',
@@ -4714,7 +4768,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         79,
                          'air',
                          'single',
                          'AC',
@@ -4725,7 +4779,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         112,
                          'air',
                          'single',
                          'AC',
@@ -4736,7 +4790,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         138,
                          'air',
                          'single',
                          'AC',
@@ -4747,7 +4801,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         171,
                          'air',
                          'single',
                          'AC',
@@ -4758,7 +4812,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         216,
                          'air',
                          'single',
                          'AC',
@@ -4769,7 +4823,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         267,
                          'air',
                          'single',
                          'AC',
@@ -4780,7 +4834,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         313,
                          'air',
                          'single',
                          'AC',
@@ -4791,7 +4845,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         360,
                          'air',
                          'single',
                          'AC',
@@ -4802,7 +4856,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         419,
                          'air',
                          'single',
                          'AC',
@@ -4813,7 +4867,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         501,
                          'air',
                          'single',
                          'AC',
@@ -4824,7 +4878,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         580,
                          'air',
                          'single',
                          'AC',
@@ -4835,7 +4889,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         682,
                          'air',
                          'single',
                          'AC',
@@ -4846,7 +4900,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         800,
                          'air',
                          'single',
                          'AC',
@@ -4857,7 +4911,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         936,
                          'air',
                          'single',
                          'AC',
@@ -4868,7 +4922,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1081,
                          'air',
                          'single',
                          'AC',
@@ -4879,7 +4933,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1227,
                          'air',
                          'single',
                          'AC',
@@ -4901,7 +4955,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         34,
                          'earth',
                          'single',
                          'AC',
@@ -4912,7 +4966,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         44,
                          'earth',
                          'single',
                          'AC',
@@ -4923,7 +4977,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         54,
                          'earth',
                          'single',
                          'AC',
@@ -4934,7 +4988,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         71,
                          'earth',
                          'single',
                          'AC',
@@ -4945,7 +4999,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         93,
                          'earth',
                          'single',
                          'AC',
@@ -4956,7 +5010,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         114,
                          'earth',
                          'single',
                          'AC',
@@ -4967,7 +5021,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         136,
                          'earth',
                          'single',
                          'AC',
@@ -4978,7 +5032,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         161,
                          'earth',
                          'single',
                          'AC',
@@ -4989,7 +5043,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         198,
                          'earth',
                          'single',
                          'AC',
@@ -5000,7 +5054,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         237,
                          'earth',
                          'single',
                          'AC',
@@ -5011,7 +5065,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         271,
                          'earth',
                          'single',
                          'AC',
@@ -5022,7 +5076,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         304,
                          'earth',
                          'single',
                          'AC',
@@ -5033,7 +5087,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         346,
                          'earth',
                          'single',
                          'AC',
@@ -5044,7 +5098,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         403,
                          'earth',
                          'single',
                          'AC',
@@ -5055,7 +5109,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         455,
                          'earth',
                          'single',
                          'AC',
@@ -5066,7 +5120,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         523,
                          'earth',
                          'single',
                          'AC',
@@ -5077,7 +5131,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         599,
                          'earth',
                          'single',
                          'AC',
@@ -5088,7 +5142,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         685,
                          'earth',
                          'single',
                          'AC',
@@ -5099,7 +5153,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         773,
                          'earth',
                          'single',
                          'AC',
@@ -5110,7 +5164,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         862,
                          'earth',
                          'single',
                          'AC',
@@ -5580,7 +5634,27 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'Al',
                          1000,
                          504
-                     ),
+                     );
+
+        
+        
+    """)
+    fun defaultgreate4()
+
+
+    @Query("""INSERT INTO amperage
+                     (
+                         methodOfLaying,
+                         amperage,
+                         typeOfEnvironment,
+                         numberOfCore,
+                         typeAmperage,
+                         insulationType,
+                         materialType,
+                         nominalSize,
+                         id
+                     )
+                     VALUES
                      (
                          'single laying',
                          '19,53',
@@ -6506,7 +6580,11 @@ interface AmperageDao:BaseDAO<Amperage>{
                          588
                      );
 
+        
+        
     """)
-      fun defaultgreate()
-*/
+    fun defaultgreate5()
+
+
+
 }

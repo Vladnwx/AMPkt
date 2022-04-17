@@ -57,7 +57,7 @@ public abstract class AppDatabase: RoomDatabase() {
                     populateDatabase(database.materialTypeDao())
                     populateDatabase(database.insulationTypeDao())
                     populateDatabase(database.amperageShortDao())
-                    //populateDatabase(database.amperageDao())
+                    populateDatabase(database.amperageDao())
 
                 }
             }
@@ -119,7 +119,11 @@ public abstract class AppDatabase: RoomDatabase() {
 
         suspend fun populateDatabase(amperageDao: AmperageDao) {
             amperageDao.deleteAll()
-            //amperageDao.defaultgreate()
+            amperageDao.defaultgreate1()
+            amperageDao.defaultgreate2()
+            amperageDao.defaultgreate3()
+            amperageDao.defaultgreate4()
+            amperageDao.defaultgreate5()
             Log.i("amperageDao", "defaultGreate!")
         }
 
