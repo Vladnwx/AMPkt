@@ -18,7 +18,7 @@ interface AmperageDao:BaseDAO<Amperage>{
     suspend fun deleteAll()
 
     @Query("SELECT amperage  FROM Amperage WHERE  methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
-    fun getAmperageShort            (
+    fun getAmperage            (
 
         tmethodOfLaying: String?,
         tnominal_size: Double?,

@@ -50,27 +50,24 @@ class MainActivity : AppCompatActivity() {
 
         mainActivityViewModel.allNominalSize.observe(this){
 
-           // list1.add(it[0].toString())
-           // list1.addAll(arrayListOf(it.toTypedArray().toString()))
             for (i in it.indices) {
-                list1.add(it[i].toString())
-                //println(it[i].toString())
-                Log.i("Exception", it[i].toString())
-            }
-
-
-       // list1 = mutableListOf(it.joinToString())
-         // list1 += it.toList().
+                list1.add(it[i].toString()) }
+            list1.remove("0")
 
             Log.i("Exception", ":LIST")
         }
 
-        val nominalSizeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list1)
+        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, list1)
         nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNominalSize.adapter = nominalSizeAdapter
 
+
+
+        //spinnerNominalSize.setSelection(3)
+
+
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
-        val countPhaseAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mainActivityViewModel.CountPhase)
+        val countPhaseAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.countPhaseList)
         countPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCountPhase.adapter = countPhaseAdapter
 
@@ -99,11 +96,14 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.p = editTextPower.text.toString().toDouble()
             mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
             mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
-            mainActivityViewModel.calculate()
-            textViewCurrentAmperageValue.text = mainActivityViewModel.amperage.toString()
+            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
             editTextVoltage.setText(mainActivityViewModel.v.toString())
             editTextCos.setText(mainActivityViewModel.cos.toString())
             editTextPower.setText(mainActivityViewModel.p.toString())
+            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
+            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
+            mainActivityViewModel.calculate()
+            textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
 
         }
     }

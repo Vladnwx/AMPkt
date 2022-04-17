@@ -2,8 +2,7 @@ package com.amp.data
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.amp.data.entity.NominalSize
-import com.amp.data.entity.TypeOfEnvironment
+import com.amp.data.entity.*
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
@@ -13,9 +12,42 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
 
-     var p: Double = 1.0
-        get() = field
-        set(value) {
+    val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
+
+    var typeOfEnvironment : String  = ""
+
+    val allTypeAmperage: LiveData<List<TypeAmperage>> = repository.allTypeAmperage.asLiveData()
+
+    var typeAmperage : String  = ""
+
+    val allNumberOfCore: LiveData<List<NumberOfCore>> = repository.allNumberOfCore.asLiveData()
+
+    var numberOfCore : String  = ""
+
+    val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
+
+    var nominalSize : Double  = 0.0
+
+    val allMethodOfLaying: LiveData<List<MethodOfLaying>> = repository.allMethodOfLaying.asLiveData()
+
+    var methodOfLaying : String  = ""
+
+    val allMaterialType: LiveData<List<MaterialType>> = repository.allMaterialType.asLiveData()
+
+    var materialType : String  = ""
+
+    val allInsulationType: LiveData<List<InsulationType>> = repository.allInsulationType.asLiveData()
+
+    var insulationType : String  = ""
+
+    var R:Double = 0.0
+    var X:Double = 0.0
+    var amperageShort:Double = 0.0
+    var amperage:Double = 0.0
+
+
+    var p: Double = 1.0
+         set(value) {
             field = try {
                 p.toDouble()
                 when {
@@ -31,8 +63,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         }
 
      var v:Double = 220.0
-        get() = field
-        set(value) {
+         set(value) {
             field = when {
                 value < 1 -> 1.0
                 else -> value
@@ -40,8 +71,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         }
 
      var cos:Double = 1.0
-        get() = field
-        set(value) {
+         set(value) {
             field = when {
                 value > 1 -> 1.0
                 value < -1 -> -1.0
@@ -49,7 +79,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             }
         }
 
-     var amperage:Double = p/(1.73*v*cos)
+     var amperageCalculate:Double = p/(1.73*v*cos)
 
  /*   var nominalSize: List<String> = listOf("1,5","2,5", "4")
         get() = field
@@ -59,13 +89,17 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     */
 
 
-    val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    var CountPhase: List<String> = listOf("1","2", "3")
-        get() = field
-        set(value) {
-            field = value
-        }
+
+
+
+    var countPhase : String = "1"
+
+    var countJil : Int = countPhase.toInt() +2
+
+
+
+    var countPhaseList: List<String> = listOf("1","2", "3")
 
 
 
@@ -75,21 +109,35 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         Log.i("MainActivityViewModel", "MainActivityViewModel destroyed!")
     }
 
-    val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
+
    // val allNominalSize: List<String> = repository.allNominalsizes()
 
     fun insert(typeOfEnvironment: TypeOfEnvironment) = viewModelScope.launch {
         repository.insert(typeOfEnvironment)
-     //   repository.insert(nominalSize)
-    }
+         }
+
     fun insert(nominalSize: NominalSize) = viewModelScope.launch {
         repository.insert(nominalSize)
           }
 
+    fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
+        R = repository.getR(materialType, nominalSize)
+    }
 
+    fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
+        X = repository.getX(materialType, nominalSize)
+    }
 
     fun calculate() {
-        amperage =  (p/(v*cos*1.73))
+        if(countPhase.toInt() == 1) {
+            v= 220.0
+            amperageCalculate = (p/(v*cos))
+        }
+        else {
+            v= 380.0
+            amperageCalculate = (p / (v * cos * 1.73))
+        }
+        countJil = countPhase.toInt() +2
     }
 
 }
