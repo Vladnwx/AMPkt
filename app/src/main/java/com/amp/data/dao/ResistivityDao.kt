@@ -1,5 +1,6 @@
 package com.amp.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.amp.data.entity.Resistivity
@@ -9,15 +10,23 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ResistivityDao:BaseDAO<Resistivity>{
 
-   // @Query("SELECT * FROM Resistivity")
-   // fun getAll(): List<String>
-
-    @Query("SELECT * FROM Resistivity")
+   @Query("SELECT * FROM Resistivity")
     fun getAllFlow(): Flow<List<Resistivity>>
 
+    @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
+    fun getR(tmaterial_type: String?, tnominal_size: Double?): Double?
 
-   // @Query("SELECT * FROM Resistivity ORDER BY value ASC")
-  //  fun getAlphabetized(): Flow<List<Resistivity>>
+    @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
+    fun getLiveDataR(tmaterial_type: String?, tnominal_size: Double?): LiveData<Double?>?
+
+    @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
+    fun getX(tmaterial_type: String?, tnominal_size: Double?): Double?
+
+    @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
+    fun getLiveDataX(tmaterial_type: String?, tnominal_size: Double?): LiveData<Double?>?
+
+    @Query("SELECT * FROM resistivity ORDER BY id ASC")
+    fun getAlphabetized(): LiveData<List<Resistivity?>?>?
 
     @Query("DELETE FROM Resistivity")
     suspend fun deleteAll()

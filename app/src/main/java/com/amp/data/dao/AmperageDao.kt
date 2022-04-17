@@ -11,18 +11,24 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AmperageDao:BaseDAO<Amperage>{
 
-    //@Query("SELECT * FROM Amperage")
-    //fun getAll(): List<String>
-
     @Query("SELECT * FROM Amperage")
     fun getAllFlow(): Flow<List<Amperage>>
 
-
-   // @Query("SELECT * FROM Amperage ORDER BY value ASC")
-   // fun getAlphabetized(): Flow<List<Amperage>>
-
     @Query("DELETE FROM Amperage")
     suspend fun deleteAll()
+
+    @Query("SELECT amperage  FROM Amperage WHERE  methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
+    fun getAmperageShort            (
+
+        tmethodOfLaying: String?,
+        tnominal_size: Double?,
+        tmaterial_type: String?,
+        tinsulationType: String?,
+        ttypeAmperage: String?,
+        tnumberOfCore: String?,
+        ttypeOfEnvironment: String?,
+
+                                    ): Double?
 
     @Query("""INSERT INTO amperage
                      (

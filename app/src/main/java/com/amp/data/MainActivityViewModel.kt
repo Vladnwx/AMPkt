@@ -4,10 +4,14 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.amp.data.entity.NominalSize
 import com.amp.data.entity.TypeOfEnvironment
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
+
+
+    init {
+        Log.i("MainActivityViewModel", "MainActivityViewModel created!")
+    }
 
      var p: Double = 1.0
         get() = field
@@ -53,7 +57,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             field = value
         }
     */
- val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalsizes.asLiveData()
+
+
+    val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
     var CountPhase: List<String> = listOf("1","2", "3")
         get() = field
@@ -62,9 +68,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         }
 
 
-    init {
-        Log.i("MainActivityViewModel", "MainActivityViewModel created!")
-    }
+
 
     override fun onCleared() {
         super.onCleared()
