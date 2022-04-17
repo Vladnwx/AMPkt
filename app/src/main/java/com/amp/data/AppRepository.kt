@@ -1,14 +1,24 @@
 package com.amp.data
 
 import androidx.annotation.WorkerThread
-import com.amp.data.dao.NominalSizeDao
-import com.amp.data.dao.TypeOfEnvironmentDao
+import com.amp.data.dao.*
 import com.amp.data.entity.NominalSize
 import com.amp.data.entity.TypeOfEnvironment
 import kotlinx.coroutines.flow.Flow
 
-public class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
-                            private val nominalSizeDao: NominalSizeDao) {
+class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
+                     private val typeAmperageDao: TypeAmperageDao,
+                     private val resistivityDao: ResistivityDao,
+                     private val numberOfCoreDao: NumberOfCoreDao,
+                     private val nominalSizeDao: NominalSizeDao,
+                     private val methodOfLayingDao: MethodOfLayingDao,
+                     private val materialTypeDao: MaterialTypeDao,
+                     private val insulationTypeDao: InsulationTypeDao,
+                     private val amperageShortDao: AmperageShortDao,
+                     private val AmperageDao: AmperageDao
+                     )
+
+                    {
 
     // Room executes all queries on a separate thread.
     // Observed Flow will notify the observer when the data has changed.
