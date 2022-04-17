@@ -23,9 +23,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+
         val adapter = AppListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+
         mainActivityViewModel.allTypeOfEnvironment.observe(this){
             it.let { adapter.submitList(it) }
         }
@@ -34,57 +36,51 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
 
-        val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
-        val textViewCountPhase = findViewById<TextView>(R.id.TextViewCountPhase)
-        val textViewCable = findViewById<TextView>(R.id.TextViewCable)
-        val textViewCurrentAmperage = findViewById<TextView>(R.id.TextViewCurrentAmperage)
-        val textViewVoltage= findViewById<TextView>(R.id.TextViewVoltage)
-        val textViewCos = findViewById<TextView>(R.id.TextViewCos)
-        val textViewPower = findViewById<TextView>(R.id.TextViewPower)
-
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
-        var list1 : ArrayList<String> = arrayListOf("0")
 
-
-        //list1.add(mainActivityViewModel.allNominalSizeString)
-
-        mainActivityViewModel.allNominalSize.observe(this){
-
-            for (i in it.indices) {
-                list1.add(it[i].toString()) }
-            list1.remove("0")
-
-            Log.i("Exception", ":LIST")
-        }
-
-        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, list1)
+        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.allNominalSizeList)
         nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNominalSize.adapter = nominalSizeAdapter
-
-
-
-        //spinnerNominalSize.setSelection(3)
-
 
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
         val countPhaseAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.countPhaseList)
         countPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCountPhase.adapter = countPhaseAdapter
 
+        mainActivityViewModel.allNominalSize.observe(this){
+
+            for (i in it.indices) {
+                mainActivityViewModel.allNominalSizeList.add(it[i].toString()) }
+            mainActivityViewModel.allNominalSizeList.remove("0")
+            spinnerNominalSize.setSelection(2)
+            Log.i("Exception", ":LIST")
+            Toast.makeText(this, "Лист поперечных сечений сформирован", Toast.LENGTH_SHORT).show()
+
+        }
+
 
 
 
         val textViewCableValue = findViewById<TextView>(R.id.TextViewCableValue)
         val textViewCurrentAmperageValue = findViewById<TextView>(R.id.TextViewCurrentAmperageValue)
+        val textViewRValue = findViewById<TextView>(R.id.TextViewRValue)
+        val textViewXValue = findViewById<TextView>(R.id.TextViewXValue)
+        val textViewAmperageShortValue = findViewById<TextView>(R.id.TextViewAmperageShortValue)
+        val textViewAmperageValue = findViewById<TextView>(R.id.TextViewAmperageValue)
+
         val editTextVoltage = findViewById<EditText>(R.id.EditTextVoltage)
         val editTextCos = findViewById<EditText>(R.id.EditTextCos)
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
+
+
         editTextVoltage.setText(mainActivityViewModel.v.toString())
         editTextCos.setText(mainActivityViewModel.cos.toString())
         editTextPower.setText(mainActivityViewModel.p.toString())
 
-
+        mainActivityViewModel.pLiveData.observe(this){
+            textViewXValue.text = it.toString()
+        }
 
 
         buttonNaytipomochnosti.setOnClickListener{
@@ -104,7 +100,8 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.calculate()
             textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
-
+            textViewRValue.text = mainActivityViewModel.R.toString()
+            mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
         }
     }
 }

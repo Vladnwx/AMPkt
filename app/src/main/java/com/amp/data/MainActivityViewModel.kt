@@ -26,7 +26,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    var nominalSize : Double  = 0.0
+    var nominalSize : Double  = 1.5
+
+    val allNominalSizeList : ArrayList<String> = arrayListOf("0")
 
     val allMethodOfLaying: LiveData<List<MethodOfLaying>> = repository.allMethodOfLaying.asLiveData()
 
@@ -34,17 +36,21 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val allMaterialType: LiveData<List<MaterialType>> = repository.allMaterialType.asLiveData()
 
-    var materialType : String  = ""
+    var materialType : String  = "Cu"
 
     val allInsulationType: LiveData<List<InsulationType>> = repository.allInsulationType.asLiveData()
 
     var insulationType : String  = ""
 
     var R:Double = 0.0
+
+    lateinit var RLiveData : LiveData<Double>
+
     var X:Double = 0.0
     var amperageShort:Double = 0.0
     var amperage:Double = 0.0
 
+    var pLiveData : MutableLiveData<Double> = MutableLiveData(1.0)
 
     var p: Double = 1.0
          set(value) {
@@ -110,7 +116,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     }
 
 
-   // val allNominalSize: List<String> = repository.allNominalsizes()
+
 
     fun insert(typeOfEnvironment: TypeOfEnvironment) = viewModelScope.launch {
         repository.insert(typeOfEnvironment)
@@ -122,6 +128,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
         R = repository.getR(materialType, nominalSize)
+       // RLiveData = repository.getRLiveData(materialType, nominalSize)
     }
 
     fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
@@ -132,7 +139,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         if(countPhase.toInt() == 1) {
             v= 220.0
             amperageCalculate = (p/(v*cos))
-        }
+                    }
         else {
             v= 380.0
             amperageCalculate = (p / (v * cos * 1.73))

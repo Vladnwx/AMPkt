@@ -171,6 +171,70 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow >
 
+    <TableRow android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/TextViewR"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="R="
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextViewRValue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="24sp" />
+    </TableRow >
+
+    <TableRow android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/TextViewX"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="X="
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextViewXValue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="24sp" />
+    </TableRow >
+
+    <TableRow android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/TextViewAmperageShort"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="AmperageShort ="
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextViewAmperageShortValue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="24sp" />
+    </TableRow >
+
+    <TableRow android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/TextViewAmperage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Amperage ="
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextViewAmperageValue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="24sp" />
+    </TableRow >
+
          <Button
             android:id="@+id/ButtonNaytipomochnosti"
             android:layout_width="match_parent"

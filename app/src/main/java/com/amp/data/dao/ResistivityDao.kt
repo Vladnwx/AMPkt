@@ -17,7 +17,7 @@ interface ResistivityDao:BaseDAO<Resistivity>{
     fun getR(tmaterial_type: String?, tnominal_size: Double?): Double?
 
     @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getLiveDataR(tmaterial_type: String?, tnominal_size: Double?): LiveData<Double?>?
+    fun getLiveDataR(tmaterial_type: String, tnominal_size: Double): LiveData<Double>
 
     @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
     fun getX(tmaterial_type: String?, tnominal_size: Double?): Double?
