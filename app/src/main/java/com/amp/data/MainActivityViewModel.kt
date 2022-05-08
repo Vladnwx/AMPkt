@@ -12,6 +12,8 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
 
+    var cable : String  = ""
+
     val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
 
     var typeOfEnvironment : String  = ""
@@ -47,7 +49,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     lateinit var RLiveData : LiveData<Double>
 
     var X:Double = 0.0
+
     var amperageShort:Double = 0.0
+
     var amperage:Double = 0.0
 
     var pLiveData : MutableLiveData<Double> = MutableLiveData(1.0)
@@ -62,7 +66,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             } catch (e: Exception) {
                 println("Exception")
                 println(e.message)
-                Log.i("Exception", ":Exception")
+                Log.i("Exception", e.message.toString())
                 1.0
             }
             return
@@ -81,33 +85,20 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             field = when {
                 value > 1 -> 1.0
                 value < -1 -> -1.0
+                value ==0.0  -> 1.0
                 else -> value
             }
         }
 
      var amperageCalculate:Double = p/(1.73*v*cos)
 
- /*   var nominalSize: List<String> = listOf("1,5","2,5", "4")
-        get() = field
-        set(value) {
-            field = value
-        }
-    */
-
-
-
-
-
-
-    var countPhase : String = "1"
-
-    var countJil : Int = countPhase.toInt() +2
-
 
 
     var countPhaseList: List<String> = listOf("1","2", "3")
 
+    var countPhase : Int = 1
 
+    var countJil : Int = countPhase +2
 
 
     override fun onCleared() {
@@ -126,25 +117,41 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(nominalSize)
           }
 
-    fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
+    fun getR() = viewModelScope.launch {
         R = repository.getR(materialType, nominalSize)
        // RLiveData = repository.getRLiveData(materialType, nominalSize)
     }
 
-    fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
+    fun getX() = viewModelScope.launch {
         X = repository.getX(materialType, nominalSize)
     }
 
-    fun calculate() {
-        if(countPhase.toInt() == 1) {
-            v= 220.0
-            amperageCalculate = (p/(v*cos))
-                    }
-        else {
-            v= 380.0
-            amperageCalculate = (p / (v * cos * 1.73))
+    fun chekCountPhase() {
+        when (countPhase)
+        {
+            1 -> v= 220.0
+            2 -> v= 380.0
+            3 -> v= 380.0
         }
-        countJil = countPhase.toInt() +2
+        when (countPhase)
+        {
+            1 -> countJil= 3
+            2 -> countJil= 4
+            3 -> countJil= 5
+        }
+        cable = countJil.toString() + "x" + nominalSize.toString()
+    }
+
+    fun calculate() {
+        chekCountPhase()
+        when (countPhase)
+        {
+            1 -> amperageCalculate = (p/(v*cos))
+            2 -> amperageCalculate = (p / (v * cos * 1.73))
+            3 -> amperageCalculate = (p / (v * cos * 1.73))
+        }
+       getR()
+       getX()
     }
 
 }

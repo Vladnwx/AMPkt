@@ -78,10 +78,10 @@ class MainActivity : AppCompatActivity() {
         editTextCos.setText(mainActivityViewModel.cos.toString())
         editTextPower.setText(mainActivityViewModel.p.toString())
 
-        mainActivityViewModel.pLiveData.observe(this){
+    /*    mainActivityViewModel.pLiveData.observe(this){
             textViewXValue.text = it.toString()
         }
-
+*/
 
         buttonNaytipomochnosti.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
@@ -96,12 +96,14 @@ class MainActivity : AppCompatActivity() {
             editTextVoltage.setText(mainActivityViewModel.v.toString())
             editTextCos.setText(mainActivityViewModel.cos.toString())
             editTextPower.setText(mainActivityViewModel.p.toString())
-            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
+            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString().toInt()
             mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.calculate()
-            textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
+            textViewCableValue.text = mainActivityViewModel.cable
             textViewRValue.text = mainActivityViewModel.R.toString()
+            textViewXValue.text = mainActivityViewModel.X.toString()
             mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
-        }
+
+                    }
     }
 }

@@ -46,35 +46,44 @@ class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
     suspend fun insert( nominalSize: NominalSize) {
         nominalSizeDao.insert(nominalSize)
     }
-                        @Suppress("RedundantSuspendModifier")
-                        @WorkerThread
-                        suspend fun getR(materialType: String, nominalSize: Double): Double {
-                            return resistivityDao.getR(materialType, nominalSize)!!
+
+     @Suppress("RedundantSuspendModifier")
+     @WorkerThread
+     suspend fun insert( resistivity: Resistivity) {
+         resistivityDao.insert(resistivity)
+                       }
+
+
+
+    //@Suppress("RedundantSuspendModifier")
+    //@WorkerThread
+    suspend fun getR(materialType: String, nominalSize: Double): Double {
+                            return resistivityDao.getR(materialType, nominalSize)
                         }
 
-                        @Suppress("RedundantSuspendModifier")
-                        @WorkerThread
-                        suspend fun getRLiveData(materialType: String, nominalSize: Double): LiveData<Double> {
-                            return resistivityDao.getLiveDataR (materialType, nominalSize)!!
-                        }
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun getRLiveData(materialType: String, nominalSize: Double): LiveData<Double> {
+        return resistivityDao.getLiveDataR (materialType, nominalSize)!!
+    }
 
-                        @Suppress("RedundantSuspendModifier")
-                        @WorkerThread
-                        suspend fun getX(materialType: String, nominalSize: Double): Double {
-                            return resistivityDao.getX(materialType, nominalSize)!!
-                        }
+    @Suppress("RedundantSuspendModifier")
+     @WorkerThread
+    suspend fun getX(materialType: String, nominalSize: Double): Double {
+        return resistivityDao.getX(materialType, nominalSize)!!
+    }
 
-                        @Suppress("RedundantSuspendModifier")
-                        @WorkerThread
-                        suspend fun getAmperageShort(materialType: String, nominalSize: Double, insulationType : String): Double? {
-                            return amperageShortDao.getAmperageShort(materialType, nominalSize, insulationType)
-                        }
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun getAmperageShort(materialType: String, nominalSize: Double, insulationType : String): Double? {
+        return amperageShortDao.getAmperageShort(materialType, nominalSize, insulationType)
+    }
 
-                        @Suppress("RedundantSuspendModifier")
-                        @WorkerThread
-                        suspend fun getAmperage(methodOfLaying: String?, nominalSize: Double, materialType: String, insulationType : String, typeAmperage: String?, numberOfCore: String?, typeOfEnvironment: String?): Double? {
-                            return amperageDao.getAmperage(methodOfLaying, nominalSize, materialType, insulationType,typeAmperage, numberOfCore, typeOfEnvironment)
-                        }
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun getAmperage(methodOfLaying: String?, nominalSize: Double, materialType: String, insulationType : String, typeAmperage: String?, numberOfCore: String?, typeOfEnvironment: String?): Double? {
+        return amperageDao.getAmperage(methodOfLaying, nominalSize, materialType, insulationType,typeAmperage, numberOfCore, typeOfEnvironment)
+    }
 
 
 }

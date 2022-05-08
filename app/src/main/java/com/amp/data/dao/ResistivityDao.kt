@@ -14,16 +14,16 @@ interface ResistivityDao:BaseDAO<Resistivity>{
     fun getAllFlow(): Flow<List<Resistivity>>
 
     @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getR(tmaterial_type: String?, tnominal_size: Double?): Double?
+    fun getR(tmaterial_type: String, tnominal_size: Double): Double
 
     @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
     fun getLiveDataR(tmaterial_type: String, tnominal_size: Double): LiveData<Double>
 
     @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getX(tmaterial_type: String?, tnominal_size: Double?): Double?
+    fun getX(tmaterial_type: String, tnominal_size: Double): Double
 
     @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getLiveDataX(tmaterial_type: String?, tnominal_size: Double?): LiveData<Double?>?
+    fun getLiveDataX(tmaterial_type: String, tnominal_size: Double): LiveData<Double>
 
     @Query("SELECT * FROM resistivity ORDER BY id ASC")
     fun getAlphabetized(): LiveData<List<Resistivity?>?>?

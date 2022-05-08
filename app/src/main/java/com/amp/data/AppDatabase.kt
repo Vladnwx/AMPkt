@@ -147,6 +147,7 @@ public abstract class AppDatabase: RoomDatabase() {
                     AppDatabase::class.java,
                     "Amperage"
                 )
+                    .allowMainThreadQueries()
                     .addCallback(AppDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
