@@ -177,7 +177,7 @@
             android:id="@+id/TextViewR"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="R="
+            android:text="@string/r"
             android:textSize="24sp" />
 
         <TextView
@@ -193,7 +193,7 @@
             android:id="@+id/TextViewX"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="X="
+            android:text="@string/x"
             android:textSize="24sp" />
 
         <TextView
@@ -209,7 +209,7 @@
             android:id="@+id/TextViewAmperageShort"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="AmperageShort ="
+            android:text="@string/amperageshort"
             android:textSize="24sp" />
 
         <TextView
@@ -225,7 +225,7 @@
             android:id="@+id/TextViewAmperage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Amperage ="
+            android:text="@string/amperage_"
             android:textSize="24sp" />
 
         <TextView

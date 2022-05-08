@@ -92,10 +92,8 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.p = editTextPower.text.toString().toDouble()
             mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
             mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
-            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
-            editTextVoltage.setText(mainActivityViewModel.v.toString())
-            editTextCos.setText(mainActivityViewModel.cos.toString())
-            editTextPower.setText(mainActivityViewModel.p.toString())
+
+
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString().toInt()
             mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.calculate()
@@ -105,6 +103,10 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
             textViewAmperageShortValue.text = mainActivityViewModel.amperageShort.toString()
             textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
+            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
+            editTextVoltage.setText(mainActivityViewModel.v.toString())
+            editTextCos.setText(mainActivityViewModel.cos.toString())
+            editTextPower.setText(mainActivityViewModel.p.toString())
                     }
     }
 }

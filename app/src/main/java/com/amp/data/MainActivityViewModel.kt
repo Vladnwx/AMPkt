@@ -88,7 +88,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             }
         }
 
-     var amperageCalculate:Double = p/(1.73*v*cos)
+     var amperageCalculate :Double =0.0
 
 
 
@@ -154,14 +154,29 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         chekCountPhase()
         when (countPhase)
         {
-            1 -> amperageCalculate = (p/(v*cos))
-            2 -> amperageCalculate = (p / (v * cos * 1.73))
-            3 -> amperageCalculate = (p / (v * cos * 1.73))
+            1 -> amperageCalculate = (p*1000/(v*cos))
+            2 -> amperageCalculate = (p*1000/ (v * cos * 1.73))
+            3 -> amperageCalculate = (p*1000/ (v * cos * 1.73))
         }
-       getR()
-       getX()
-       getAmperageShort()
-       getAmperage()
+        getAmperage()
+        chekAmperage()
+
+    }
+
+    fun chekAmperage ()
+    {
+        var i : Int =0
+
+        while ( amperage < amperageCalculate  )
+        {
+            i++
+            nominalSize = allNominalSizeList[i].toDouble()
+            getAmperage()
+        }
+        getR()
+        getX()
+        getAmperageShort()
+        cable = countJil.toString() + "x" + nominalSize.toString()
 
     }
 

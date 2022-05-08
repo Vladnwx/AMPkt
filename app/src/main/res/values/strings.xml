@@ -27,4 +27,8 @@
     <string name="NominalSize">NominalSize</string>
     <string name="HINT3x1">3х1,5</string>
     <string name="StandartVoltage">380</string>
+    <string name="amperageshort">AmperageShort =</string>
+    <string name="amperage_">Amperage =</string>
+    <string name="r">R=</string>
+    <string name="x">X=</string>
 </resources>

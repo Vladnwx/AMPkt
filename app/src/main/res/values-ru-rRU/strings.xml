@@ -16,11 +16,20 @@
     <string name="Voltage">Напряжение, В</string>
     <string name="cos_phi">Cos (phi)</string>
     <string name="odin">1</string>
-    <string name="power">Мощность, Вт</string>
+    <string name="power">Мощность, кВт</string>
     <string name="raschetniytok">Расчетный ток, А</string>
     <string name="podobratykabel">Подобрать кабель</string>
     <string name="cable">Кабель</string>
     <string name="amperage">Допустимый ток, А</string>
     <string name="NominalSize">Поперечное сечение</string>
     <string name="HINT3x1">3х1,5</string>
+    <string name="amperageshort">Ток короткого, А =</string>
+    <string name="amperage_">Допустимы ток, А=</string>
+    <string name="r">R, Ом=</string>
+    <string name="x">X, Ом=</string>
+    <string name="StandartVoltage">380</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_activity_extendet">ActivityExtendet</string>
 </resources>
