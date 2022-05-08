@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
 
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString().toInt()
-            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
+           // mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.calculate()
             textViewCableValue.text = mainActivityViewModel.cable
             textViewRValue.text = mainActivityViewModel.R.toString()
