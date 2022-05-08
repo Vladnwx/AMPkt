@@ -21,7 +21,7 @@ interface AmperageShortDao:BaseDAO<AmperageShort>{
 
 
     @Query("SELECT amperageShort  FROM AmperageShort WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size AND insulationType = :tinsulationType")
-    fun getAmperageShort(tmaterial_type: String?, tnominal_size: Double?, tinsulationType: String?): Double?
+    fun getAmperageShort(tmaterial_type: String, tnominal_size: Double, tinsulationType: String): Double
 
 
     @Query("DELETE FROM AmperageShort")

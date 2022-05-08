@@ -27,10 +27,10 @@ interface MethodOfLayingDao:BaseDAO<MethodOfLaying>{
                                  value
                              )
                              VALUES (
-                                 'single'
+                                 'single laying'
                              ),
                              (
-                                 'bundle'
+                                 'bundle laying'
                              );
 """
     )

@@ -103,7 +103,8 @@ class MainActivity : AppCompatActivity() {
             textViewRValue.text = mainActivityViewModel.R.toString()
             textViewXValue.text = mainActivityViewModel.X.toString()
             mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
-
+            textViewAmperageShortValue.text = mainActivityViewModel.amperageShort.toString()
+            textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
                     }
     }
 }

@@ -16,15 +16,15 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
 
-    var typeOfEnvironment : String  = ""
+    var typeOfEnvironment : String  = "air"
 
     val allTypeAmperage: LiveData<List<TypeAmperage>> = repository.allTypeAmperage.asLiveData()
 
-    var typeAmperage : String  = ""
+    var typeAmperage : String  = "AC"
 
     val allNumberOfCore: LiveData<List<NumberOfCore>> = repository.allNumberOfCore.asLiveData()
 
-    var numberOfCore : String  = ""
+    var numberOfCore : String  = "multicore3"
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
@@ -34,7 +34,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val allMethodOfLaying: LiveData<List<MethodOfLaying>> = repository.allMethodOfLaying.asLiveData()
 
-    var methodOfLaying : String  = ""
+    var methodOfLaying : String  = "single laying"
 
     val allMaterialType: LiveData<List<MaterialType>> = repository.allMaterialType.asLiveData()
 
@@ -42,11 +42,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val allInsulationType: LiveData<List<InsulationType>> = repository.allInsulationType.asLiveData()
 
-    var insulationType : String  = ""
+    var insulationType : String  = "PVC"
 
     var R:Double = 0.0
-
-    lateinit var RLiveData : LiveData<Double>
 
     var X:Double = 0.0
 
@@ -119,11 +117,21 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     fun getR() = viewModelScope.launch {
         R = repository.getR(materialType, nominalSize)
-       // RLiveData = repository.getRLiveData(materialType, nominalSize)
+
     }
 
     fun getX() = viewModelScope.launch {
         X = repository.getX(materialType, nominalSize)
+    }
+
+    fun getAmperageShort() = viewModelScope.launch {
+        amperageShort = repository.getAmperageShort(materialType, nominalSize, insulationType)
+
+    }
+
+    fun getAmperage() = viewModelScope.launch {
+        amperage = repository.getAmperage(methodOfLaying, nominalSize, materialType, insulationType, typeAmperage, numberOfCore, typeOfEnvironment)
+
     }
 
     fun chekCountPhase() {
@@ -152,6 +160,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         }
        getR()
        getX()
+       getAmperageShort()
+       getAmperage()
+
     }
 
 }

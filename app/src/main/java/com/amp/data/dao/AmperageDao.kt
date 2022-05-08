@@ -20,15 +20,15 @@ interface AmperageDao:BaseDAO<Amperage>{
     @Query("SELECT amperage  FROM Amperage WHERE  methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
     fun getAmperage            (
 
-        tmethodOfLaying: String?,
-        tnominal_size: Double?,
-        tmaterial_type: String?,
-        tinsulationType: String?,
-        ttypeAmperage: String?,
-        tnumberOfCore: String?,
-        ttypeOfEnvironment: String?,
+        tmethodOfLaying: String,
+        tnominal_size: Double,
+        tmaterial_type: String,
+        tinsulationType: String,
+        ttypeAmperage: String,
+        tnumberOfCore: String,
+        ttypeOfEnvironment: String,
 
-                                    ): Double?
+                                    ): Double
 
     @Query("""INSERT INTO amperage
                      (
@@ -49,7 +49,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          1
@@ -60,7 +60,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          2
@@ -71,7 +71,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          3
@@ -82,7 +82,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          4
@@ -93,7 +93,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          5
@@ -104,7 +104,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          6
@@ -115,7 +115,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          7
@@ -126,7 +126,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          8
@@ -137,7 +137,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          9
@@ -148,7 +148,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          10
@@ -159,7 +159,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          11
@@ -170,7 +170,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          12
@@ -181,7 +181,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          13
@@ -192,7 +192,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          14
@@ -203,7 +203,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          15
@@ -214,7 +214,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          16
@@ -225,7 +225,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          17
@@ -236,7 +236,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          18
@@ -247,7 +247,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          19
@@ -258,7 +258,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          20
@@ -269,7 +269,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          21
@@ -280,7 +280,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          22
@@ -291,7 +291,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          23
@@ -302,7 +302,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          24
@@ -313,7 +313,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          25
@@ -324,7 +324,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          26
@@ -335,7 +335,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          27
@@ -346,7 +346,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          28
@@ -357,7 +357,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          29
@@ -368,7 +368,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          30
@@ -379,7 +379,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          31
@@ -390,7 +390,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          32
@@ -401,7 +401,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          33
@@ -412,7 +412,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          34
@@ -423,7 +423,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          35
@@ -434,7 +434,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          36
@@ -445,7 +445,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          37
@@ -456,7 +456,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          38
@@ -467,7 +467,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          39
@@ -478,7 +478,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          40
@@ -489,7 +489,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          41
@@ -500,7 +500,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          42
@@ -511,7 +511,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          43
@@ -522,7 +522,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          44
@@ -533,7 +533,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          45
@@ -544,7 +544,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          46
@@ -555,7 +555,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          47
@@ -566,7 +566,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          48
@@ -577,7 +577,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          49
@@ -588,7 +588,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          50
@@ -599,7 +599,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          51
@@ -610,7 +610,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          52
@@ -621,7 +621,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          53
@@ -632,7 +632,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          54
@@ -643,7 +643,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          55
@@ -654,7 +654,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          56
@@ -665,7 +665,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          57
@@ -676,7 +676,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          58
@@ -687,7 +687,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          59
@@ -698,7 +698,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          60
@@ -709,7 +709,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          61
@@ -720,7 +720,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          62
@@ -731,7 +731,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          63
@@ -742,7 +742,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          64
@@ -753,7 +753,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          65
@@ -764,7 +764,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          66
@@ -775,7 +775,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          67
@@ -786,7 +786,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          68
@@ -797,7 +797,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          69
@@ -808,7 +808,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          70
@@ -819,7 +819,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          71
@@ -830,7 +830,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          72
@@ -841,7 +841,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          73
@@ -852,7 +852,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          74
@@ -863,7 +863,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          75
@@ -874,7 +874,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          76
@@ -885,7 +885,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          77
@@ -896,7 +896,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          78
@@ -907,7 +907,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          79
@@ -918,7 +918,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          80
@@ -929,7 +929,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          81
@@ -940,7 +940,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          82
@@ -951,7 +951,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          83
@@ -962,7 +962,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          84
@@ -973,7 +973,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          85
@@ -984,7 +984,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          86
@@ -995,7 +995,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          87
@@ -1006,7 +1006,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          88
@@ -1017,7 +1017,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          89
@@ -1028,7 +1028,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          90
@@ -1039,7 +1039,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          91
@@ -1050,7 +1050,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          92
@@ -1061,7 +1061,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          93
@@ -1072,7 +1072,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          94
@@ -1083,7 +1083,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          95
@@ -1094,7 +1094,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          96
@@ -1105,7 +1105,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          97
@@ -1116,7 +1116,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          98
@@ -1127,7 +1127,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          99
@@ -1138,7 +1138,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          100
@@ -1149,7 +1149,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          101
@@ -1160,7 +1160,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          102
@@ -1171,7 +1171,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          103
@@ -1182,7 +1182,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          104
@@ -1193,7 +1193,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          105
@@ -1204,7 +1204,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          106
@@ -1215,7 +1215,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          107
@@ -1226,7 +1226,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          108
@@ -1237,7 +1237,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          109
@@ -1248,7 +1248,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          110
@@ -1259,7 +1259,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          111
@@ -1270,7 +1270,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          112
@@ -1281,7 +1281,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          113
@@ -1292,7 +1292,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          114
@@ -1303,7 +1303,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          115
@@ -1314,7 +1314,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          116
@@ -1325,7 +1325,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          117
@@ -1336,7 +1336,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          118
@@ -1347,7 +1347,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          119
@@ -1358,7 +1358,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          120
@@ -1369,7 +1369,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          121
@@ -1380,7 +1380,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          122
@@ -1391,7 +1391,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          123
@@ -1402,7 +1402,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          124
@@ -1413,7 +1413,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          125
@@ -1424,7 +1424,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          126
@@ -2855,7 +2855,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          253
@@ -2866,7 +2866,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          254
@@ -2877,7 +2877,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          255
@@ -2888,7 +2888,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          256
@@ -2899,7 +2899,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          257
@@ -2910,7 +2910,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          258
@@ -2921,7 +2921,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          259
@@ -2932,7 +2932,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          260
@@ -2943,7 +2943,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          261
@@ -2954,7 +2954,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          262
@@ -2965,7 +2965,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          263
@@ -2976,7 +2976,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          264
@@ -2987,7 +2987,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          265
@@ -2998,7 +2998,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          266
@@ -3009,7 +3009,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          267
@@ -3020,7 +3020,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          268
@@ -3031,7 +3031,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          269
@@ -3042,7 +3042,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          270
@@ -3053,7 +3053,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          271
@@ -3064,7 +3064,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          272
@@ -3075,7 +3075,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          273
@@ -3086,7 +3086,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          274
@@ -3097,7 +3097,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          275
@@ -3108,7 +3108,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          276
@@ -3119,7 +3119,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          277
@@ -3130,7 +3130,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          278
@@ -3141,7 +3141,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          279
@@ -3152,7 +3152,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          280
@@ -3163,7 +3163,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          281
@@ -3174,7 +3174,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          282
@@ -3185,7 +3185,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          283
@@ -3196,7 +3196,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          284
@@ -3207,7 +3207,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          285
@@ -3218,7 +3218,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          286
@@ -3229,7 +3229,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          287
@@ -3240,7 +3240,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          288
@@ -3251,7 +3251,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          289
@@ -3262,7 +3262,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          290
@@ -3273,7 +3273,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          291
@@ -3284,7 +3284,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          292
@@ -3295,7 +3295,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          293
@@ -3306,7 +3306,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'DC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          294
@@ -3317,7 +3317,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          295
@@ -3328,7 +3328,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          296
@@ -3339,7 +3339,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          297
@@ -3350,7 +3350,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          298
@@ -3361,7 +3361,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          299
@@ -3372,7 +3372,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          300
@@ -3383,7 +3383,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          301
@@ -3394,7 +3394,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          302
@@ -3405,7 +3405,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          303
@@ -3416,7 +3416,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          304
@@ -3427,7 +3427,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          305
@@ -3438,7 +3438,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          306
@@ -3449,7 +3449,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          307
@@ -3460,7 +3460,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          308
@@ -3471,7 +3471,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          309
@@ -3482,7 +3482,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          310
@@ -3493,7 +3493,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          311
@@ -3504,7 +3504,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          312
@@ -3515,7 +3515,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          313
@@ -3526,7 +3526,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          314
@@ -3537,7 +3537,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          315
@@ -3548,7 +3548,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          316
@@ -3559,7 +3559,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          317
@@ -3570,7 +3570,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          318
@@ -3581,7 +3581,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          319
@@ -3592,7 +3592,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          320
@@ -3603,7 +3603,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          321
@@ -3614,7 +3614,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          322
@@ -3625,7 +3625,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          323
@@ -3636,7 +3636,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          324
@@ -3647,7 +3647,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          325
@@ -3658,7 +3658,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          326
@@ -3669,7 +3669,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          327
@@ -3680,7 +3680,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          328
@@ -3691,7 +3691,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          329
@@ -3702,7 +3702,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          330
@@ -3713,7 +3713,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          331
@@ -3724,7 +3724,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          332
@@ -3735,7 +3735,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          333
@@ -3746,7 +3746,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          334
@@ -3757,7 +3757,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          335
@@ -3768,7 +3768,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'single',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          336
@@ -3779,7 +3779,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          337
@@ -3790,7 +3790,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          338
@@ -3801,7 +3801,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          339
@@ -3812,7 +3812,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          340
@@ -3823,7 +3823,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          341
@@ -3834,7 +3834,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          342
@@ -3845,7 +3845,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          343
@@ -3856,7 +3856,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          344
@@ -3867,7 +3867,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          345
@@ -3878,7 +3878,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          346
@@ -3889,7 +3889,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          347
@@ -3900,7 +3900,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          348
@@ -3911,7 +3911,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          349
@@ -3922,7 +3922,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          350
@@ -3933,7 +3933,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          351
@@ -3944,7 +3944,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          352
@@ -3955,7 +3955,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          353
@@ -3966,7 +3966,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          354
@@ -3977,7 +3977,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          355
@@ -3988,7 +3988,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          356
@@ -3999,7 +3999,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          357
@@ -4010,7 +4010,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          358
@@ -4021,7 +4021,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          359
@@ -4032,7 +4032,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          360
@@ -4043,7 +4043,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          361
@@ -4054,7 +4054,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          362
@@ -4065,7 +4065,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          363
@@ -4076,7 +4076,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          364
@@ -4087,7 +4087,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          365
@@ -4098,7 +4098,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          366
@@ -4109,7 +4109,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          367
@@ -4120,7 +4120,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          368
@@ -4131,7 +4131,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          369
@@ -4142,7 +4142,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          370
@@ -4153,7 +4153,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          371
@@ -4164,7 +4164,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          372
@@ -4175,7 +4175,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          373
@@ -4186,7 +4186,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          374
@@ -4197,7 +4197,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          375
@@ -4208,7 +4208,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          376
@@ -4219,7 +4219,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          377
@@ -4230,7 +4230,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore3',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          378
@@ -5667,7 +5667,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          505
@@ -5678,7 +5678,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          506
@@ -5689,7 +5689,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          507
@@ -5700,7 +5700,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          508
@@ -5711,7 +5711,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          509
@@ -5722,7 +5722,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          510
@@ -5733,7 +5733,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          511
@@ -5744,7 +5744,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          512
@@ -5755,7 +5755,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          513
@@ -5766,7 +5766,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          514
@@ -5777,7 +5777,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          515
@@ -5788,7 +5788,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          516
@@ -5799,7 +5799,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          517
@@ -5810,7 +5810,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          518
@@ -5821,7 +5821,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          519
@@ -5832,7 +5832,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          520
@@ -5843,7 +5843,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          521
@@ -5854,7 +5854,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          522
@@ -5865,7 +5865,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          523
@@ -5876,7 +5876,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          524
@@ -5887,7 +5887,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          525
@@ -5898,7 +5898,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1.5,
                          526
@@ -5909,7 +5909,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          2.5,
                          527
@@ -5920,7 +5920,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          4,
                          528
@@ -5931,7 +5931,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          6,
                          529
@@ -5942,7 +5942,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          10,
                          530
@@ -5953,7 +5953,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          16,
                          531
@@ -5964,7 +5964,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          25,
                          532
@@ -5975,7 +5975,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          35,
                          533
@@ -5986,7 +5986,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          50,
                          534
@@ -5997,7 +5997,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          70,
                          535
@@ -6008,7 +6008,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          95,
                          536
@@ -6019,7 +6019,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          120,
                          537
@@ -6030,7 +6030,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          150,
                          538
@@ -6041,7 +6041,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          185,
                          539
@@ -6052,7 +6052,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          240,
                          540
@@ -6063,7 +6063,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          300,
                          541
@@ -6074,7 +6074,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          400,
                          542
@@ -6085,7 +6085,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          500,
                          543
@@ -6096,7 +6096,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          630,
                          544
@@ -6107,7 +6107,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          800,
                          545
@@ -6118,7 +6118,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Cu',
                          1000,
                          546
@@ -6129,7 +6129,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          547
@@ -6140,7 +6140,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          548
@@ -6151,7 +6151,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          549
@@ -6162,7 +6162,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          550
@@ -6173,7 +6173,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          551
@@ -6184,7 +6184,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          552
@@ -6195,7 +6195,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          553
@@ -6206,7 +6206,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          554
@@ -6217,7 +6217,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          555
@@ -6228,7 +6228,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          556
@@ -6239,7 +6239,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          557
@@ -6250,7 +6250,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          558
@@ -6261,7 +6261,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          559
@@ -6272,7 +6272,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          560
@@ -6283,7 +6283,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          561
@@ -6294,7 +6294,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          562
@@ -6305,7 +6305,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          563
@@ -6316,7 +6316,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          564
@@ -6327,7 +6327,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          565
@@ -6338,7 +6338,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          566
@@ -6349,7 +6349,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'air',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          567
@@ -6360,7 +6360,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1.5,
                          568
@@ -6371,7 +6371,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          2.5,
                          569
@@ -6382,7 +6382,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          4,
                          570
@@ -6393,7 +6393,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          6,
                          571
@@ -6404,7 +6404,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          10,
                          572
@@ -6415,7 +6415,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          16,
                          573
@@ -6426,7 +6426,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          25,
                          574
@@ -6437,7 +6437,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          35,
                          575
@@ -6448,7 +6448,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          50,
                          576
@@ -6459,7 +6459,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          70,
                          577
@@ -6470,7 +6470,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          95,
                          578
@@ -6481,7 +6481,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          120,
                          579
@@ -6492,7 +6492,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          150,
                          580
@@ -6503,7 +6503,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          185,
                          581
@@ -6514,7 +6514,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          240,
                          582
@@ -6525,7 +6525,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          300,
                          583
@@ -6536,7 +6536,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          400,
                          584
@@ -6547,7 +6547,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          500,
                          585
@@ -6558,7 +6558,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          630,
                          586
@@ -6569,7 +6569,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          800,
                          587
@@ -6580,7 +6580,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                          'earth',
                          'multicore5',
                          'AC',
-                         'pvc',
+                         'PVC',
                          'Al',
                          1000,
                          588
