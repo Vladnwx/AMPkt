@@ -174,9 +174,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             i++
             nominalSize = allNominalSizeList[i].toDouble()
             getAmperage()
-            if (amperage==0.0){
 
-                amperage = 2.7984* nominalSize.pow(2.0) - 12.324*nominalSize + 47.057  }
         }
         getR()
         getX()
