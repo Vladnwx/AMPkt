@@ -12,4 +12,5 @@ data class TypeOfEnvironment (
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-    val value: String)
+    val value: String
+                            )

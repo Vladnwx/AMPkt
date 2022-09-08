@@ -2,6 +2,7 @@ package com.amp
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -73,15 +74,51 @@ class MainActivity : AppCompatActivity() {
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
 
+        val SwitchTypePodbor = findViewById<Switch>(R.id.SwitchTypePodbor)
+
 
         editTextVoltage.setText(mainActivityViewModel.v.toString())
         editTextCos.setText(mainActivityViewModel.cos.toString())
         editTextPower.setText(mainActivityViewModel.p.toString())
 
-    /*    mainActivityViewModel.pLiveData.observe(this){
+        mainActivityViewModel.pLiveData.observe(this){
             textViewXValue.text = it.toString()
         }
-*/
+
+        SwitchTypePodbor.setOnClickListener{
+            if (SwitchTypePodbor.isEnabled){
+               // spinnerNominalSize.isEnabled = false
+                spinnerNominalSize.visibility = View.INVISIBLE
+            }
+            else {spinnerNominalSize.visibility = View.VISIBLE
+                spinnerNominalSize.setSelection(spinnerNominalSize.selectedItemPosition +1)
+                }
+           // spinnerNominalSize.setSelection(3)
+
+
+        }
+        fun SendDataToViewModel(){
+            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
+            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
+            mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
+            mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
+            mainActivityViewModel.p = editTextPower.text.toString().toDouble()
+
+
+            mainActivityViewModel.calculate()
+        }
+
+        fun GetDataFromViewModel(){
+
+            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
+            editTextVoltage.setText(mainActivityViewModel.v.toString())
+            editTextCos.setText(mainActivityViewModel.cos.toString())
+            editTextPower.setText(mainActivityViewModel.p.toString())
+            textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
+            textViewRValue.text = mainActivityViewModel.R.toString()
+        }
+
+
 
         buttonNaytipomochnosti.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
@@ -89,24 +126,15 @@ class MainActivity : AppCompatActivity() {
            // Log.i("Расчетный ток", i.toString())
             //Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
             //textViewCurrentAmperageValue.setText(i.toString())
-            mainActivityViewModel.p = editTextPower.text.toString().toDouble()
-            mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
-            mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
+            SendDataToViewModel()
 
+            GetDataFromViewModel()
 
-            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString().toInt()
-           // mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
-            mainActivityViewModel.calculate()
-            textViewCableValue.text = mainActivityViewModel.cable
-            textViewRValue.text = mainActivityViewModel.R.toString()
-            textViewXValue.text = mainActivityViewModel.X.toString()
             mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
-            textViewAmperageShortValue.text = mainActivityViewModel.amperageShort.toString()
-            textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
-            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
-            editTextVoltage.setText(mainActivityViewModel.v.toString())
-            editTextCos.setText(mainActivityViewModel.cos.toString())
-            editTextPower.setText(mainActivityViewModel.p.toString())
-                    }
+        }
+
     }
+
+
+
 }
