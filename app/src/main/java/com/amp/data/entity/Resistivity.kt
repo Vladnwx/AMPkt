@@ -22,7 +22,7 @@ data class Resistivity (
 
     @NonNull
     @ColumnInfo(name = "nominalSize", index = true)
-    val nominalSize: Double,
+    val nominalSize: String,
 
     @NonNull
     @ColumnInfo(name = "R")

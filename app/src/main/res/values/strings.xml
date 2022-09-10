@@ -17,18 +17,17 @@
     <string name="odin">1</string>
     <string name="power">Power</string>
     <string name="raschetniytok">Current</string>
-    <string name="podobratykabel">podobratykabel</string>
     <string name="cable">Cable</string>
     <string name="amperage">Amperage</string>
-    <string name="title_activity_extendet">ActivityExtendet</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_extendet" translatable="false">ActivityExtendet</string>
+    <string name="title_home" translatable="false">Home</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
     <string name="NominalSize">NominalSize</string>
-    <string name="HINT3x1">3х1,5</string>
-    <string name="StandartVoltage">380</string>
-    <string name="amperageshort">AmperageShort =</string>
-    <string name="amperage_">Amperage =</string>
-    <string name="r">R=</string>
-    <string name="x">X=</string>
+    <string name="StandartVoltage" translatable="false">380</string>
+    <string name="amperageshort">"AmperageShort "</string>
+    <string name="getCable">Get Cable</string>
+    <string name="r" translatable="false">R=</string>
+    <string name="x" translatable="false">X=</string>
+    <string name="HINT3x1">3x1</string>
 </resources>

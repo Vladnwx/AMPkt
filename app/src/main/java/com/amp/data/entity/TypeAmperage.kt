@@ -12,7 +12,9 @@ data class TypeAmperage (
     @PrimaryKey
     @ColumnInfo(name = "value")
 
-    val value: String) {
+    val value: String
+                        )
+{
 
     override fun toString(): String {
         return value

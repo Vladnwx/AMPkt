@@ -20,7 +20,7 @@ data class Amperage (
 
     @NonNull
     @ColumnInfo(name = "nominalSize", index = true)
-    val  nominalSize :Double,
+    val  nominalSize :String,
 
     @NonNull
     @ColumnInfo(name = "materialType", index = true)
@@ -47,3 +47,10 @@ data class Amperage (
     val  amperage : Double
 
                     )
+{
+
+    override fun toString(): String {
+        return amperage.toString()
+    }
+
+}
