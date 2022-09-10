@@ -98,11 +98,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         fun SendDataToViewModel(){
-            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
-           // mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
-            mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
-            mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
-            mainActivityViewModel.p = editTextPower.text.toString().toDouble()
+            //mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
+            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
+           // mainActivityViewModel.v = editTextVoltage.text.toString()
+           // mainActivityViewModel.cos = editTextCos.text.toString()
+            mainActivityViewModel.p = editTextPower.text.toString()
 
 
             mainActivityViewModel.calculate()
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
             GetDataFromViewModel()
 
-            mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
+          //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
         }
 
     }

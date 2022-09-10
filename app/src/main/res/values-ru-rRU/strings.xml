@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">3x1</string>
+    <string name="app_name">AMP</string>
     <string name="TypeOfEnvironment">Окружающая среда</string>
     <string name="Resistance_r_ohm_km">Сопротивление R, Ом</string>
     <string name="Resistance_x_ohm_km">Сопротивление X, Ом</string>
@@ -22,6 +22,5 @@
     <string name="cable">Кабель</string>
     <string name="amperage">Допустимый ток, А</string>
     <string name="NominalSize">Поперечное сечение</string>
-    <string name="HINT3x1">R=</string>
     <string name="amperageshort">Ток короткого, А</string>
     </resources>

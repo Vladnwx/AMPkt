@@ -153,7 +153,6 @@
             android:id="@+id/TextViewCableValue"
             android:layout_width="150sp"
             android:layout_height="48dp"
-            android:hint="@string/HINT3x1"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp" />
