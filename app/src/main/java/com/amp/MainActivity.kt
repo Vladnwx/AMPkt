@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         }
         fun SendDataToViewModel(){
             mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
-            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
+           // mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
             mainActivityViewModel.v = editTextVoltage.text.toString().toDouble()
             mainActivityViewModel.cos = editTextCos.text.toString().toDouble()
             mainActivityViewModel.p = editTextPower.text.toString().toDouble()
