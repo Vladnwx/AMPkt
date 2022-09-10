@@ -84,6 +84,11 @@ class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
     suspend fun getAmperage(methodOfLaying: String, nominalSize: Double, materialType: String, insulationType : String, typeAmperage: String, numberOfCore: String, typeOfEnvironment: String): Double {
         return amperageDao.getAmperage(methodOfLaying, nominalSize, materialType, insulationType,typeAmperage, numberOfCore, typeOfEnvironment)
     }
+                        @Suppress("RedundantSuspendModifier")
+                        @WorkerThread
+                        suspend fun getNominalSize(amperageCalculate: Double): String {
+                            return amperageDao.getNominalSize(amperageCalculate)
+                        }
 
 
 }

@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-        fun sendDataToViewModel(){
+         fun sendDataToViewModel(){
             //mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
            // mainActivityViewModel.v = editTextVoltage.text.toString()
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
         fun getDataFromViewModel(){
 
-            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
+            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate
             editTextVoltage.setText(mainActivityViewModel.v.toString())
             editTextCos.setText(mainActivityViewModel.cos.toString())
             editTextPower.setText(mainActivityViewModel.p.toString())

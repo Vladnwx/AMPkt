@@ -9,10 +9,28 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
-
     init {
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
+
+    var p: String = "1.0"
+
+    var v: String = "220.0"
+
+    var cos: String = "1.0"
+
+    var countPhase: String = "1.0"
+
+    var amperageCalculate: String = "300.0"
+
+    val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
+
+    var nominalSize: String = "1.5"
+
+    val allNominalSizeList: ArrayList<String> = arrayListOf("0")
+
+
+
 
     val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> =
         repository.allTypeOfEnvironments.asLiveData()
@@ -27,11 +45,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var numberOfCore: String = ""
 
-    val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    var nominalSize: Double = 1.5
-
-    val allNominalSizeList: ArrayList<String> = arrayListOf("0")
 
     val allMethodOfLaying: LiveData<List<MethodOfLaying>> =
         repository.allMethodOfLaying.asLiveData()
@@ -62,14 +76,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     var pLiveData: MutableLiveData<Double> = MutableLiveData(1.0)
 
 
-    var p: String = "1.0"
 
-    var v: String = "220.0"
-
-    var cos: String = "1.0"
-
-
-    var countPhase: String = "1"
 
     var countJil: String = try {
         (countPhase.toInt() + 2).toString()
@@ -82,7 +89,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhaseList: List<String> = listOf("1","2", "3")
 
-    var amperageCalculate: String = "0.0"
+
 
 
     override fun onCleared() {
@@ -98,6 +105,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(nominalSize)
           }
 
+    fun getNominalSize(amperageCalculate: String) = viewModelScope.launch {
+        nominalSize = repository.getNominalSize(amperageCalculate.toDouble())
+    }
+
+
     fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
         R = repository.getR(materialType, nominalSize)
        // RLiveData = repository.getRLiveData(materialType, nominalSize)
@@ -108,26 +120,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     }
     fun calculate () {
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
+       // getNominalSize(amperageCalculate)
     }
 
 }
 
-
-
-private fun insert(typeOfEnvironment: TypeOfEnvironment) {
-
-//    getR()
-   // getX()
- //   getAmperageShort()
-  //  cable = countJil.toString() + "x" + nominalSize.toString()
-
-}
-
-
-
-private fun AppRepository.insert(typeOfEnvironment: TypeOfEnvironment) {
-
-}
 
 class MainActivityViewModelFactory(private val repository: AppRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

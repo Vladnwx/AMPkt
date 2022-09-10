@@ -17,7 +17,16 @@ interface AmperageDao:BaseDAO<Amperage>{
     @Query("DELETE FROM Amperage")
     suspend fun deleteAll()
 
-    @Query("SELECT amperage  FROM Amperage WHERE  methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
+    @Query("SELECT nominalSize FROM Amperage WHERE amperage >= :amperageCalculate AND methodOfLaying = :tmethodOfLaying AND materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
+    suspend fun getNominalSize(amperageCalculate: Double,
+                               tmethodOfLaying: String ="single laying",
+                               tmaterial_type: String = "Cu",
+                               tinsulationType: String = "PVC",
+                               ttypeAmperage: String = "AC",
+                               tnumberOfCore: String = "multicore3",
+                               ttypeOfEnvironment: String = "air") :String
+
+    @Query("SELECT amperage  FROM Amperage WHERE methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
     fun getAmperage            (
 
         tmethodOfLaying: String,
