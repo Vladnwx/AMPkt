@@ -172,7 +172,6 @@
             android:id="@+id/TextViewCurrentAmperageValue"
             android:layout_width="150sp"
             android:layout_height="48dp"
-            android:gravity="center_vertical"
             android:hint="@string/HINT0"
             android:maxLength="5"
             android:textAlignment="center"

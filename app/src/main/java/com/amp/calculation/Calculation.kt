@@ -1,6 +1,8 @@
 package com.amp.calculation
 
+import android.icu.math.BigDecimal
 import android.util.Log
+import kotlin.math.roundToLong
 
 class Calculation {
 
@@ -41,7 +43,7 @@ class Calculation {
     fun amperage (power: String, voltage: String, countPhase: String, cosf: String) :String {
 
         return try {
-            return (amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble())).toString()
+            return String.format("%.2f",amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble()))
          } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -52,7 +54,7 @@ class Calculation {
     fun amperage (power: Double, countPhase: Double, cosf: Double) :String {
 
         return try {
-            return (amperageFormula(power, countPhase, cosf)).toString()
+            return String.format("%.2f",amperageFormula(power, countPhase, cosf))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -64,7 +66,7 @@ class Calculation {
     fun amperage (power: Double, countPhase: Double) :String {
 
         return try {
-            return (amperageFormula(power, countPhase)).toString()
+            return String.format("%.2f",amperageFormula(power, countPhase))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -76,7 +78,7 @@ class Calculation {
     fun amperage (power: Double) :String {
 
         return try {
-            return (amperageFormula(power)).toString()
+            return String.format("%.2f",amperageFormula(power))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -88,7 +90,7 @@ class Calculation {
     fun amperage (power: String, countPhase: String, cosf: String) :String {
 
         return try {
-            return (amperageFormula(power.toDouble(), countPhase.toDouble(), cosf.toDouble())).toString()
+            return String.format("%.2f",amperageFormula(power.toDouble(), countPhase.toDouble(), cosf.toDouble()))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -100,7 +102,7 @@ class Calculation {
     fun amperage (power: String, countPhase: String) :String {
 
         return try {
-            return (amperageFormula(power.toDouble(), countPhase.toDouble())).toString()
+            return String.format("%.2f",amperageFormula(power.toDouble(), countPhase.toDouble()))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)
@@ -112,7 +114,7 @@ class Calculation {
     fun amperage (power: String) :String {
 
         return try {
-            return (amperageFormula(power.toDouble())).toString()
+            return String.format("%.2f",amperageFormula(power.toDouble()))
         } catch (e: Exception) {
             println("Exception")
             println(e.message)

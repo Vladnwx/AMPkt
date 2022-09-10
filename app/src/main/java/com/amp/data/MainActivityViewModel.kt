@@ -82,7 +82,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhaseList: List<String> = listOf("1","2", "3")
 
-    var amperageCalculate: Double = 0.0
+    var amperageCalculate: String = "0.0"
 
 
     override fun onCleared() {
@@ -107,7 +107,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         X = repository.getX(materialType, nominalSize)
     }
     fun calculate () {
-        amperage = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
+        amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
     }
 
 }

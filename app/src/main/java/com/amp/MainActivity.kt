@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
 
-        val SwitchTypePodbor = findViewById<Switch>(R.id.SwitchTypePodbor)
+        val switchTypePodbor = findViewById<Switch>(R.id.SwitchTypePodbor)
 
 
         editTextVoltage.setText(mainActivityViewModel.v.toString())
@@ -85,8 +85,8 @@ class MainActivity : AppCompatActivity() {
             textViewXValue.text = it.toString()
         }
 
-        SwitchTypePodbor.setOnClickListener{
-            if (SwitchTypePodbor.isEnabled){
+        switchTypePodbor.setOnClickListener{
+            if (switchTypePodbor.isEnabled){
                // spinnerNominalSize.isEnabled = false
                 spinnerNominalSize.visibility = View.INVISIBLE
             }
@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-        fun SendDataToViewModel(){
+        fun sendDataToViewModel(){
             //mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
            // mainActivityViewModel.v = editTextVoltage.text.toString()
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.calculate()
         }
 
-        fun GetDataFromViewModel(){
+        fun getDataFromViewModel(){
 
             textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate.toString()
             editTextVoltage.setText(mainActivityViewModel.v.toString())
@@ -126,9 +126,9 @@ class MainActivity : AppCompatActivity() {
            // Log.i("Расчетный ток", i.toString())
             //Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
             //textViewCurrentAmperageValue.setText(i.toString())
-            SendDataToViewModel()
+            sendDataToViewModel()
 
-            GetDataFromViewModel()
+            getDataFromViewModel()
 
           //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
         }
