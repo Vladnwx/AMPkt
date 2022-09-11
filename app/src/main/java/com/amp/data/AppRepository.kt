@@ -55,8 +55,8 @@ class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
 
 
 
-    //@Suppress("RedundantSuspendModifier")
-    //@WorkerThread
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
     suspend fun getR(materialType: String, nominalSize: Double): Double {
                             return resistivityDao.getR(materialType, nominalSize)
                         }

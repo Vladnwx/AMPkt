@@ -115,7 +115,8 @@ class MainActivity : AppCompatActivity() {
             editTextCos.setText(mainActivityViewModel.cos.toString())
             editTextPower.setText(mainActivityViewModel.p.toString())
             textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
-            textViewRValue.text = mainActivityViewModel.R.toString()
+            textViewRValue.text = mainActivityViewModel.R
+            textViewXValue.text = mainActivityViewModel.X
         }
 
 

@@ -1,6 +1,9 @@
 package com.amp.calculation
 
 import android.util.Log
+import androidx.lifecycle.viewModelScope
+import com.amp.R
+import kotlinx.coroutines.launch
 
 class RequestRepo {
 
@@ -14,4 +17,19 @@ class RequestRepo {
             "Error"
         }
     }
+
+    fun getAmperage (current: String) : String {
+        return try {
+            return ""
+        } catch (e: Exception) {
+            println("Exception")
+            println(e.message)
+            Log.i("Exception", e.message.toString())
+            "Error"
+        }
+    }
+
+
+
+
 }

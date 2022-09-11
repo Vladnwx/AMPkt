@@ -13,17 +13,17 @@ interface ResistivityDao:BaseDAO<Resistivity>{
    @Query("SELECT * FROM Resistivity")
     fun getAllFlow(): Flow<List<Resistivity>>
 
-    @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getR(tmaterial_type: String, tnominal_size: Double): Double
+    @Query("SELECT R  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")
+    fun getR(tMaterial_type: String, tNominal_size: Double): Double
 
-    @Query("SELECT R  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getLiveDataR(tmaterial_type: String, tnominal_size: Double): LiveData<Double>
+    @Query("SELECT R  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")
+    fun getLiveDataR(tMaterial_type: String, tNominal_size: Double): LiveData<Double>
 
-    @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getX(tmaterial_type: String, tnominal_size: Double): Double
+    @Query("SELECT X  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")
+    fun getX(tMaterial_type: String, tNominal_size: Double): Double
 
-    @Query("SELECT X  FROM resistivity WHERE materialType = :tmaterial_type AND nominalSize = :tnominal_size")
-    fun getLiveDataX(tmaterial_type: String, tnominal_size: Double): LiveData<Double>
+    @Query("SELECT X  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")
+    fun getLiveDataX(tMaterial_type: String, tNominal_size: Double): LiveData<Double>
 
     @Query("SELECT * FROM resistivity ORDER BY id ASC")
     fun getAlphabetized(): LiveData<List<Resistivity?>?>?

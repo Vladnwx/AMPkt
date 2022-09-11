@@ -2,7 +2,6 @@ package com.amp.data
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.amp.R
 import com.amp.calculation.Calculation
 import com.amp.data.entity.*
 import kotlinx.coroutines.launch
@@ -61,15 +60,15 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var insulationType: String = ""
 
-    var R: Double = 0.0
+    var R: String = "0.0"
 
     lateinit var RLiveData: LiveData<Double>
 
-    var X: Double = 0.0
+    var X: String = "0.0"
 
     lateinit var XLiveData: LiveData<Double>
 
-    var amperageShort: Double = 0.0
+    var amperageShort: String = "0.0"
 
     var amperage: String = "0.0"
 
@@ -89,7 +88,20 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhaseList: List<String> = listOf("1","2", "3")
 
+    fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
+        R = repository.getR(materialType, nominalSize).toString()
+        // RLiveData = repository.getRLiveData(materialType, nominalSize)
+    }
 
+    fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
+        X = repository.getX(materialType, nominalSize).toString()
+    }
+    fun calculate () {
+        amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
+        getR(materialType, nominalSize.toDouble())
+        getX(materialType, nominalSize.toDouble())
+
+    }
 
 
     override fun onCleared() {
@@ -105,23 +117,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         repository.insert(nominalSize)
           }
 
-    fun getNominalSize(amperageCalculate: String) = viewModelScope.launch {
-        nominalSize = repository.getNominalSize(amperageCalculate.toDouble())
-    }
 
-
-    fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        R = repository.getR(materialType, nominalSize)
-       // RLiveData = repository.getRLiveData(materialType, nominalSize)
-    }
-
-    fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        X = repository.getX(materialType, nominalSize)
-    }
-    fun calculate () {
-        amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
-       // getNominalSize(amperageCalculate)
-    }
 
 }
 
