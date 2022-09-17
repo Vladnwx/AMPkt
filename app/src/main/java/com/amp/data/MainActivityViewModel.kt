@@ -20,7 +20,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhase: String = "1.0"
 
-    var amperageCalculate: String = "300.0"
+    var amperageCalculate: String = "0.0"
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
@@ -31,34 +31,29 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
 
-    val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> =
-        repository.allTypeOfEnvironments.asLiveData()
+    val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
 
-    var typeOfEnvironment: String = ""
+    var typeOfEnvironment: String = "air"
 
     val allTypeAmperage: LiveData<List<TypeAmperage>> = repository.allTypeAmperage.asLiveData()
 
-    var typeAmperage: String = ""
+    var typeAmperage: String = "AC"
 
     val allNumberOfCore: LiveData<List<NumberOfCore>> = repository.allNumberOfCore.asLiveData()
 
-    var numberOfCore: String = ""
+    var numberOfCore: String = "multicore3"
 
+    val allMethodOfLaying: LiveData<List<MethodOfLaying>> = repository.allMethodOfLaying.asLiveData()
 
-
-    val allMethodOfLaying: LiveData<List<MethodOfLaying>> =
-        repository.allMethodOfLaying.asLiveData()
-
-    var methodOfLaying: String = ""
+    var methodOfLaying: String = "single laying"
 
     val allMaterialType: LiveData<List<MaterialType>> = repository.allMaterialType.asLiveData()
 
     var materialType: String = "Cu"
 
-    val allInsulationType: LiveData<List<InsulationType>> =
-        repository.allInsulationType.asLiveData()
+    val allInsulationType: LiveData<List<InsulationType>> = repository.allInsulationType.asLiveData()
 
-    var insulationType: String = ""
+    var insulationType: String = "PVC"
 
     var R: String = "0.0"
 
@@ -96,13 +91,22 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
         X = repository.getX(materialType, nominalSize).toString()
     }
+    fun getAmperage() = viewModelScope.launch {
+        amperage = repository.getAmperage(methodOfLaying, nominalSize.toDouble(), materialType, insulationType, typeAmperage, numberOfCore, typeOfEnvironment).toString()
+    }
+    fun getAmperageShort() = viewModelScope.launch {
+        amperageShort = repository.getAmperageShort(materialType, nominalSize.toDouble(), insulationType).toString()
+    }
+
+
     fun calculate () {
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
+        getAmperage()
+        getAmperageShort()
         getR(materialType, nominalSize.toDouble())
         getX(materialType, nominalSize.toDouble())
 
     }
-
 
     override fun onCleared() {
         super.onCleared()

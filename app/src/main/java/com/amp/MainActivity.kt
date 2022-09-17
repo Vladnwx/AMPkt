@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amp.data.AppListAdapter
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+        val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
         val textViewCableValue = findViewById<TextView>(R.id.TextViewCableValue)
         val textViewCurrentAmperageValue = findViewById<TextView>(R.id.TextViewCurrentAmperageValue)
         val textViewRValue = findViewById<TextView>(R.id.TextViewRValue)
@@ -85,25 +86,23 @@ class MainActivity : AppCompatActivity() {
             textViewXValue.text = it.toString()
         }
 
-        switchTypePodbor.setOnClickListener{
-            if (switchTypePodbor.isEnabled){
-               // spinnerNominalSize.isEnabled = false
-                spinnerNominalSize.visibility = View.INVISIBLE
+        switchTypePodbor.setOnCheckedChangeListener { buttonView, isCheked ->
+            if (isCheked){
+                textViewNominalSize.visibility= View.VISIBLE
+                spinnerNominalSize.visibility = View.VISIBLE
+                        }
+            else {
+                textViewNominalSize.visibility= View.GONE
+                spinnerNominalSize.visibility = View.GONE
+                           }
             }
-            else {spinnerNominalSize.visibility = View.VISIBLE
-                spinnerNominalSize.setSelection(spinnerNominalSize.selectedItemPosition +1)
-                }
-           // spinnerNominalSize.setSelection(3)
 
-
-        }
          fun sendDataToViewModel(){
-            //mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString().toDouble()
+            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString()
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
-           // mainActivityViewModel.v = editTextVoltage.text.toString()
-           // mainActivityViewModel.cos = editTextCos.text.toString()
+            mainActivityViewModel.v = editTextVoltage.text.toString()
+            mainActivityViewModel.cos = editTextCos.text.toString()
             mainActivityViewModel.p = editTextPower.text.toString()
-
 
             mainActivityViewModel.calculate()
         }
@@ -117,6 +116,8 @@ class MainActivity : AppCompatActivity() {
             textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
             textViewRValue.text = mainActivityViewModel.R
             textViewXValue.text = mainActivityViewModel.X
+            textViewAmperageValue.text = mainActivityViewModel.amperage
+            textViewAmperageShortValue.text = mainActivityViewModel.amperageShort
         }
 
 
