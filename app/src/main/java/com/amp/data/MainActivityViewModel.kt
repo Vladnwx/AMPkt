@@ -72,16 +72,19 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
 
-    var countJil: String = try {
-        (countPhase.toInt() + 2).toString()
-    } catch (e: Exception) {
-        println("Exception")
-        println(e.message)
-        Log.i("Exception", e.message.toString())
-        "3"
-    }
+    var countJil: String = "1"
 
     var countPhaseList: List<String> = listOf("1","2", "3")
+
+    fun getNominalSizeFromAmperage(){
+        var i: Int =0
+        while (amperageCalculate<= amperage){
+        nominalSize = allNominalSizeList[i]
+            getAmperage()
+            i++
+        }
+
+    }
 
     fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
         R = repository.getR(materialType, nominalSize).toString()
@@ -103,6 +106,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
         getAmperage()
         getAmperageShort()
+        getNominalSizeFromAmperage()
         getR(materialType, nominalSize.toDouble())
         getX(materialType, nominalSize.toDouble())
 

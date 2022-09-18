@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amp.data.AppListAdapter
@@ -73,21 +72,21 @@ class MainActivity : AppCompatActivity() {
         val editTextVoltage = findViewById<EditText>(R.id.EditTextVoltage)
         val editTextCos = findViewById<EditText>(R.id.EditTextCos)
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
-        val buttonNaytipomochnosti = findViewById<Button>(R.id.ButtonNaytipomochnosti)
+        val buttonGetCable = findViewById<Button>(R.id.ButtonGetCable)
 
-        val switchTypePodbor = findViewById<Switch>(R.id.SwitchTypePodbor)
+        val switchExtendedMode = findViewById<Switch>(R.id.SwitchExtendedMode)
 
 
-        editTextVoltage.setText(mainActivityViewModel.v.toString())
-        editTextCos.setText(mainActivityViewModel.cos.toString())
-        editTextPower.setText(mainActivityViewModel.p.toString())
+        editTextVoltage.setText(mainActivityViewModel.v)
+        editTextCos.setText(mainActivityViewModel.cos)
+        editTextPower.setText(mainActivityViewModel.p)
 
         mainActivityViewModel.pLiveData.observe(this){
             textViewXValue.text = it.toString()
         }
 
-        switchTypePodbor.setOnCheckedChangeListener { buttonView, isCheked ->
-            if (isCheked){
+        switchExtendedMode.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked){
                 textViewNominalSize.visibility= View.VISIBLE
                 spinnerNominalSize.visibility = View.VISIBLE
                         }
@@ -110,10 +109,10 @@ class MainActivity : AppCompatActivity() {
         fun getDataFromViewModel(){
 
             textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate
-            editTextVoltage.setText(mainActivityViewModel.v.toString())
-            editTextCos.setText(mainActivityViewModel.cos.toString())
-            editTextPower.setText(mainActivityViewModel.p.toString())
-            textViewCableValue.text = mainActivityViewModel.countJil.toString() + "X" + mainActivityViewModel.nominalSize.toString()
+            editTextVoltage.setText(mainActivityViewModel.v)
+            editTextCos.setText(mainActivityViewModel.cos)
+            editTextPower.setText(mainActivityViewModel.p)
+            textViewCableValue.text = mainActivityViewModel.countJil + "X" + mainActivityViewModel.nominalSize
             textViewRValue.text = mainActivityViewModel.R
             textViewXValue.text = mainActivityViewModel.X
             textViewAmperageValue.text = mainActivityViewModel.amperage
@@ -122,7 +121,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        buttonNaytipomochnosti.setOnClickListener{
+        buttonGetCable.setOnClickListener{
            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
            // var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
            // Log.i("Расчетный ток", i.toString())

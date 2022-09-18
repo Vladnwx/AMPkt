@@ -8,20 +8,19 @@
     android:id="@+id/tablelayout_amperage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5sp">
+    android:layout_margin="5sp"
+    android:textSize="24sp"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:listitem="@layout/recyclerview_item"
+        android:visibility="gone"
              />
 
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        >
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewNominalSize"
@@ -34,50 +33,49 @@
 
         <Spinner
             android:id="@+id/SpinnerNominalSize"
-            android:layout_width="150sp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/NominalSize"
             android:spinnerMode="dialog"
             android:visibility="gone"
             tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow>
 
-    <TableRow android:layout_width="match_parent">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewCountPhase"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/CountPhase"
             android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/SpinnerCountPhase"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:contentDescription="@string/CountPhase"
-            android:spinnerMode="dialog"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewVoltage"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="@string/Voltage"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/EditTextVoltage"
-            android:layout_width="150sp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:autofillHints="true"
             android:enabled="false"
             android:hint="@string/StandartVoltage"
@@ -85,25 +83,26 @@
             android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewCos"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/cos_phi"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/EditTextCos"
-            android:layout_width="150sp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:autofillHints="true"
             android:enabled="false"
             android:hint="@string/odin"
@@ -111,25 +110,25 @@
             android:maxLength="5"
             android:textAlignment="center"
             android:textColorHint="#78909C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewPower"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/power"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/EditTextPower"
-            android:layout_width="150sp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:autofillHints="true"
             android:hint="@string/HINT0"
             android:inputType="numberDecimal"
@@ -140,19 +139,20 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
     </TableRow>
 
-    <TableRow android:layout_width="match_parent">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewCable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/cable"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewCableValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
@@ -165,97 +165,97 @@
             android:id="@+id/TextViewCurrentAmperage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/raschetniytok"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewCurrentAmperageValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewAmperage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/amperage"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewAmperageValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
             android:textSize="24sp" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        >
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:text="@string/r"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/TextViewRValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone"
+            />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        >
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewX"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:text="@string/x"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone"
+            />
 
         <TextView
             android:id="@+id/TextViewXValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone"
+            />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        >
+    <TableRow>
 
         <TextView
             android:id="@+id/TextViewAmperageShort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="@string/amperageshort"
+            android:text="@string/amperageShort"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TextViewAmperageShortValue"
-            android:layout_width="150sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
@@ -263,23 +263,22 @@
     </TableRow>
 
     <Button
-            android:id="@+id/ButtonNaytipomochnosti"
-            android:layout_width="match_parent"
+            android:id="@+id/ButtonGetCable"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/getCable"
             android:textAlignment="center"
             android:textSize="24sp" />
 
-    <Switch
-        android:id="@+id/SwitchTypePodbor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Подбор по сечению"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        tools:visibility="invisible" />
 
+    <Switch
+        android:id="@+id/SwitchExtendedMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/ExtendedMode"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
 </TableLayout>

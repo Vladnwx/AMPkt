@@ -25,9 +25,9 @@
     <string name="title_notifications" translatable="false">Notifications</string>
     <string name="NominalSize">NominalSize</string>
     <string name="StandartVoltage" translatable="false">380</string>
-    <string name="amperageshort">"AmperageShort "</string>
     <string name="getCable">Get Cable</string>
     <string name="r" translatable="false">R=</string>
     <string name="x" translatable="false">X=</string>
-
+    <string name="ExtendedMode">Extended Mode</string>
+    <string name="amperageShort">amperageShort</string>
 </resources>

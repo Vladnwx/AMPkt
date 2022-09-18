@@ -22,5 +22,6 @@
     <string name="cable">Кабель</string>
     <string name="amperage">Допустимый ток, А</string>
     <string name="NominalSize">Поперечное сечение</string>
-    <string name="amperageshort">Ток короткого, А</string>
-    </resources>
+    <string name="ExtendedMode">Расширенный режим</string>
+    <string name="amperageShort">Ток короткого</string>
+</resources>
