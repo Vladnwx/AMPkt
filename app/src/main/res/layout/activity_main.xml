@@ -76,13 +76,9 @@
             android:id="@+id/EditTextVoltage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autofillHints="true"
-            android:enabled="false"
-            android:hint="@string/StandartVoltage"
             android:inputType="textAutoCorrect|numberDecimal"
-            android:maxLength="5"
+            android:maxLength="4"
             android:textAlignment="center"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             android:visibility="gone" />
     </TableRow>
@@ -103,13 +99,9 @@
             android:id="@+id/EditTextCos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autofillHints="true"
-            android:enabled="false"
-            android:hint="@string/odin"
             android:inputType="numberDecimal"
-            android:maxLength="5"
+            android:maxLength="4"
             android:textAlignment="center"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             android:visibility="gone" />
     </TableRow>
@@ -251,7 +243,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/amperageShort"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone"
+            />
 
         <TextView
             android:id="@+id/TextViewAmperageShortValue"
@@ -259,7 +253,9 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textColorHint="#78909C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone"
+            />
     </TableRow>
 
     <Button

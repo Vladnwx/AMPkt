@@ -63,9 +63,14 @@ class MainActivity : AppCompatActivity() {
 
         val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
         val textViewCableValue = findViewById<TextView>(R.id.TextViewCableValue)
+        val textViewVoltage = findViewById<TextView>(R.id.TextViewVoltage)
+        val textViewCos = findViewById<TextView>(R.id.TextViewCos)
         val textViewCurrentAmperageValue = findViewById<TextView>(R.id.TextViewCurrentAmperageValue)
+        val textViewR = findViewById<TextView>(R.id.TextViewR)
         val textViewRValue = findViewById<TextView>(R.id.TextViewRValue)
+        val textViewX = findViewById<TextView>(R.id.TextViewX)
         val textViewXValue = findViewById<TextView>(R.id.TextViewXValue)
+        val textViewAmperageShort = findViewById<TextView>(R.id.TextViewAmperageShort)
         val textViewAmperageShortValue = findViewById<TextView>(R.id.TextViewAmperageShortValue)
         val textViewAmperageValue = findViewById<TextView>(R.id.TextViewAmperageValue)
 
@@ -89,10 +94,31 @@ class MainActivity : AppCompatActivity() {
             if (isChecked){
                 textViewNominalSize.visibility= View.VISIBLE
                 spinnerNominalSize.visibility = View.VISIBLE
+                textViewVoltage.visibility = View.VISIBLE
+                editTextVoltage.visibility = View.VISIBLE
+                textViewCos.visibility = View.VISIBLE
+                editTextCos.visibility = View.VISIBLE
+                textViewR.visibility = View.VISIBLE
+                textViewRValue.visibility = View.VISIBLE
+                textViewX.visibility = View.VISIBLE
+                textViewXValue.visibility = View.VISIBLE
+                textViewAmperageShort.visibility = View.VISIBLE
+                textViewAmperageShortValue.visibility = View.VISIBLE
+
                         }
             else {
                 textViewNominalSize.visibility= View.GONE
                 spinnerNominalSize.visibility = View.GONE
+                textViewVoltage.visibility = View.GONE
+                editTextVoltage.visibility = View.GONE
+                textViewCos.visibility = View.GONE
+                editTextCos.visibility = View.GONE
+                textViewR.visibility = View.GONE
+                textViewRValue.visibility = View.GONE
+                textViewX.visibility = View.GONE
+                textViewXValue.visibility = View.GONE
+                textViewAmperageShort.visibility = View.GONE
+                textViewAmperageShortValue.visibility = View.GONE
                            }
             }
 
