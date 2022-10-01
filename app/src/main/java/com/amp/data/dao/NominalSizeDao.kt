@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NominalSizeDao :BaseDAO<NominalSize> {
     @Query("SELECT * FROM nominalSize")
-    fun getAll(): List<String>
+    fun getAll(): List<NominalSize>
 
     @Query("SELECT * FROM nominalSize")
     fun getAllFlow(): Flow<List<NominalSize>>

@@ -1,5 +1,6 @@
 package com.amp.data.entity
 
+import androidx.annotation.NonNull
 import androidx.room.*
 
 
@@ -8,12 +9,14 @@ import androidx.room.*
 data class NominalSize (
 
     @PrimaryKey
-    @ColumnInfo(name = "value")
+    @ColumnInfo (name = "value")
+    @NonNull
 
-    val value: String) {
+
+    val value: Double) {
 
     override fun toString(): String {
-        return value
+        return String.format("%.1f", value)
     }
 
 }

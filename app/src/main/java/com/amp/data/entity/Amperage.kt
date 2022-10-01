@@ -20,7 +20,7 @@ data class Amperage (
 
     @NonNull
     @ColumnInfo(name = "nominalSize", index = true)
-    val  nominalSize :String,
+    val  nominalSize :Double,
 
     @NonNull
     @ColumnInfo(name = "materialType", index = true)

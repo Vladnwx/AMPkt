@@ -51,9 +51,9 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.allNominalSize.observe(this){
 
             for (i in it.indices) {
-                mainActivityViewModel.allNominalSizeList.add(it[i].toString()) }
-            mainActivityViewModel.allNominalSizeList.remove("0")
-            spinnerNominalSize.setSelection(2)
+                mainActivityViewModel.allNominalSizeList.add(it[i].value) }
+            mainActivityViewModel.allNominalSizeList.remove(0.0)
+            spinnerNominalSize.setSelection(0)
             Log.i("Exception", ":LIST")
             Toast.makeText(this, "Лист поперечных сечений сформирован", Toast.LENGTH_SHORT).show()
 
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
             }
 
          fun sendDataToViewModel(){
-            mainActivityViewModel.nominalSize =  spinnerNominalSize.selectedItem.toString()
+            mainActivityViewModel.nominalSize = spinnerNominalSize.selectedItem as Double
             mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
             mainActivityViewModel.v = editTextVoltage.text.toString()
             mainActivityViewModel.cos = editTextCos.text.toString()
@@ -134,14 +134,14 @@ class MainActivity : AppCompatActivity() {
 
         fun getDataFromViewModel(){
 
-            textViewCurrentAmperageValue.text = mainActivityViewModel.amperageCalculate
+            textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.amperageCalculate)
             editTextVoltage.setText(mainActivityViewModel.v)
             editTextCos.setText(mainActivityViewModel.cos)
             editTextPower.setText(mainActivityViewModel.p)
-            textViewCableValue.text = mainActivityViewModel.countJil + "X" + mainActivityViewModel.nominalSize
+            textViewCableValue.text = mainActivityViewModel.cableText
             textViewRValue.text = mainActivityViewModel.R
             textViewXValue.text = mainActivityViewModel.X
-            textViewAmperageValue.text = mainActivityViewModel.amperage
+            textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
             textViewAmperageShortValue.text = mainActivityViewModel.amperageShort
         }
 
@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             sendDataToViewModel()
 
             getDataFromViewModel()
-
+             Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
           //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
         }
 

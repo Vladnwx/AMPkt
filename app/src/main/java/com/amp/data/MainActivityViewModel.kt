@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.amp.calculation.Calculation
 import com.amp.data.entity.*
 import kotlinx.coroutines.launch
+import java.lang.Double.parseDouble
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
@@ -20,13 +21,13 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhase: String = "1.0"
 
-    var amperageCalculate: String = "0.0"
+    var amperageCalculate: Double = 0.0
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    var nominalSize: String = "1.5"
+    var nominalSize: Double = 4.0
 
-    val allNominalSizeList: ArrayList<String> = arrayListOf("0")
+    var allNominalSizeList: ArrayList<Double> = arrayListOf(0.0)
 
 
 
@@ -65,23 +66,36 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var amperageShort: String = "0.0"
 
-    var amperage: String = "0.0"
+    var amperage: Double = 0.0
 
     var pLiveData: MutableLiveData<Double> = MutableLiveData(1.0)
 
-
-
-
-    var countJil: String = "1"
-
     var countPhaseList: List<String> = listOf("1","2", "3")
 
-    fun getNominalSizeFromAmperage(){
+    var countJil: Int = 1
+
+    var parallelCableCount: Int =1
+
+    var cableText: String = "3x1.5"
+
+
+
+
+    private fun getNominalSizeFromAmperage(){
         var i: Int =0
-        while (amperageCalculate<= amperage){
+        parallelCableCount=1
+        while (amperageCalculate>= amperage){
         nominalSize = allNominalSizeList[i]
             getAmperage()
-            i++
+            amperage = amperage*parallelCableCount
+            if (i<(allNominalSizeList.size-1)) {
+                i++
+            }
+            else {
+                parallelCableCount +=1
+                i /= parallelCableCount
+                  }
+
         }
 
     }
@@ -95,7 +109,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         X = repository.getX(materialType, nominalSize).toString()
     }
     fun getAmperage() = viewModelScope.launch {
-        amperage = repository.getAmperage(methodOfLaying, nominalSize.toDouble(), materialType, insulationType, typeAmperage, numberOfCore, typeOfEnvironment).toString()
+        amperage = repository.getAmperage(methodOfLaying, nominalSize, materialType, insulationType, typeAmperage, numberOfCore, typeOfEnvironment)
     }
     fun getAmperageShort() = viewModelScope.launch {
         amperageShort = repository.getAmperageShort(materialType, nominalSize.toDouble(), insulationType).toString()
@@ -109,6 +123,8 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         getNominalSizeFromAmperage()
         getR(materialType, nominalSize.toDouble())
         getX(materialType, nominalSize.toDouble())
+        countJil = Calculation().countJil(countPhase.toDouble())
+        cableText =Calculation().cableText(countPhase.toDouble(), parallelCableCount, nominalSize)
 
     }
 

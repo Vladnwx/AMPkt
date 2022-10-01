@@ -24,7 +24,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                                tinsulationType: String = "PVC",
                                ttypeAmperage: String = "AC",
                                tnumberOfCore: String = "multicore3",
-                               ttypeOfEnvironment: String = "air") :String
+                               ttypeOfEnvironment: String = "air") :Double
 
     @Query("SELECT amperage  FROM Amperage WHERE methodOfLaying = :tmethodOfLaying AND nominalSize = :tnominal_size AND  materialType = :tmaterial_type  AND insulationType = :tinsulationType AND typeAmperage = :ttypeAmperage AND  numberOfCore = :tnumberOfCore AND typeOfEnvironment = :ttypeOfEnvironment")
     fun getAmperage            (

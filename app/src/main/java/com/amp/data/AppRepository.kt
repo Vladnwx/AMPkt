@@ -86,7 +86,7 @@ class AppRepository (private val typeOfEnvironmentDao: TypeOfEnvironmentDao,
     }
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun getNominalSize(amperageCalculate: Double): String {
+    suspend fun getNominalSize(amperageCalculate: Double): Double {
       return amperageDao.getNominalSize(amperageCalculate)
      }
 

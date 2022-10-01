@@ -41,20 +41,20 @@ val temp :Double
         return   power * 1000 / (220)
     }
 
-    fun amperage (power: String, voltage: String, countPhase: String, cosf: String) :String {
- var temp:String
+    fun amperage (power: String, voltage: String, countPhase: String, cosf: String) :Double {
+ var temp:Double
  var temp1:String
 
         return try {
 
             temp1 = amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble()).toString()
-            temp = String.format("%.2f", amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble()))
+            temp =  amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble())
             return temp
          } catch (e: Exception) {
             println("Exception")
             println(e.message)
             Log.i("Exception", e.message.toString())
-            "Error"
+            0.0
         }
     }
     fun amperage (power: Double, countPhase: Double, cosf: Double) :String {
@@ -128,5 +128,50 @@ val temp :Double
             "Error"
         }
     }
-
+     fun countJil ( countPhase: Double) : Int {
+        val temp :Int
+        when(countPhase) {
+            1.0 -> temp = 3
+            2.0 -> temp = 5
+            3.0 -> temp = 5
+            else -> temp = 2
+        }
+        return temp
     }
+     fun cableText (countPhase: Double, parallelCableCount : Int, nominalSize: Double) : String {
+        val temp :String
+        if (nominalSize<4){
+            when(parallelCableCount) {
+                1 -> temp = countJil(countPhase).toString() + "x" + nominalSize.toString()
+                else -> temp = parallelCableCount.toString() + "x" + countJil(countPhase).toString() + "x" + nominalSize.toString()
+            }
+
+            return temp
+        }
+        else if (nominalSize<=50.0){
+            when(parallelCableCount) {
+                1 -> temp = countJil(countPhase).toString() + "x" + String.format("%.0f", nominalSize)
+                else -> temp = parallelCableCount.toString() + "x" + countJil(countPhase).toString() + "x" + String.format("%.0f", nominalSize)
+            }
+
+            return temp
+        }
+        else
+        {
+            when(parallelCableCount) {
+                1 -> temp = countJil(countPhase).toString() + "x" + "1" + "x" + String.format("%.0f", nominalSize)
+                else -> temp = parallelCableCount.toString() + "x" + countJil(countPhase).toString() + "x" + "1" + "x"+ String.format("%.0f", nominalSize)
+            }
+
+            return temp
+        }
+
+        }
+    }
+
+
+
+
+
+
+

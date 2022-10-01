@@ -1,5 +1,6 @@
 package com.amp.data.entity
 
+import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,7 +11,7 @@ data class MaterialType (
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-
+    @NonNull
     val value: String) {
 
     override fun toString(): String {
