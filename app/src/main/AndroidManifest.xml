@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMP">
-        <activity
-            android:name=".ActivityExtendet"
+                <activity
+            android:name=".ActivityExtended"
             android:exported="false"
-            android:label="@string/title_activity_extendet" />
+            android:label="@string/title_activity_extended" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
