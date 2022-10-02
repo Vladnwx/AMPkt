@@ -1,4 +1,4 @@
 package com.amp.RecyclerView
 
-class TablerRowModel {
+class TableRowModel {
 }
