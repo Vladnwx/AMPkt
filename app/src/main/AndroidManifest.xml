@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMP">
                 <activity
-            android:name=".ActivityExtended"
+            android:name=".RecyclerView.ActivityExtended"
             android:exported="false"
             android:label="@string/title_activity_extended" />
         <activity

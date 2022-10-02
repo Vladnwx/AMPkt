@@ -1,5 +1,6 @@
 package com.amp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.amp.RecyclerView.ActivityExtended
 import com.amp.data.AppListAdapter
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+       val buttonActivityExtended =  findViewById<Button>(R.id.ButtonActivityExtended)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -158,6 +162,12 @@ class MainActivity : AppCompatActivity() {
             getDataFromViewModel()
              Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
           //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
+        }
+
+        buttonActivityExtended.setOnClickListener {
+            val intent = Intent(this, ActivityExtended::class.java)
+            startActivity(intent)
+
         }
 
     }
