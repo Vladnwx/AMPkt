@@ -25,7 +25,7 @@ class AppListAdapter : ListAdapter<TypeOfEnvironment, AppListAdapter.AppViewHold
 
 
     class AppViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val typeOfEnvironmentItemView: TextView = itemView.findViewById(R.id.textView)
+        private val typeOfEnvironmentItemView: TextView = itemView.findViewById(R.id.textViewRow)
 
         fun bind(text: String?) {
             typeOfEnvironmentItemView.text = text

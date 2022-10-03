@@ -1,29 +1,66 @@
 package com.amp.RecyclerView
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.amp.MainActivity
 import com.amp.R
-import com.amp.databinding.ActivityMainBinding
+import com.amp.databinding.ActivityExtendedBinding
 
 class ActivityExtended : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityExtendedBinding
+
+    lateinit var adapter : TableRowAdapter
+
+    lateinit var recyclerView : RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityExtendedBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        recyclerView = binding.recyclerViewActivityExtended
+        adapter = TableRowAdapter()
+        recyclerView.adapter = adapter
+        adapter.setList(rowAdd())
+
+
 
         val buttonActivityMain =  findViewById<Button>(R.id.ButtonActivityMain)
 
         buttonActivityMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
+
         }
     }
+
+    fun rowAdd () : ArrayList<TableRowModel>{
+
+        val listRow = ArrayList<TableRowModel> ()
+
+        var row1 = TableRowModel("столбец 1", "столбец 2")
+
+        var row2 = TableRowModel("столбец 1", "столбец 2")
+
+        var row3 = TableRowModel("столбец 1", "столбец 2")
+
+        var row4 = TableRowModel("столбец 1", "столбец 2")
+
+        listRow.add(row1)
+        listRow.add(row2)
+        listRow.add(row3)
+        listRow.add(row4)
+
+        return listRow
+    }
+
+
+
 }

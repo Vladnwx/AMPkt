@@ -5,11 +5,10 @@
     android:layout_height="wrap_content"
     android:padding="5sp"
     android:layout_margin="5sp"
-
-    >
+      >
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5sp"
@@ -23,7 +22,7 @@
         />
 
     <TextView
-        android:id="@+id/textViewValue"
+        android:id="@+id/textViewRowValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5sp"
