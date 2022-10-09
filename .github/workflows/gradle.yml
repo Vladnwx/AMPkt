@@ -18,11 +18,9 @@ permissions:
 
 jobs:
   build:
-if: startsWith(github.head_ref, 'release/') == true
-name: Build release artifacts
-
+    if: startsWith(github.head_ref, 'release/') == true
+    name: Build release artifacts
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
