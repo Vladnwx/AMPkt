@@ -54,8 +54,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.2'
-  //  testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'junit:junit:4.13.2'
+   // testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 
 // Room components
     implementation 'androidx.room:room-ktx:2.4.3'
