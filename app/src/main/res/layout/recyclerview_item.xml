@@ -11,27 +11,25 @@
         android:id="@+id/textViewRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5sp"
-        android:layout_margin="5sp"
-        android:textAlignment="center"
-        android:background="@color/purple_200"
-        android:textSize="24sp"
-        android:text="1 столбец"
-        android:singleLine="false"
         android:layout_gravity="center"
-        />
+        android:layout_margin="5sp"
+        android:layout_weight="2"
+        android:background="@color/purple_200"
+        android:hint="1 столбец"
+        android:padding="5sp"
+        android:singleLine="false"
+        android:textAlignment="gravity"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textViewRowValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5sp"
         android:layout_margin="5sp"
-        android:textAlignment="center"
         android:background="@color/teal_200"
-        android:textSize="24sp"
-        android:text="2 столбец"
+        android:hint="2 столбец"
+        android:padding="5sp"
         android:singleLine="false"
-        android:layout_gravity="center"
-        />
+        android:textAlignment="center"
+        android:textSize="24sp" />
 </LinearLayout>

@@ -45,18 +45,21 @@ class ActivityExtended : AppCompatActivity() {
 
         val listRow = ArrayList<TableRowModel> ()
 
-        var row1 = TableRowModel("столбец 1", "столбец 2")
+        var row1 = TableRowModel("Число фаз", "столбец 2")
 
-        var row2 = TableRowModel("столбец 1", "столбец 2")
+        var row2 = TableRowModel("Мощность", "столбец 2")
 
-        var row3 = TableRowModel("столбец 1", "столбец 2")
+        var row3 = TableRowModel("Кабель", "столбец 2")
 
-        var row4 = TableRowModel("столбец 1", "столбец 2")
+        var row4 = TableRowModel("Расчетный ток", "столбец 2")
+
+        var row5 = TableRowModel("Допустимый ток", "столбец 2")
 
         listRow.add(row1)
         listRow.add(row2)
         listRow.add(row3)
         listRow.add(row4)
+        listRow.add(row5)
 
         return listRow
     }
