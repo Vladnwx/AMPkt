@@ -29,9 +29,8 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     - name: Build release APK and AAB
-      run: |
+      run: 
         ./gradlew assembleRelease
-        ./gradlew bundleRelease
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with: 
