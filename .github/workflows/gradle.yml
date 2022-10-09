@@ -18,7 +18,6 @@ permissions:
 
 jobs:
   build:
-    if: startsWith(github.head_ref, 'release/') == true
     name: Build release artifacts
     runs-on: ubuntu-latest
     steps:
