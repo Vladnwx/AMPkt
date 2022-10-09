@@ -49,14 +49,15 @@ val temp :Double
 
             temp1 = amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble()).toString()
             temp =  amperageFormula(power.toDouble(), voltage.toDouble(), countPhase.toDouble(), cosf.toDouble())
-            return temp
-         } catch (e: Exception) {
+            temp
+        } catch (e: Exception) {
             println("Exception")
             println(e.message)
             Log.i("Exception", e.message.toString())
             0.0
         }
     }
+
     fun amperage (power: Double, countPhase: Double, cosf: Double) :String {
 
         return try {
