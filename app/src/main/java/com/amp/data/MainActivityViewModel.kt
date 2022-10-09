@@ -6,6 +6,7 @@ import com.amp.calculation.Calculation
 import com.amp.data.entity.*
 import kotlinx.coroutines.launch
 import java.lang.Double.parseDouble
+import kotlin.math.roundToInt
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
@@ -21,7 +22,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var countPhase: String = "1.0"
 
-    var amperageCalculate: Double = 0.0
+    var amperageCalculate: Double = 1.0
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
@@ -66,7 +67,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var amperageShort: String = "0.0"
 
-    var amperage: Double = 0.0
+    var amperage: Double = 1.0
 
     var pLiveData: MutableLiveData<Double> = MutableLiveData(1.0)
 
@@ -81,19 +82,43 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
 
-    private fun getNominalSizeFromAmperage(){
+    private fun getNominalSizeFromAmperage()  {
         var i: Int =0
+        var gain: Int = 1
+        var size = allNominalSizeList.size
         parallelCableCount=1
-        while (amperageCalculate>= amperage){
-        nominalSize = allNominalSizeList[i]
+
+        while (amperageCalculate>= amperage) {
+            nominalSize = allNominalSizeList[i]
             getAmperage()
+            if (amperage == 0.0) {
+                i++
+            continue}
             amperage = amperage*parallelCableCount
+
+            if(amperage>0) {
+                gain = (amperageCalculate/amperage).toInt()
+                if(gain > 0)  {
+
+                    if (gain>size){parallelCableCount++
+                    i = 0}
+
+                    if((gain*i)<size){
+                        i=i*gain}
+            }
+            }
+
+
+
+
             if (i<(allNominalSizeList.size-1)) {
                 i++
+                continue
             }
             else {
                 parallelCableCount +=1
                 i /= parallelCableCount
+                continue
                   }
 
         }
@@ -120,7 +145,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
         getAmperage()
         getAmperageShort()
-        getNominalSizeFromAmperage()
+        if (amperageCalculate>= amperage) {getNominalSizeFromAmperage()}
         getR(materialType, nominalSize.toDouble())
         getX(materialType, nominalSize.toDouble())
         countJil = Calculation().countJil(countPhase.toDouble())
