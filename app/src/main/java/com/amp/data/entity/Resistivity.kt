@@ -11,28 +11,22 @@ import androidx.room.PrimaryKey
 
 data class Resistivity (
 
-    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Int,
 
-    @NonNull
     @ColumnInfo(name = "materialType", index = true)
     val materialType: String,
 
-    @NonNull
     @ColumnInfo(name = "nominalSize", index = true)
     val nominalSize: Double,
 
-    @NonNull
     @ColumnInfo(name = "R")
     val R: Double,
 
-    @NonNull
     @ColumnInfo(name = "X")
     val X: Double,
 
-    @NonNull
     @ColumnInfo(name = "p")
     val p: Double
 )

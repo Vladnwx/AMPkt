@@ -86,7 +86,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         parallelCableCount=1
         while (amperageCalculate>= amperage){
         nominalSize = allNominalSizeList[i]
-            this.getAmperage()
+            getAmperage()
             amperage = amperage*parallelCableCount
             if (i<(allNominalSizeList.size-1)) {
                 i++

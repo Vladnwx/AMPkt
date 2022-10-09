@@ -10,7 +10,6 @@ data class NominalSize (
 
     @PrimaryKey
     @ColumnInfo (name = "value")
-    @NonNull
 
 
     val value: Double) {

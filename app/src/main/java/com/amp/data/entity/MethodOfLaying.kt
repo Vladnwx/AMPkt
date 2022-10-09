@@ -12,7 +12,6 @@ data class MethodOfLaying(
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-    @NonNull
     val value: String) {
 
     override fun toString(): String {

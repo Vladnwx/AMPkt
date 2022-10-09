@@ -30,4 +30,5 @@
     <string name="x" translatable="false">X=</string>
     <string name="ExtendedMode">Extended Mode</string>
     <string name="amperageShort">amperageShort</string>
+    <string name="gotomainactivity" translatable="false">Перейти в main Активити</string>
 </resources>

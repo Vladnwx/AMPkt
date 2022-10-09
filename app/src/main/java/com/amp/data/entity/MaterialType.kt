@@ -11,7 +11,6 @@ data class MaterialType (
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-    @NonNull
     val value: String) {
 
     override fun toString(): String {

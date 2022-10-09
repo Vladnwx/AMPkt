@@ -12,7 +12,6 @@ data class TypeAmperage (
 
     @PrimaryKey
     @ColumnInfo(name = "value")
-    @NonNull
     val value: String
                         )
 {

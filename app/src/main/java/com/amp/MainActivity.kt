@@ -7,12 +7,14 @@ import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amp.RecyclerView.ActivityExtended
 import com.amp.data.AppListAdapter
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
@@ -83,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
         val buttonGetCable = findViewById<Button>(R.id.ButtonGetCable)
 
-        val switchExtendedMode = findViewById<Switch>(R.id.SwitchExtendedMode)
+        val switchExtendedMode = findViewById<SwitchCompat>(R.id.SwitchExtendedMode)
 
 
         editTextVoltage.setText(mainActivityViewModel.v)
