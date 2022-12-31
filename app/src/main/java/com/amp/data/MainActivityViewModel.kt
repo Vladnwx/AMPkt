@@ -4,9 +4,8 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.amp.calculation.Calculation
 import com.amp.data.entity.*
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.lang.Double.parseDouble
-import kotlin.math.roundToInt
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
@@ -30,7 +29,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var allNominalSizeList: ArrayList<Double> = arrayListOf(0.0)
 
-
+    var nominalSizeAmperageMap = mutableMapOf(0.5 to 0.0)
 
 
     val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
@@ -57,11 +56,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var insulationType: String = "PVC"
 
-    var R: String = "0.0"
+    var r: String = "0.0"
 
     lateinit var RLiveData: LiveData<Double>
 
-    var X: String = "0.0"
+    var x: String = "0.0"
 
     lateinit var XLiveData: LiveData<Double>
 
@@ -80,68 +79,90 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     var cableText: String = "3x1.5"
 
 
-
-
-    private fun getNominalSizeFromAmperage()  {
+       private fun getNominalSizeFromAmperage()  {
         var i: Int =0
         var gain: Int = 1
         var size = allNominalSizeList.size
-        parallelCableCount=1
+        var parallelCableCounttemp = 1
+        var amperageTemp :Double = 1.0
+           var maxAmperageTemp : Double = 1.0
+           maxAmperageTemp = nominalSizeAmperageMap.maxOfOrNull { it.value }!!
 
-        while (amperageCalculate>= amperage) {
+        while (amperageCalculate>= amperageTemp) {
+            if ((amperageCalculate>maxAmperageTemp) and (amperageTemp>0)){
+                parallelCableCounttemp +=1
+                    maxAmperageTemp *= parallelCableCounttemp
+                    amperageTemp = nominalSizeAmperageMap.getValue(allNominalSizeList[i])*parallelCableCounttemp
+                    continue
+            }
+            if (amperageCalculate>0){
+            gain = (maxAmperageTemp/amperageCalculate).toInt()}
+
+            if ((gain>0) and (gain<2)) {
+                i=size/2
+                continue
+            }
+
+            amperageTemp = nominalSizeAmperageMap.getValue(allNominalSizeList[i])*parallelCableCounttemp
+
+
+            if ((i<(size)) and (amperageCalculate>amperageTemp))  {
+                i++
+                amperageTemp = nominalSizeAmperageMap.getValue(allNominalSizeList[i])*parallelCableCounttemp
+                nominalSize = allNominalSizeList[i]
+                amperage = amperageTemp
+                parallelCableCount =parallelCableCounttemp
+                continue}
+
             nominalSize = allNominalSizeList[i]
-            getAmperage()
-            if (amperage == 0.0) {
-                i++
-            continue}
-            amperage = amperage*parallelCableCount
-
-            if(amperage>0) {
-                gain = (amperageCalculate/amperage).toInt()
-                if(gain > 0)  {
-
-                    if (gain>size){parallelCableCount++
-                    i = 0}
-
-                    if((gain*i)<size){
-                        i=i*gain}
-            }
-            }
-
-
-
-
-            if (i<(allNominalSizeList.size-1)) {
-                i++
-                continue
-            }
-            else {
-                parallelCableCount +=1
-                i /= parallelCableCount
-                continue
-                  }
-
+            amperage = amperageTemp
+            parallelCableCount =parallelCableCounttemp
         }
 
     }
 
     fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        R = repository.getR(materialType, nominalSize).toString()
+        r = repository.getR(materialType, nominalSize).toString()
         // RLiveData = repository.getRLiveData(materialType, nominalSize)
     }
 
     fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        X = repository.getX(materialType, nominalSize).toString()
+        x = repository.getX(materialType, nominalSize).toString()
     }
     fun getAmperage() = viewModelScope.launch {
         amperage = repository.getAmperage(methodOfLaying, nominalSize, materialType, insulationType, typeAmperage, numberOfCore, typeOfEnvironment)
     }
+     fun getAmperage(easy : Boolean) = viewModelScope.launch {
+         if (easy) {
+             allNominalSizeList.forEach { i ->
+                 var temp = repository.getAmperage(
+                     "single laying",
+                     i,
+                     "Cu",
+                     "PVC",
+                     "AC",
+                     "multicore3",
+                     "air"
+                 )
+                 nominalSizeAmperageMap.put(i, temp)
+
+
+             }
+         }
+     }
+
+
+
+
+
+
     fun getAmperageShort() = viewModelScope.launch {
         amperageShort = repository.getAmperageShort(materialType, nominalSize.toDouble(), insulationType).toString()
     }
 
 
-    fun calculate () {
+     fun calculate () {
+         getAmperage(easy = true)
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
         getAmperage()
         getAmperageShort()

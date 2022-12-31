@@ -14,7 +14,6 @@ import com.amp.RecyclerView.ActivityExtended
 import com.amp.data.AppListAdapter
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
-import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class MainActivity : AppCompatActivity() {
@@ -145,8 +144,8 @@ class MainActivity : AppCompatActivity() {
             editTextCos.setText(mainActivityViewModel.cos)
             editTextPower.setText(mainActivityViewModel.p)
             textViewCableValue.text = mainActivityViewModel.cableText
-            textViewRValue.text = mainActivityViewModel.R
-            textViewXValue.text = mainActivityViewModel.X
+            textViewRValue.text = mainActivityViewModel.r
+            textViewXValue.text = mainActivityViewModel.x
             textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
             textViewAmperageShortValue.text = mainActivityViewModel.amperageShort
         }
