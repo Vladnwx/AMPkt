@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             Log.i("Exception", ":LIST")
             Toast.makeText(this, "Лист поперечных сечений сформирован", Toast.LENGTH_SHORT).show()
 
+
         }
 
 

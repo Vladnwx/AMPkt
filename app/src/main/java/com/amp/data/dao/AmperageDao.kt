@@ -1187,7 +1187,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1030,
                          'air',
                          'multicore3',
                          'AC',
@@ -1198,7 +1198,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1143,
                          'air',
                          'multicore3',
                          'AC',
@@ -1418,7 +1418,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1030,
                          'earth',
                          'multicore3',
                          'AC',
@@ -1429,7 +1429,7 @@ interface AmperageDao:BaseDAO<Amperage>{
                      ),
                      (
                          'single laying',
-                         0,
+                         1143,
                          'earth',
                          'multicore3',
                          'AC',

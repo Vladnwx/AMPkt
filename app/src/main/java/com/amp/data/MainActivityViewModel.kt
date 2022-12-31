@@ -6,12 +6,17 @@ import com.amp.calculation.Calculation
 import com.amp.data.entity.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 class MainActivityViewModel(private val repository: AppRepository) : ViewModel() {
 
     init {
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
+
+    var nominalSizeListSformirovan = false
+
+    var nominalSizeAmperageMapSformirovan = false
 
     var p: String = "1.0"
 
@@ -80,15 +85,46 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
        private fun getNominalSizeFromAmperage()  {
-        var i: Int =0
+        parallelCableCount = 1
+           nominalSize = nominalSizeAmperageMap.keys.firstOrNull()!!
+           var i: Int =0
         var gain: Int = 1
-        var size = allNominalSizeList.size
-        var parallelCableCounttemp = 1
+           var size = nominalSizeAmperageMap.keys.size
+        var parallelCableCounttemp = 1.0
         var amperageTemp :Double = 1.0
            var maxAmperageTemp : Double = 1.0
            maxAmperageTemp = nominalSizeAmperageMap.maxOfOrNull { it.value }!!
 
-        while (amperageCalculate>= amperageTemp) {
+           if (amperageCalculate>maxAmperageTemp && amperageTemp>0 && maxAmperageTemp>0) {
+              var parallelCableCounttemp = (amperageCalculate/maxAmperageTemp)
+               while (parallelCableCounttemp.roundToInt()>parallelCableCount) { parallelCableCount++}
+               var nominalSizeAmperageMapTemp = nominalSizeAmperageMap
+               nominalSizeAmperageMapTemp.forEach {nominalSizeAmperageMapTemp.put(it.key, it.value*parallelCableCount )}
+
+               nominalSize = nominalSizeAmperageMap.values.firstOrNull()!!
+
+               for (it in nominalSizeAmperageMapTemp) {
+                   if (it.value > amperageCalculate) {amperage = it.value
+                       nominalSize = it.key
+                       break}
+                   else continue
+               }
+           }
+           else if (amperageCalculate<maxAmperageTemp) {
+               parallelCableCount = 1
+               nominalSize = nominalSizeAmperageMap.values.firstOrNull()!!
+
+                      for (it in nominalSizeAmperageMap) {
+                          if (it.value > amperageCalculate) {amperage = it.value
+                              nominalSize = it.key
+                          break}
+                          else continue
+                      }
+                                   }
+
+
+
+       /* while (amperageCalculate>= amperageTemp) {
             if ((amperageCalculate>maxAmperageTemp) and (amperageTemp>0)){
                 parallelCableCounttemp +=1
                     maxAmperageTemp *= parallelCableCounttemp
@@ -117,7 +153,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
             nominalSize = allNominalSizeList[i]
             amperage = amperageTemp
             parallelCableCount =parallelCableCounttemp
-        }
+        }*/
 
     }
 
@@ -145,9 +181,8 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
                      "air"
                  )
                  nominalSizeAmperageMap.put(i, temp)
-
-
              }
+             nominalSizeAmperageMapSformirovan = true
          }
      }
 
@@ -162,10 +197,10 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
      fun calculate () {
-         getAmperage(easy = true)
+         if (!nominalSizeAmperageMapSformirovan){getAmperage(easy = true)}
         amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
-        getAmperage()
-        getAmperageShort()
+        //getAmperage()
+        //getAmperageShort()
         if (amperageCalculate>= amperage) {getNominalSizeFromAmperage()}
         getR(materialType, nominalSize.toDouble())
         getX(materialType, nominalSize.toDouble())
@@ -186,8 +221,6 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     fun insert(nominalSize: NominalSize) = viewModelScope.launch {
         repository.insert(nominalSize)
           }
-
-
 
 }
 
