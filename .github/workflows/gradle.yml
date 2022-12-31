@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   build:
@@ -32,7 +33,7 @@ jobs:
       with:
         arguments: build
     - name: Upload APK
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: app-release.apk
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        path: /home/runner/work/AMPkt/AMPkt/app/build/outputs/apk/release/app-release-unsigned.apk
