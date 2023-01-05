@@ -1,7 +1,5 @@
 package com.amp.data
 
-import com.amp.calculation.Calculation
-
 // Это класс для описания параметров нагрузки
 
 class ElectricalLoad {

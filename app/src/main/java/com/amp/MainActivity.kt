@@ -34,30 +34,30 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        mainActivityViewModel.allTypeOfEnvironment.observe(this){
+      /*  mainActivityViewModel.allTypeOfEnvironment.observe(this){
             it.let { adapter.submitList(it) }
         }
-
+*/
      //   mainActivityViewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
 
         Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
 
-        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.allNominalSizeList)
+        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.selectionData.allNominalSizeList)
         nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNominalSize.adapter = nominalSizeAdapter
 
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
-        val countPhaseAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.countPhaseList)
+        val countPhaseAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.selectionData.countPhaseList)
         countPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCountPhase.adapter = countPhaseAdapter
 
         mainActivityViewModel.allNominalSize.observe(this){
 
             for (i in it.indices) {
-                mainActivityViewModel.allNominalSizeList.add(it[i].value) }
-            mainActivityViewModel.allNominalSizeList.remove(0.0)
+                mainActivityViewModel.selectionData.allNominalSizeList.add(it[i].value) }
+            mainActivityViewModel.selectionData.allNominalSizeList.remove(0.0)
             spinnerNominalSize.setSelection(0)
             Log.i("Exception", ":LIST")
             Toast.makeText(this, "Лист поперечных сечений сформирован", Toast.LENGTH_SHORT).show()
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         editTextCos.setText(mainActivityViewModel.electricalLoad.cos.toString())
         editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
 
-        mainActivityViewModel.pLiveData.observe(this){
+        mainActivityViewModel.selectionData.pLiveData.observe(this){
             textViewXValue.text = it.toString()
         }
 

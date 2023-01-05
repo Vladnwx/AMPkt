@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.amp.calculation.Calculation
 import com.amp.data.entity.*
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -18,58 +17,28 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var feeder : Feeder = Feeder()
 
-    var nominalSizeListSformirovan = false
-
-    var nominalSizeAmperageMapSformirovan = false
+    var selectionData : SelectionData = SelectionData()
 
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    var allNominalSizeList: ArrayList<Double> = arrayListOf(0.0)
-
-    var nominalSizeAmperageMap = mutableMapOf(0.5 to 0.0)
-
-    val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>> = repository.allTypeOfEnvironments.asLiveData()
-
-    val allTypeAmperage: LiveData<List<TypeAmperage>> = repository.allTypeAmperage.asLiveData()
-
-        val allNumberOfCore: LiveData<List<NumberOfCore>> = repository.allNumberOfCore.asLiveData()
-
-
-    val allMethodOfLaying: LiveData<List<MethodOfLaying>> = repository.allMethodOfLaying.asLiveData()
-
-
-    val allMaterialType: LiveData<List<MaterialType>> = repository.allMaterialType.asLiveData()
-
-    val allInsulationType: LiveData<List<InsulationType>> = repository.allInsulationType.asLiveData()
-
-    lateinit var RLiveData: LiveData<Double>
-
-     lateinit var XLiveData: LiveData<Double>
-
-    var pLiveData: MutableLiveData<Double> = MutableLiveData(1.0)
-
-    var countPhaseList: List<String> = listOf("1","2", "3")
-
-
-
        private fun getNominalSizeFromAmperage()  {
            feeder.parallelCableCount = 1
-           feeder.nominalSize = nominalSizeAmperageMap.keys.firstOrNull()!!
+           feeder.nominalSize = selectionData.nominalSizeAmperageMap.keys.firstOrNull()!!
            var i: Int =0
         var gain: Int = 1
-           var size = nominalSizeAmperageMap.keys.size
+           var size = selectionData.nominalSizeAmperageMap.keys.size
         var parallelCableCounttemp = 1.0
         var amperageTemp :Double = 1.0
            var maxAmperageTemp : Double = 1.0
-           maxAmperageTemp = nominalSizeAmperageMap.maxOfOrNull { it.value }!!
+           maxAmperageTemp = selectionData.nominalSizeAmperageMap.maxOfOrNull { it.value }!!
 
            if (electricalLoad.amperageCalculate>maxAmperageTemp && amperageTemp>0 && maxAmperageTemp>0) {
               var parallelCableCounttemp = (electricalLoad.amperageCalculate/maxAmperageTemp)
                while (parallelCableCounttemp.roundToInt()>feeder.parallelCableCount) { feeder.parallelCableCount++}
-               var nominalSizeAmperageMapTemp = nominalSizeAmperageMap
+               var nominalSizeAmperageMapTemp = selectionData.nominalSizeAmperageMap
                nominalSizeAmperageMapTemp.forEach {nominalSizeAmperageMapTemp.put(it.key, it.value*feeder.parallelCableCount )}
 
-               feeder.nominalSize = nominalSizeAmperageMap.values.firstOrNull()!!
+               feeder.nominalSize = selectionData.nominalSizeAmperageMap.values.firstOrNull()!!
 
                for (it in nominalSizeAmperageMapTemp) {
                    if (it.value > electricalLoad.amperageCalculate) {feeder.amperage = it.value
@@ -80,9 +49,9 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
            }
            else if (electricalLoad.amperageCalculate<maxAmperageTemp) {
                feeder.parallelCableCount = 1
-               feeder.nominalSize = nominalSizeAmperageMap.values.firstOrNull()!!
+               feeder.nominalSize = selectionData.nominalSizeAmperageMap.values.firstOrNull()!!
 
-                      for (it in nominalSizeAmperageMap) {
+                      for (it in selectionData.nominalSizeAmperageMap) {
                           if (it.value > electricalLoad.amperageCalculate) {feeder.amperage = it.value
                               feeder.nominalSize = it.key
                           break}
@@ -138,7 +107,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
     }
      fun getAmperage(easy : Boolean) = viewModelScope.launch {
          if (easy) {
-             allNominalSizeList.forEach { i ->
+             selectionData.allNominalSizeList.forEach { i ->
                  var temp = repository.getAmperage(
                      "single laying",
                      i,
@@ -148,16 +117,11 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
                      "multicore3",
                      "air"
                  )
-                 nominalSizeAmperageMap.put(i, temp)
+                 selectionData.nominalSizeAmperageMap.put(i, temp)
              }
-             nominalSizeAmperageMapSformirovan = true
+             selectionData.nominalSizeAmperageMapSformirovan = true
          }
      }
-
-
-
-
-
 
     fun getAmperageShort() = viewModelScope.launch {
         feeder.amperageShort = repository.getAmperageShort(feeder.materialType, feeder.nominalSize, feeder.insulationType)
@@ -165,7 +129,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
 
      fun calculate () {
-         if (!nominalSizeAmperageMapSformirovan){getAmperage(easy = true)}
+         if (!selectionData.nominalSizeAmperageMapSformirovan){getAmperage(easy = true)}
          electricalLoad.amperageCalculate = Calculation().amperage(power = electricalLoad.p, voltage = electricalLoad.v, countPhase= electricalLoad.countPhase, cosf = electricalLoad.cos)
         //getAmperage()
         //getAmperageShort()

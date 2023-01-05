@@ -6,7 +6,7 @@
     <string name="Resistance_x_ohm_km">Сопротивление X, Ом</string>
     <string name="EquivalentSection">Эквивалентное сечение</string>
     <string name="MethodOfLaying">Способ прокладки</string>
-    <string name="InsulationType">X=</string>
+    <string name="InsulationType">Материал изоляции</string>
     <string name="MaterialType">Материал проводника</string>
     <string name="TypeAmperage">Тип тока</string>
     <string name="NumberOfCore">Число жил</string>

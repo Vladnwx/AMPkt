@@ -12,6 +12,7 @@ class TableRowAdapter: RecyclerView.Adapter<TableRowAdapter.TableRowViewHolder> 
 
     private var tableRowList = emptyList<TableRowModel>()
 
+    //private var tableRowList1 = TableRowModelMap()
 
     class TableRowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -25,6 +26,8 @@ class TableRowAdapter: RecyclerView.Adapter<TableRowAdapter.TableRowViewHolder> 
     override fun onBindViewHolder(holder: TableRowViewHolder, position: Int) {
         holder.itemView.findViewById<TextView>(R.id.textViewRow).text = tableRowList[position].title
         holder.itemView.findViewById<TextView>(R.id.textViewRowValue).text = tableRowList[position].titleValue
+
+
 
     }
 
