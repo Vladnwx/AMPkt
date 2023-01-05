@@ -88,9 +88,9 @@ class MainActivity : AppCompatActivity() {
         val switchExtendedMode = findViewById<SwitchCompat>(R.id.SwitchExtendedMode)
 
 
-        editTextVoltage.setText(mainActivityViewModel.v)
-        editTextCos.setText(mainActivityViewModel.cos)
-        editTextPower.setText(mainActivityViewModel.electricalLoad.p)
+        editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
+        editTextCos.setText(mainActivityViewModel.electricalLoad.cos.toString())
+        editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
 
         mainActivityViewModel.pLiveData.observe(this){
             textViewXValue.text = it.toString()
@@ -129,26 +129,26 @@ class MainActivity : AppCompatActivity() {
             }
 
          fun sendDataToViewModel(){
-            mainActivityViewModel.nominalSize = spinnerNominalSize.selectedItem as Double
-            mainActivityViewModel.countPhase = spinnerCountPhase.selectedItem.toString()
-            mainActivityViewModel.v = editTextVoltage.text.toString()
-            mainActivityViewModel.cos = editTextCos.text.toString()
-            mainActivityViewModel.p = editTextPower.text.toString()
+            mainActivityViewModel.feeder.nominalSize = spinnerNominalSize.selectedItem as Double
+            mainActivityViewModel.electricalLoad.countPhase = spinnerCountPhase.selectedItem as Double
+            mainActivityViewModel.electricalLoad.v = editTextVoltage.text as Double
+            mainActivityViewModel.electricalLoad.cos = editTextCos.text as Double
+            mainActivityViewModel.electricalLoad.p = editTextPower.text as Double
 
             mainActivityViewModel.calculate()
         }
 
         fun getDataFromViewModel(){
 
-            textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.amperageCalculate)
-            editTextVoltage.setText(mainActivityViewModel.v)
-            editTextCos.setText(mainActivityViewModel.cos)
-            editTextPower.setText(mainActivityViewModel.electricalLoad.p)
-            textViewCableValue.text = mainActivityViewModel.cableText
-            textViewRValue.text = mainActivityViewModel.r
-            textViewXValue.text = mainActivityViewModel.x
-            textViewAmperageValue.text = mainActivityViewModel.amperage.toString()
-            textViewAmperageShortValue.text = mainActivityViewModel.amperageShort
+            textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
+            editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
+            editTextCos.setText(mainActivityViewModel.electricalLoad.cos.toString())
+            editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
+            textViewCableValue.text = mainActivityViewModel.feeder.cableText
+            textViewRValue.text = mainActivityViewModel.feeder.r.toString()
+            textViewXValue.text = mainActivityViewModel.feeder.x.toString()
+            textViewAmperageValue.text = mainActivityViewModel.feeder.amperage.toString()
+            textViewAmperageShortValue.text = mainActivityViewModel.feeder.amperageShort.toString()
         }
 
 
@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
            // Log.i("Расчетный ток", i.toString())
             //Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
             //textViewCurrentAmperageValue.setText(i.toString())
-            sendDataToViewModel()
+            //sendDataToViewModel()
 
             getDataFromViewModel()
              Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()

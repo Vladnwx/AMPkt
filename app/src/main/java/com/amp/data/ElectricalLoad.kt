@@ -1,45 +1,57 @@
 package com.amp.data
 
+import com.amp.calculation.Calculation
+
 // Это класс для описания параметров нагрузки
 
 class ElectricalLoad {
 
-    var p: String
-        get() {
-            return p
+    var p: Double
+        get() = field
+        set(value) {
+            field = value
         }
-        set(value) {}
-    var v: String
-        get() {
-            return v
+    var v: Double
+        get() = field
+        set(value) {
+            field = value
         }
-        set(value) {}
-    var cos: String
-        get() {
-            return cos
+    var cos: Double
+        get() = field
+        set(value) {
+            field = value
         }
-        set(value) {}
-    var countPhase: String
-        get() {
-            return countPhase
+    var countPhase: Double
+        get() = field
+        set(value) {
+            field = value
         }
-        set(value) {}
-    var lineLength: String
-        get() {
-            return lineLength
+    var lineLength: Double
+        get() = field
+        set(value) {
+            field = value
         }
-        set(value) {}
+    var amperageCalculate: Double
+        get() = field
+        set(value) {
+            field = value
+        }
 
     enum class TypeLoad {Single, MultiLoad}
     var typeLoad : TypeLoad
+        get() = field
+        set(value) {
+            field = value
+        }
 
     constructor()
     {
-        p = "1.0"
-        v = "220.0"
-        cos = "1.0"
-        countPhase = "1.0"
-        lineLength = "1.0"
+        p = 1.0
+        v = 220.0
+        cos = 1.0
+        countPhase = 1.0
+        lineLength = 1.0
+        amperageCalculate = p/(v*cos*countPhase)
         typeLoad = TypeLoad.Single
     }
 }
