@@ -31,7 +31,7 @@ class ElectricalLoad {
         set(value) {}
 
     enum class TypeLoad {Single, MultiLoad}
-    var typeLoad : TypeLoad = TypeLoad.Single
+    var typeLoad : TypeLoad
 
     constructor()
     {
@@ -40,6 +40,6 @@ class ElectricalLoad {
         cos = "1.0"
         countPhase = "1.0"
         lineLength = "1.0"
-        val s = typeLoad.toString()
+        typeLoad = TypeLoad.Single
     }
 }

@@ -19,6 +19,8 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     var nominalSizeAmperageMapSformirovan = false
 
+    var electricalLoad : ElectricalLoad = ElectricalLoad()
+
     var p: String = "1.0"
 
     var v: String = "220.0"
@@ -199,7 +201,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
      fun calculate () {
          if (!nominalSizeAmperageMapSformirovan){getAmperage(easy = true)}
-        amperageCalculate = Calculation().amperage(power = p, voltage = v, countPhase= countPhase, cosf = cos)
+        amperageCalculate = Calculation().amperage(power = electricalLoad.p, voltage = v, countPhase= countPhase, cosf = cos)
         //getAmperage()
         //getAmperageShort()
         if (amperageCalculate>= amperage) {getNominalSizeFromAmperage()}

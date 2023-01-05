@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         editTextVoltage.setText(mainActivityViewModel.v)
         editTextCos.setText(mainActivityViewModel.cos)
-        editTextPower.setText(mainActivityViewModel.p)
+        editTextPower.setText(mainActivityViewModel.electricalLoad.p)
 
         mainActivityViewModel.pLiveData.observe(this){
             textViewXValue.text = it.toString()
@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.amperageCalculate)
             editTextVoltage.setText(mainActivityViewModel.v)
             editTextCos.setText(mainActivityViewModel.cos)
-            editTextPower.setText(mainActivityViewModel.p)
+            editTextPower.setText(mainActivityViewModel.electricalLoad.p)
             textViewCableValue.text = mainActivityViewModel.cableText
             textViewRValue.text = mainActivityViewModel.r
             textViewXValue.text = mainActivityViewModel.x
