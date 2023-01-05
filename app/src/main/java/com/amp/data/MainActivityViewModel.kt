@@ -14,6 +14,7 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
         Log.i("MainActivityViewModel", "MainActivityViewModel created!")
     }
 
+
     var nominalSizeListSformirovan = false
 
     var nominalSizeAmperageMapSformirovan = false
