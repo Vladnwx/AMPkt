@@ -1,5 +1,7 @@
 package com.amp.data
 
+// Это класс для описания параметров нагрузки
+
 class ElectricalLoad {
 
     var p: String
@@ -38,5 +40,6 @@ class ElectricalLoad {
         cos = "1.0"
         countPhase = "1.0"
         lineLength = "1.0"
+        val s = typeLoad.toString()
     }
 }
