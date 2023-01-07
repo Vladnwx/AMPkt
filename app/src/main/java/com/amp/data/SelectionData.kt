@@ -26,7 +26,7 @@ class SelectionData {
             field = value
         }
 
-    var nominalSizeAmperageMap : MutableMap<Double, Double>
+    var nominalSizeAmperageMap : MutableMap<Double, Double> = mutableMapOf(0.5 to 0.0)
 
     //abstract val allTypeOfEnvironment: LiveData<List<TypeOfEnvironment>>
 
@@ -52,8 +52,6 @@ class SelectionData {
             field = value
         }
 
-    constructor(){
-        nominalSizeAmperageMap = mutableMapOf(0.5 to 0.0)
-    }
+
 
 }

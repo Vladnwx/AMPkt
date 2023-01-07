@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textViewRow"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="5sp"
         android:layout_weight="2"
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/textViewRowValue"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="5sp"
         android:background="@color/teal_200"
         android:hint="2 столбец"

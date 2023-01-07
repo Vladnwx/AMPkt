@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity() {
             mainActivityViewModel.electricalLoad.cos = editTextCos.text as Double
             mainActivityViewModel.electricalLoad.p = editTextPower.text as Double
 
-            mainActivityViewModel.calculate()
+           // mainActivityViewModel.calculate()
         }
 
         fun getDataFromViewModel(){

@@ -42,6 +42,17 @@ class ElectricalLoad {
             field = value
         }
 
+    enum class WindingConnectionDiagram { Star, Triangle, Zigzag}
+    var windingConnectionDiagram : WindingConnectionDiagram
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    var automaticSelectionOfStandardVoltage :Boolean
+
+    var considerСos :Boolean
+
     constructor()
     {
         p = 1.0
@@ -51,5 +62,8 @@ class ElectricalLoad {
         lineLength = 1.0
         amperageCalculate = p/(v*cos*countPhase)
         typeLoad = TypeLoad.Single
+        windingConnectionDiagram = WindingConnectionDiagram.Star
+        automaticSelectionOfStandardVoltage = true
+        considerСos = false
     }
 }
