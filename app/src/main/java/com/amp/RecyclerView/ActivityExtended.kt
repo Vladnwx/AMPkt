@@ -1,7 +1,6 @@
 package com.amp.RecyclerView
 
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -18,10 +17,7 @@ class ActivityExtended : AppCompatActivity() {
 
     lateinit var recyclerView : RecyclerView
 
-    var tableRowModelMap = mutableMapOf("0" to "0")
-
-
-
+    var tableRowModelMap = TableRowModelMap().tableRowModelMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,15 +30,11 @@ class ActivityExtended : AppCompatActivity() {
         recyclerView.adapter = adapter
         adapter.setList(rowAdd())
 
-
-
         val buttonActivityMain =  findViewById<Button>(R.id.ButtonActivityMain)
 
         buttonActivityMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
-
         }
     }
 
@@ -50,8 +42,23 @@ class ActivityExtended : AppCompatActivity() {
 
         val listRow = ArrayList<TableRowModel> ()
 
-        var s :String = getString(R.string.InsulationType)
-        tableRowModelMap.put(s , "111")
+        listRow.add(TableRowModel() )
+
+        val row1 = TableRowModel()
+        row1.title = getString(R.string.TypeOfEnvironment)
+        row1.titleValue = "air"
+        row1.viewType = TableRowModel.Text
+        listRow.add(row1)
+
+        val row2 = TableRowModel()
+        row1.title = getString(R.string.Voltage)
+        row1.titleValue = "230"
+        row1.viewType = TableRowModel.EditText
+        listRow.add(row2)
+
+      //  tableRowModelMap = TableRowModelMap().tableRowModelMap
+        /*
+
         tableRowModelMap.put(getString(R.string.TypeOfEnvironment) , "1")
         tableRowModelMap.put(getString(R.string.NumberOfCore), "2")
         tableRowModelMap.put(getString(R.string.MaterialType), "3")
@@ -70,15 +77,13 @@ class ActivityExtended : AppCompatActivity() {
         tableRowModelMap.put(getString(R.string.cos_phi), "16")
         tableRowModelMap.put(getString(R.string.power), "17")
         tableRowModelMap.remove("0")
-
+*/
+        /*
         tableRowModelMap.forEach() {
             var row = TableRowModel(it.key, it.value)
             listRow.add(row)
-        }
+        }*/
 
         return listRow
     }
-
-
-
 }

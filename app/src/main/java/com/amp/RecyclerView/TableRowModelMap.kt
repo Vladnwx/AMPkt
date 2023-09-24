@@ -4,7 +4,6 @@ import com.amp.R
 class TableRowModelMap {
      var tableRowModelMap = mutableMapOf("0" to "0")
 
-
     constructor () {
 
         tableRowModelMap.put(R.string.TypeOfEnvironment.toString() , "1")
@@ -24,6 +23,7 @@ class TableRowModelMap {
         tableRowModelMap.put(R.string.Voltage.toString(), "15")
         tableRowModelMap.put(R.string.cos_phi.toString(), "16")
         tableRowModelMap.put(R.string.power.toString(), "17")
+        tableRowModelMap.remove("0")
 
     }
 

@@ -1,8 +1,36 @@
 package com.amp.data
 
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import java.util.UUID
+
 // Это Класс для описанния фидера питающего нагрузку
 
 class Feeder {
+
+    val id = UUID.randomUUID()!!
+        get() = field
+
+    var name: String = ""
+        get() = field
+        set(value) {
+            field = value
+        }
+    var start= UUID.randomUUID()!!
+        get() = field
+        set(value) {
+            field = value
+        }
+    var finish= UUID.randomUUID()!!
+        get() = field
+        set(value) {
+            field = value
+        }
+    var countPhase : Int =1
+        get() = field
+        set(value) {
+            field = value
+        }
 
     var nominalSize: Double
         get() = field
@@ -97,5 +125,21 @@ class Feeder {
         cableTypeText = "ВВГнг(А)-LS"
         cableText = "3x1.5"
     }
+
+    fun refresh () {
+        if (countJil==1) {
+
+            if (nominalSize < 4) {
+                cableText = (countPhase + 2).toString() + "x" + nominalSize.toString()
+            } else cableText = (countPhase + 2).toString() + "x" + nominalSize.toInt().toString()
+        }
+        else { if (nominalSize < 4) {
+            cableText = countJil.toString() +  "x" +  (countPhase + 2).toString() + nominalSize.toString()
+        } else cableText = countJil.toString() +  "x" + (countPhase + 2).toString() + "x" + nominalSize.toInt().toString()
+
+        }
+
+    }
+
 
 }

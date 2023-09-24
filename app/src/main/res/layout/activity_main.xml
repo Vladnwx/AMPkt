@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<LinearLayout android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+
+
 <TableLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,6 +24,159 @@
         tools:listitem="@layout/recyclerview_item"
         android:visibility="gone"
              />
+
+
+
+        <TextView
+            android:id="@+id/TextViewElecttricalLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Характерисики нугрузки:"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextViewCountPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/CountPhase"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/SpinnerCountPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:contentDescription="@string/CountPhase"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+    </TableRow>
+
+    <view
+        android:id="@+id/SwitchAutoVoltage"
+        class="androidx.appcompat.widget.SwitchCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:minHeight="48dp"
+        android:text="Автомтически выбирать напряжение по числу фаз"
+        android:textSize="24sp" />
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextViewVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/Voltage"
+            android:textSize="24sp"
+            />
+
+        <EditText
+            android:id="@+id/EditTextVoltage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="@string/HINT0"
+            android:inputType="textAutoCorrect|numberDecimal"
+            android:numeric="decimal"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <view class="androidx.appcompat.widget.SwitchCompat"
+        android:id="@+id/SwitchConsiderCos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="Учитывать косинус"
+        android:textSize="24sp" />
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextViewCos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/cos_phi"
+            android:textSize="24sp"
+            />
+
+        <EditText
+            android:id="@+id/EditTextCos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:hint="@string/HINT0"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:numeric="decimal"
+            android:singleLine="false"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TextViewPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/power"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/EditTextPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="true"
+            android:hint="@string/HINT0"
+            android:inputType="numberDecimal"
+            android:maxLength="8"
+            android:numeric="decimal"
+            android:textAlignment="center"
+            android:textColorHint="#78909C"
+            android:textSize="24sp"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+    </TableRow>
+
+    <TableRow android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/TextViewCurrentAmperage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/raschetniytok"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TextViewCurrentAmperageValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+        <TextView
+            android:id="@+id/TextViewFider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Характерисики фидера:"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     <TableRow>
 
@@ -44,100 +202,6 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/TextViewCountPhase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="@string/CountPhase"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/SpinnerCountPhase"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:contentDescription="@string/CountPhase"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
-            android:id="@+id/TextViewVoltage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Voltage"
-            android:textSize="24sp"
-            android:visibility="gone" />
-
-        <EditText
-            android:id="@+id/EditTextVoltage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textAutoCorrect|numberDecimal"
-            android:maxLength="4"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:visibility="gone"
-            android:hint="@string/HINT0"
-            />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
-            android:id="@+id/TextViewCos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="@string/cos_phi"
-            android:textSize="24sp"
-            android:visibility="gone" />
-
-        <EditText
-            android:id="@+id/EditTextCos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:maxLength="4"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:visibility="gone"
-            android:hint="@string/HINT0"
-            />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
-            android:id="@+id/TextViewPower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="@string/power"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/EditTextPower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autofillHints="true"
-            android:hint="@string/HINT0"
-            android:inputType="numberDecimal"
-            android:maxLength="8"
-            android:textAlignment="center"
-            android:textColorHint="#78909C"
-            android:textSize="24sp"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-    </TableRow>
-
-    <TableRow>
-
-        <TextView
             android:id="@+id/TextViewCable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,24 +219,7 @@
             android:textSize="24sp" />
     </TableRow>
 
-    <TableRow android:layout_width="match_parent">
 
-        <TextView
-            android:id="@+id/TextViewCurrentAmperage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="@string/raschetniytok"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/TextViewCurrentAmperageValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </TableRow>
 
     <TableRow>
 
@@ -291,3 +338,5 @@
 
 
 </TableLayout>
+
+</LinearLayout>

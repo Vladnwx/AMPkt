@@ -2,6 +2,8 @@ package com.amp
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       val buttonActivityExtended =  findViewById<Button>(R.id.ButtonActivityExtended)
+        val buttonActivityExtended = findViewById<Button>(R.id.ButtonActivityExtended)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -34,29 +36,49 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-      /*  mainActivityViewModel.allTypeOfEnvironment.observe(this){
+        /*  mainActivityViewModel.allTypeOfEnvironment.observe(this){
             it.let { adapter.submitList(it) }
         }
 */
-     //   mainActivityViewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        //   mainActivityViewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
 
         Log.i("MainActivityViewModel", "Called ViewModelProvider.get")
 
         val spinnerNominalSize = findViewById<Spinner>(R.id.SpinnerNominalSize)
 
-        val nominalSizeAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.selectionData.allNominalSizeList)
+        val nominalSizeAdapter = ArrayAdapter(
+            this,
+            R.layout.spinner_item,
+            mainActivityViewModel.selectionData.allNominalSizeList
+        )
         nominalSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerNominalSize.adapter = nominalSizeAdapter
 
+        spinnerNominalSize.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                mainActivityViewModel.feeder.nominalSize = spinnerNominalSize.selectedItem as Double
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+
         val spinnerCountPhase = findViewById<Spinner>(R.id.SpinnerCountPhase)
-        val countPhaseAdapter = ArrayAdapter(this, R.layout.spinner_item, mainActivityViewModel.selectionData.countPhaseList)
+        val countPhaseAdapter = ArrayAdapter(
+            this,
+            R.layout.spinner_item,
+            mainActivityViewModel.selectionData.countPhaseList
+        )
         countPhaseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCountPhase.adapter = countPhaseAdapter
 
-        mainActivityViewModel.allNominalSize.observe(this){
+        mainActivityViewModel.allNominalSize.observe(this) {
 
             for (i in it.indices) {
-                mainActivityViewModel.selectionData.allNominalSizeList.add(it[i].value) }
+                mainActivityViewModel.selectionData.allNominalSizeList.add(it[i].value)
+            }
             mainActivityViewModel.selectionData.allNominalSizeList.remove(0.0)
             spinnerNominalSize.setSelection(0)
             Log.i("Exception", ":LIST")
@@ -65,8 +87,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
-
+        val switchAutoVoltage = findViewById<SwitchCompat>(R.id.SwitchAutoVoltage)
+        val switchConsiderCos = findViewById<SwitchCompat>(R.id.SwitchConsiderCos)
         val textViewNominalSize = findViewById<TextView>(R.id.TextViewNominalSize)
         val textViewCableValue = findViewById<TextView>(R.id.TextViewCableValue)
         val textViewVoltage = findViewById<TextView>(R.id.TextViewVoltage)
@@ -81,24 +103,28 @@ class MainActivity : AppCompatActivity() {
         val textViewAmperageValue = findViewById<TextView>(R.id.TextViewAmperageValue)
 
         val editTextVoltage = findViewById<EditText>(R.id.EditTextVoltage)
+
         val editTextCos = findViewById<EditText>(R.id.EditTextCos)
+
         val editTextPower = findViewById<EditText>(R.id.EditTextPower)
+
         val buttonGetCable = findViewById<Button>(R.id.ButtonGetCable)
 
         val switchExtendedMode = findViewById<SwitchCompat>(R.id.SwitchExtendedMode)
 
-
         editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
         editTextCos.setText(mainActivityViewModel.electricalLoad.cos.toString())
-        editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
 
-        mainActivityViewModel.selectionData.pLiveData.observe(this){
+            editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
+
+        mainActivityViewModel.selectionData.pLiveData.observe(this) {
             textViewXValue.text = it.toString()
         }
+        textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
 
         switchExtendedMode.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
-                textViewNominalSize.visibility= View.VISIBLE
+            if (isChecked) {
+                textViewNominalSize.visibility = View.VISIBLE
                 spinnerNominalSize.visibility = View.VISIBLE
                 textViewVoltage.visibility = View.VISIBLE
                 editTextVoltage.visibility = View.VISIBLE
@@ -111,9 +137,8 @@ class MainActivity : AppCompatActivity() {
                 textViewAmperageShort.visibility = View.VISIBLE
                 textViewAmperageShortValue.visibility = View.VISIBLE
 
-                        }
-            else {
-                textViewNominalSize.visibility= View.GONE
+            } else {
+                textViewNominalSize.visibility = View.GONE
                 spinnerNominalSize.visibility = View.GONE
                 textViewVoltage.visibility = View.GONE
                 editTextVoltage.visibility = View.GONE
@@ -125,25 +150,12 @@ class MainActivity : AppCompatActivity() {
                 textViewXValue.visibility = View.GONE
                 textViewAmperageShort.visibility = View.GONE
                 textViewAmperageShortValue.visibility = View.GONE
-                           }
             }
-
-         fun sendDataToViewModel(){
-            mainActivityViewModel.feeder.nominalSize = spinnerNominalSize.selectedItem as Double
-            mainActivityViewModel.electricalLoad.countPhase = spinnerCountPhase.selectedItem as Double
-            mainActivityViewModel.electricalLoad.v = editTextVoltage.text as Double
-            mainActivityViewModel.electricalLoad.cos = editTextCos.text as Double
-            mainActivityViewModel.electricalLoad.p = editTextPower.text as Double
-
-           // mainActivityViewModel.calculate()
         }
 
-        fun getDataFromViewModel(){
 
-            textViewCurrentAmperageValue.text = String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
-            editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
-            editTextCos.setText(mainActivityViewModel.electricalLoad.cos.toString())
-            editTextPower.setText(mainActivityViewModel.electricalLoad.p.toString())
+        fun getDataFromViewModel() {
+
             textViewCableValue.text = mainActivityViewModel.feeder.cableText
             textViewRValue.text = mainActivityViewModel.feeder.r.toString()
             textViewXValue.text = mainActivityViewModel.feeder.x.toString()
@@ -151,29 +163,115 @@ class MainActivity : AppCompatActivity() {
             textViewAmperageShortValue.text = mainActivityViewModel.feeder.amperageShort.toString()
         }
 
-
-
-        buttonGetCable.setOnClickListener{
-           // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
-           // var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
-           // Log.i("Расчетный ток", i.toString())
+        buttonGetCable.setOnClickListener {
+            // Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
+            // var i = mainActivityViewModel.calculate(editTextPower.text.toString().toInt(), editTextVoltage.text.toString().toInt(), editTextCos.text.toString().toDouble()).toInt()
+            // Log.i("Расчетный ток", i.toString())
             //Toast.makeText(this, i.toString(), Toast.LENGTH_SHORT).show()
             //textViewCurrentAmperageValue.setText(i.toString())
-            //sendDataToViewModel()
+            mainActivityViewModel.feeder.countJil = 1
+            mainActivityViewModel.searchAmperage()
 
             getDataFromViewModel()
-             Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
-          //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
+            Toast.makeText(this, "Кабель подобран", Toast.LENGTH_SHORT).show()
+            //  mainActivityViewModel.pLiveData.postValue(mainActivityViewModel.p)
         }
-
         buttonActivityExtended.setOnClickListener {
             val intent = Intent(this, ActivityExtended::class.java)
             startActivity(intent)
-
         }
+        editTextCos.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //  Toast.makeText(this@MainActivity, "Текст изменен", Toast.LENGTH_SHORT).show()
+            }
+            override fun afterTextChanged(p0: Editable?) {
+                if (editTextCos.text.isNotEmpty()) {
+                    this@MainActivity.mainActivityViewModel.electricalLoad.cos = editTextCos.text.toString().toDoubleOrNull()!!
+                    mainActivityViewModel.calculation.electricalLoad(mainActivityViewModel.electricalLoad)
+                    textViewCurrentAmperageValue.text =  String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
+                }
+                Toast.makeText(this@MainActivity, mainActivityViewModel.electricalLoad.logOrError, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        editTextVoltage.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //  Toast.makeText(this@MainActivity, "Текст изменен", Toast.LENGTH_SHORT).show()
+            }
+            override fun afterTextChanged(p0: Editable?) {
+                if (editTextVoltage.text.isNotEmpty()) {
+                    this@MainActivity.mainActivityViewModel.electricalLoad.v = editTextVoltage.text.toString().toDoubleOrNull()!!
+                    mainActivityViewModel.calculation.electricalLoad(mainActivityViewModel.electricalLoad)
+                    textViewCurrentAmperageValue.text =  String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
+                }
+                Toast.makeText(this@MainActivity, mainActivityViewModel.electricalLoad.logOrError, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        editTextPower.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+              //  Toast.makeText(this@MainActivity, "Текст изменен", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                if (editTextPower.text.isNotEmpty()) {
+                this@MainActivity.mainActivityViewModel.electricalLoad.p = editTextPower.text.toString().toDoubleOrNull()!!
+                    mainActivityViewModel.calculation.electricalLoad(mainActivityViewModel.electricalLoad)
+                    textViewCurrentAmperageValue.text =  String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
+                }
+                Toast.makeText(this@MainActivity, mainActivityViewModel.electricalLoad.logOrError, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        spinnerCountPhase.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+                this@MainActivity.mainActivityViewModel.electricalLoad.countPhase = spinnerCountPhase.selectedItem.toString().toDoubleOrNull()!!
+                mainActivityViewModel.calculation.electricalLoad(mainActivityViewModel.electricalLoad)
+                textViewCurrentAmperageValue.text =  String.format("%.2f", mainActivityViewModel.electricalLoad.amperageCalculate)
+                Toast.makeText(this@MainActivity, mainActivityViewModel.electricalLoad.logOrError, Toast.LENGTH_SHORT).show()
+                if(switchAutoVoltage.isChecked) {
+                    switchAutoVoltage.isChecked = false
+                    switchAutoVoltage.isChecked = true
+                    }
+                            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        switchAutoVoltage.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                when (mainActivityViewModel.electricalLoad.countPhase) {
+                    1.0 -> mainActivityViewModel.electricalLoad.v = 230.0
+                    2.0 -> mainActivityViewModel.electricalLoad.v = 400.0
+                    3.0 -> mainActivityViewModel.electricalLoad.v = 400.0
+                }
+                editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
+                editTextVoltage.isEnabled = false
+            } else {
+                editTextVoltage.setText(mainActivityViewModel.electricalLoad.v.toString())
+                editTextVoltage.isEnabled = true
+            }
+        }
+
+        switchConsiderCos.setOnCheckedChangeListener { _, isChecked ->
+            editTextCos.isEnabled = isChecked
+        }
+
 
     }
 
 
 
-}
+    }
+
+

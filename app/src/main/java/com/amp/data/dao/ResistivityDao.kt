@@ -3,6 +3,7 @@ package com.amp.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.amp.data.Feeder
 import com.amp.data.entity.Resistivity
 import kotlinx.coroutines.flow.Flow
 
@@ -10,10 +11,12 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ResistivityDao:BaseDAO<Resistivity>{
 
+
+
    @Query("SELECT * FROM Resistivity")
     fun getAllFlow(): Flow<List<Resistivity>>
 
-    @Query("SELECT R  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")
+    @Query("SELECT R  FROM resistivity WHERE materialType =:tMaterial_type AND nominalSize = :tNominal_size")
     fun getR(tMaterial_type: String, tNominal_size: Double): Double
 
     @Query("SELECT R  FROM resistivity WHERE materialType = :tMaterial_type AND nominalSize = :tNominal_size")

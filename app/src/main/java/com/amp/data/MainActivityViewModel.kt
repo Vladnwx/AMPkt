@@ -2,6 +2,7 @@ package com.amp.data
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.amp.RecyclerView.TableRowModel
 import com.amp.calculation.Calculation
 import com.amp.data.entity.*
 import kotlinx.coroutines.launch
@@ -21,20 +22,49 @@ class MainActivityViewModel(private val repository: AppRepository) : ViewModel()
 
     val calculation : Calculation = Calculation()
 
-
     val allNominalSize: LiveData<List<NominalSize>> = repository.allNominalSizes.asLiveData()
 
-    fun getR(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        feeder.r = repository.getR(materialType, nominalSize)
-        // RLiveData = repository.getRLiveData(materialType, nominalSize)
+    var allNominalSizeList: MutableList<Double> = mutableListOf(0.0)
+
+    var mapNominalSizeAndAmperage : MutableMap<Double, Double> = mutableMapOf()
+
+    fun fillNominalSizeListFromRepo () = viewModelScope.launch {
+        allNominalSizeList = repository.getAllNominalSizeList()
+            }
+    fun fillmapNominalSizeAndAmperageFromRepo () = viewModelScope.launch {
+        allNominalSizeList.forEach(){
+            mapNominalSizeAndAmperage[it] = repository.getAmperage(feeder.methodOfLaying, it, feeder.materialType, feeder.insulationType, feeder.typeAmperage, feeder.numberOfCore, feeder.typeOfEnvironment)*feeder.countJil
+            mapNominalSizeAndAmperage.values.removeIf{it < 1.0}
+        }
+    }
+    fun searchAmperage () {
+
+        allNominalSizeList.clear()
+        mapNominalSizeAndAmperage.clear()
+        feeder.countPhase = electricalLoad.countPhase.roundToInt()
+        fillNominalSizeListFromRepo()
+        fillmapNominalSizeAndAmperageFromRepo()
+        mapNominalSizeAndAmperage.values.removeIf{it < electricalLoad.amperageCalculate}
+        allNominalSizeList = mapNominalSizeAndAmperage.keys.toMutableList()
+
+        if (allNominalSizeList.isNotEmpty()){
+        feeder.nominalSize = allNominalSizeList[0]
+       }
+        else { feeder.countJil++
+            searchAmperage ()}
+
+        //    feeder.nominalSize = 0.0
+        getDataFeederFromRepo()
+        feeder.refresh()
     }
 
-    fun getX(materialType: String, nominalSize: Double) = viewModelScope.launch {
-        feeder.x = repository.getX(materialType, nominalSize)
-    }
+    fun getDataFeederFromRepo () = viewModelScope.launch {
 
-    fun getAmperageShort() = viewModelScope.launch {
-        feeder.amperageShort = repository.getAmperageShort(feeder.materialType, feeder.nominalSize, feeder.insulationType)
+        feeder.r = repository.getR(feeder)
+        feeder.x = repository.getX(feeder)
+        feeder.amperageShort = repository.getAmperageShort(feeder)
+        feeder.amperage = repository.getAmperage(feeder)*feeder.countJil
+
     }
 
     fun insert(typeOfEnvironment: TypeOfEnvironment) = viewModelScope.launch {

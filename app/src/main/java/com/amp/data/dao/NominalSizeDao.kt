@@ -14,6 +14,8 @@ interface NominalSizeDao :BaseDAO<NominalSize> {
     @Query("SELECT * FROM nominalSize")
     fun getAllFlow(): Flow<List<NominalSize>>
 
+    @Query("SELECT * FROM nominalSize")
+    fun getAllListDouble(): MutableList<Double>
     @Query("SELECT * FROM nominalSize ORDER BY value ASC")
     fun getAlphabetized(): Flow<List<NominalSize>>
 
