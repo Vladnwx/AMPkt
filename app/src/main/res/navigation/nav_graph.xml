@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cableSelectionFragment">
+
+    <fragment
+        android:id="@+id/cableSelectionFragment"
+        android:name="com.amp.ui.CableSelectionFragment"
+        android:label="Подбор кабеля" />
+
+    <!-- Добавь другие фрагменты позже -->
+    <!--
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.amp.ui.HistoryFragment"
+        android:label="История" />
+    -->
+
+</navigation>

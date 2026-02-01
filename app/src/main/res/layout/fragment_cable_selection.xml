@@ -1,0 +1,22 @@
+<!-- res/layout/fragment_cable_selection.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewActivityExtended"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Добавь кнопки, если нужно -->
+    <!--
+    <Button
+        android:id="@+id/btnNewCalculation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Новый расчёт" />
+    -->
+
+</LinearLayout>
