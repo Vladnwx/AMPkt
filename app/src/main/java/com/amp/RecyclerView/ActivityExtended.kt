@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
 import com.amp.databinding.ActivityExtendedBinding
 import com.amp.ui.adapter.TableRowAdapter
 import com.amp.ui.model.TableRowModel
+import kotlinx.coroutines.launch
 
 class ActivityExtended : AppCompatActivity() {
 
@@ -33,7 +35,7 @@ class ActivityExtended : AppCompatActivity() {
         }
 
         // Подписка на данные
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             viewModel.uiState.collect { state ->
                 val feeder = state.feeder
                 val rows = listOf(

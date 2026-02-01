@@ -4,7 +4,6 @@ package com.amp
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
@@ -13,7 +12,10 @@ import androidx.appcompat.widget.SwitchCompat
 import com.amp.data.ElectricalLoad
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
-import com.amp.ui.adapter.StringItemAdapter // ← убедись, что он существует
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import android.content.Intent
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -94,14 +96,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             viewModel.uiState.collect { state ->
                 if (state.isLoading) {
-                    // показать прогресс
+                    // Можно показать ProgressBar
                 } else if (state.error != null) {
-                    Toast.makeText(this, state.error, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, state.error, Toast.LENGTH_SHORT).show()
                 } else {
-                    // Обновить результат
                     with(state.feeder) {
                         textViewCableValue.text = cableText
                         textViewRValue.text = String.format("%.4f", r)
@@ -114,12 +115,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Загружаем список сечений один раз
-        lifecycleScope.launchWhenStarted {
-            val sizes = (application as AmperageApplication).repository.getAllNominalSizeList()
-            val adapter = spinnerNominalSize.adapter as ArrayAdapter<Double>
-            adapter.clear()
-            adapter.addAll(sizes)
-            adapter.notifyDataSetChanged()
+        lifecycleScope.launch {
+            try {
+                val sizes = (application as AmperageApplication).repository.getAllNominalSizeList()
+                val adapter = spinnerNominalSize.adapter as ArrayAdapter<Double>
+                adapter.clear()
+                adapter.addAll(sizes)
+                adapter.notifyDataSetChanged()
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Ошибка загрузки сечений", e)
+                Toast.makeText(this@MainActivity, "Ошибка", Toast.LENGTH_SHORT).show()}
         }
     }
 
@@ -130,9 +135,8 @@ class MainActivity : AppCompatActivity() {
             val cos = if (switchConsiderCos.isChecked) {
                 editTextCos.text.toString().toDoubleOrNull() ?: 1.0
             } else 1.0
-            val phaseCount = spinnerCountPhase.selectedItem.toString().toInt()
+            val phaseCount = spinnerCountPhase.selectedItem.toString().toIntOrNull() ?: 1
 
-            // Создаём нагрузку
             val load = ElectricalLoad(
                 activePowerKw = power,
                 voltageV = voltage,
@@ -141,7 +145,6 @@ class MainActivity : AppCompatActivity() {
                 considerPowerFactor = switchConsiderCos.isChecked
             )
 
-            // Запускаем расчёт
             viewModel.calculateCable(load.calculatedAmperage, phaseCount)
         }
 
@@ -151,7 +154,7 @@ class MainActivity : AppCompatActivity() {
 
         switchAutoVoltage.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                val phase = spinnerCountPhase.selectedItem.toString().toInt()
+                val phase = spinnerCountPhase.selectedItem.toString().toIntOrNull() ?: 1
                 val voltage = when (phase) {
                     1 -> 230.0
                     else -> 400.0
@@ -188,28 +191,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupTextWatchers() {
-        fun updateCalculatedAmperage() {
-            val power = editTextPower.text.toString().toDoubleOrNull() ?: return
-            val voltage = editTextVoltage.text.toString().toDoubleOrNull() ?: return
-            val cos = if (switchConsiderCos.isChecked) {
-                editTextCos.text.toString().toDoubleOrNull() ?: 1.0
-            } else 1.0
-            val phaseCount = spinnerCountPhase.selectedItem.toString().toInt()
-
-            val load = ElectricalLoad(
-                activePowerKw = power,
-                voltageV = voltage,
-                powerFactor = cos.coerceIn(0.0, 1.0),
-                phaseCount = phaseCount,
-                considerPowerFactor = switchConsiderCos.isChecked
-            )
-            textViewCurrentAmperageValue.text = String.format("%.2f", load.calculatedAmperage)
+    // ✅ ВАЖНО: функция вынесена на уровень класса!
+    private fun updateCalculatedAmperage() {
+        val power = editTextPower.text.toString().toDoubleOrNull() ?: return
+        val voltage = editTextVoltage.text.toString().toDoubleOrNull() ?: return
+        val cos = if (switchConsiderCos.isChecked) {
+            editTextCos.text.toString().toDoubleOrNull() ?: 1.0
+        } else {
+            1.0
         }
+        val phaseCount = spinnerCountPhase.selectedItem.toString().toIntOrNull() ?: 1
 
+        val load = ElectricalLoad(
+            activePowerKw = power,
+            voltageV = voltage,
+            powerFactor = cos.coerceIn(0.0, 1.0),
+            phaseCount = phaseCount,
+            considerPowerFactor = switchConsiderCos.isChecked
+        )
+        textViewCurrentAmperageValue.text = String.format("%.2f", load.calculatedAmperage)
+    }
+
+    private fun setupTextWatchers() {
         editTextPower.addTextChangedListener(textWatcher)
         editTextVoltage.addTextChangedListener(textWatcher)
         editTextCos.addTextChangedListener(textWatcher)
+
         spinnerCountPhase.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 updateCalculatedAmperage()
