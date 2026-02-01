@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.amp.R
 import com.amp.databinding.ParameterEdittextBinding
+import com.amp.databinding.ParameterEditnumberBinding
 import com.amp.databinding.ParameterHeaderBinding
 import com.amp.databinding.ParameterSpinnerBinding
 import com.amp.databinding.ParameterTextBinding
 import com.amp.ui.model.ParameterItem
-import com.google.android.material.textfield.TextInputEditText
 
 class ParameterAdapter(
     private val onEditTextChange: (key: String, value: String) -> Unit = { _, _ -> },
+    private val onEditNumberChange: (key: String, value: String) -> Unit = { _, _ -> },
     private val onSpinnerSelect: (key: String, index: Int) -> Unit = { _, _ -> }
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -32,6 +32,7 @@ class ParameterAdapter(
             is ParameterItem.Text -> VIEW_TYPE_TEXT
             is ParameterItem.Spinner -> VIEW_TYPE_SPINNER
             is ParameterItem.EditText -> VIEW_TYPE_EDITTEXT
+            is ParameterItem.EditNumber -> VIEW_TYPE_EDITNUMBER
             is ParameterItem.Header -> VIEW_TYPE_HEADER
         }
     }
@@ -42,6 +43,7 @@ class ParameterAdapter(
             VIEW_TYPE_TEXT -> TextViewHolder(ParameterTextBinding.inflate(inflater, parent, false))
             VIEW_TYPE_SPINNER -> SpinnerViewHolder(ParameterSpinnerBinding.inflate(inflater, parent, false))
             VIEW_TYPE_EDITTEXT -> EditTextViewHolder(ParameterEdittextBinding.inflate(inflater, parent, false))
+            VIEW_TYPE_EDITNUMBER -> EditNumberViewHolder(ParameterEditnumberBinding.inflate(inflater, parent, false))
             VIEW_TYPE_HEADER -> HeaderViewHolder(ParameterHeaderBinding.inflate(inflater, parent, false))
             else -> throw IllegalArgumentException("Unknown view type")
         }
@@ -52,6 +54,7 @@ class ParameterAdapter(
             is ParameterItem.Text -> (holder as TextViewHolder).bind(item)
             is ParameterItem.Spinner -> (holder as SpinnerViewHolder).bind(item)
             is ParameterItem.EditText -> (holder as EditTextViewHolder).bind(item)
+            is ParameterItem.EditNumber -> (holder as EditNumberViewHolder).bind(item)
             is ParameterItem.Header -> (holder as HeaderViewHolder).bind(item)
         }
     }
@@ -80,7 +83,6 @@ class ParameterAdapter(
 
             binding.spinnerValue.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                    // Передаём событие вверх
                     (binding.root.parent as? RecyclerView)?.adapter?.let { adapter ->
                         if (adapter is ParameterAdapter) {
                             adapter.onSpinnerSelect(item.key, pos)
@@ -110,6 +112,24 @@ class ParameterAdapter(
         }
     }
 
+    class EditNumberViewHolder(private val binding: ParameterEditnumberBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: ParameterItem.EditNumber) {
+            binding.textViewKey.text = item.key
+            binding.editTextValue.setText(item.value)
+
+            binding.editTextValue.setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val newValue = binding.editTextValue.text.toString()
+                    (binding.root.parent as? RecyclerView)?.adapter?.let { adapter ->
+                        if (adapter is ParameterAdapter) {
+                            adapter.onEditNumberChange(item.key, newValue)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     class HeaderViewHolder(private val binding: ParameterHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ParameterItem.Header) {
             binding.textViewHeader.text = item.title
@@ -120,6 +140,7 @@ class ParameterAdapter(
         const val VIEW_TYPE_TEXT = 0
         const val VIEW_TYPE_SPINNER = 1
         const val VIEW_TYPE_EDITTEXT = 2
-        const val VIEW_TYPE_HEADER = 3
+        const val VIEW_TYPE_EDITNUMBER = 3
+        const val VIEW_TYPE_HEADER = 4
     }
 }

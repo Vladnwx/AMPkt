@@ -2,7 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/cableSelectionFragment">
+    app:startDestination="@id/aboutFragment">
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.amp.ui.AboutFragment"
+        android:label="О программе" />
 
     <fragment
         android:id="@+id/inputFragment"
@@ -19,7 +24,12 @@
         android:name="com.amp.ui.CableSelectionFragment"
         android:label="Результат" />
 
-    <!-- Переходы -->
+    <fragment
+        android:id="@+id/tableEditorFragment"
+        android:name="com.amp.ui.TableEditorFragment"
+        android:label="Редактор таблиц" />
+
+    <!-- Действия -->
     <action
         android:id="@+id/action_input_to_advanced"
         app:destination="@id/advancedInputFragment" />

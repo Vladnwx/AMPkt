@@ -83,8 +83,7 @@ class CableSelectionFragment : Fragment() {
 
     private fun setupBackButton() {
         binding.btnNewCalculation.setOnClickListener {
-            findNavController().popBackStack(R.id.inputFragment, false)
-        }
+            findNavController().navigate(R.id.inputFragment)     }
     }
 
     override fun onDestroyView() {

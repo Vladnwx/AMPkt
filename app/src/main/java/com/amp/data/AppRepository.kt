@@ -102,4 +102,25 @@ class AppRepository(
     suspend fun insert(resistivity: Resistivity) {
         resistivityDao.insert(resistivity)
     }
+    suspend fun updateAmperage(
+        methodOfLaying: String,
+        nominalSize: Double,
+        materialType: String,
+        insulationType: String,
+        typeAmperage: String,
+        numberOfCore: String,
+        typeOfEnvironment: String,
+        amperage: Double
+    ) {
+        amperageDao.updateAmperage(
+            methodOfLaying = methodOfLaying,
+            nominalSize = nominalSize,
+            materialType = materialType,
+            insulationType = insulationType,
+            typeAmperage = typeAmperage,
+            numberOfCore = numberOfCore,
+            typeOfEnvironment = typeOfEnvironment,
+            amperage = amperage
+        )
+    }
 }

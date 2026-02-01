@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amp.AmperageApplication
-import com.amp.R
 import com.amp.data.MainActivityViewModel
 import com.amp.data.MainActivityViewModelFactory
 import com.amp.databinding.FragmentAdvancedInputBinding
 import com.amp.ui.adapter.ParameterAdapter
 import com.amp.ui.model.ParameterItem
+import kotlinx.coroutines.launch
 
 class AdvancedInputFragment : Fragment() {
 
@@ -50,12 +51,13 @@ class AdvancedInputFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        setupButtons()
+        setupCalculateButton()
+        observeViewModel()
     }
 
     private fun setupRecyclerView() {
         parameterAdapter = ParameterAdapter(
-            onEditTextChange = { key, value ->
+            onEditNumberChange = { key, value ->
                 when (key) {
                     "Мощность, кВт" -> powerValue = value
                     "Напряжение, В" -> voltageValue = value
@@ -78,16 +80,28 @@ class AdvancedInputFragment : Fragment() {
             adapter = parameterAdapter
         }
 
-        updateParameterList()
+        updateParameterList(null)
     }
 
-    private fun updateParameterList() {
+    private fun observeViewModel() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.uiState.collect { state ->
+                if (!state.isLoading && state.error == null && state.feeder.nominalSize > 0) {
+                    updateParameterList(state.feeder)
+                } else if (state.error != null) {
+                    Toast.makeText(context, state.error, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun updateParameterList(feeder: com.amp.data.Feeder?) {
         val items = mutableListOf<ParameterItem>()
 
         items.add(ParameterItem.Header("Основные параметры"))
-        items.add(ParameterItem.EditText("Мощность, кВт", powerValue))
-        items.add(ParameterItem.EditText("Напряжение, В", voltageValue))
-        items.add(ParameterItem.EditText("cos φ", cosValue))
+        items.add(ParameterItem.EditNumber("Мощность, кВт", powerValue))
+        items.add(ParameterItem.EditNumber("Напряжение, В", voltageValue))
+        items.add(ParameterItem.EditNumber("cos φ", cosValue))
         items.add(ParameterItem.Spinner("Количество фаз", listOf("1", "3"), phaseIndex))
 
         items.add(ParameterItem.Header("Параметры кабеля"))
@@ -96,48 +110,50 @@ class AdvancedInputFragment : Fragment() {
         items.add(ParameterItem.Spinner("Окружающая среда", listOf("В воздухе", "В земле"), environmentIndex))
         items.add(ParameterItem.Spinner("Способ прокладки", listOf("Одиночная прокладка"), layingIndex))
 
+        if (feeder != null) {
+            items.add(ParameterItem.Header("Результат подбора"))
+            items.add(ParameterItem.Text("Подобранный кабель", feeder.cableText))
+            items.add(ParameterItem.Text("Допустимый ток, А", "%.1f".format(feeder.amperage)))
+        }
+
         parameterAdapter.updateList(items)
     }
 
-    private fun setupButtons() {
+    private fun setupCalculateButton() {
         binding.btnCalculate.setOnClickListener {
-            calculateAndNavigate()
+            val power = powerValue.toDoubleOrNull() ?: run {
+                Toast.makeText(context, "Введите корректную мощность", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val voltage = voltageValue.toDoubleOrNull() ?: run {
+                Toast.makeText(context, "Введите корректное напряжение", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val cos = cosValue.toDoubleOrNull() ?: 1.0
+            val phaseCount = if (phaseIndex == 0) 1 else 3
+
+            val materialType = listOf("Cu", "Al")[materialIndex]
+            val insulationType = listOf("PVC", "XLPE")[insulationIndex]
+            val typeOfEnvironment = listOf("В воздухе", "В земле")[environmentIndex]
+            val methodOfLaying = listOf("Одиночная прокладка")[layingIndex]
+
+            val amperageRequired = if (phaseCount == 1) {
+                power * 1000 / (voltage * cos.coerceIn(0.0, 1.0))
+            } else {
+                power * 1000 / (Math.sqrt(3.0) * voltage * cos.coerceIn(0.0, 1.0))
+            }
+
+            viewModel.calculateCable(
+                amperageRequired = amperageRequired,
+                countPhase = phaseCount,
+                materialType = materialType,
+                insulationType = insulationType,
+                methodOfLaying = methodOfLaying,
+                typeOfEnvironment = typeOfEnvironment,
+                numberOfCore = if (phaseCount == 1) "single" else "multicore3",
+                typeAmperage = "AC"
+            )
         }
-
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-    }
-
-    private fun calculateAndNavigate() {
-        val power = powerValue.toDoubleOrNull() ?: return
-        val voltage = voltageValue.toDoubleOrNull() ?: return
-        val cos = cosValue.toDoubleOrNull() ?: 1.0
-        val phaseCount = if (phaseIndex == 0) 1 else 3
-
-        val materialType = listOf("Cu", "Al")[materialIndex]
-        val insulationType = listOf("PVC", "XLPE")[insulationIndex]
-        val typeOfEnvironment = listOf("В воздухе", "В земле")[environmentIndex]
-        val methodOfLaying = listOf("Одиночная прокладка")[layingIndex]
-
-        val amperage = if (phaseCount == 1) {
-            power * 1000 / (voltage * cos.coerceIn(0.0, 1.0))
-        } else {
-            power * 1000 / (Math.sqrt(3.0) * voltage * cos.coerceIn(0.0, 1.0))
-        }
-
-        viewModel.calculateCable(
-            amperageRequired = amperage,
-            countPhase = phaseCount,
-            materialType = materialType,
-            insulationType = insulationType,
-            methodOfLaying = methodOfLaying,
-            typeOfEnvironment = typeOfEnvironment,
-            numberOfCore = if (phaseCount == 1) "single" else "multicore3",
-            typeAmperage = "AC"
-        )
-
-        findNavController().navigate(R.id.action_advanced_to_result)
     }
 
     override fun onDestroyView() {

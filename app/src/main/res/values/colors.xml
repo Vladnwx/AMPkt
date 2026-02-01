@@ -1,6 +1,5 @@
 <!-- res/values/colors.xml -->
 <resources>
-    <!-- Material 3 цвета (светлая тема) -->
     <color name="md_theme_primary">#6750A4</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_primaryContainer">#EADDFF</color>

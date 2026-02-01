@@ -1,7 +1,6 @@
 // com.amp.data.dao.AmperageDao.kt
 package com.amp.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.amp.data.entity.Amperage
@@ -75,4 +74,41 @@ interface AmperageDao : BaseDAO<Amperage> {
         numberOfCore: String,
         typeOfEnvironment: String
     ): Double
+
+    @Query("""
+        UPDATE amperage
+        SET amperage_value = :amperage
+        WHERE method_of_laying_id = (
+            SELECT id FROM method_of_laying WHERE name = :methodOfLaying
+        )
+        AND nominal_size_id = (
+            SELECT id FROM nominal_size WHERE size_mm2 = :nominalSize
+        )
+        AND material_type_id = (
+            SELECT id FROM material_type WHERE name = :materialType
+        )
+        AND insulation_type_id = (
+            SELECT id FROM insulation_type WHERE name = :insulationType
+        )
+        AND type_amperage_id = (
+            SELECT id FROM type_amperage WHERE name = :typeAmperage
+        )
+        AND number_of_core_id = (
+            SELECT id FROM number_of_core WHERE name = :numberOfCore
+        )
+        AND type_of_environment_id = (
+            SELECT id FROM type_of_environment WHERE name = :typeOfEnvironment
+        )
+    """)
+    suspend fun updateAmperage(
+        methodOfLaying: String,
+        nominalSize: Double,
+        materialType: String,
+        insulationType: String,
+        typeAmperage: String,
+        numberOfCore: String,
+        typeOfEnvironment: String,
+        amperage: Double
+    )
+
 }

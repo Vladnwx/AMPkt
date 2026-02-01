@@ -1,4 +1,4 @@
-<!-- res/layout/parameter_edittext.xml -->
+<!-- res/layout/parameter_editnumber.xml -->
 <com.google.android.material.textfield.TextInputLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -27,6 +27,7 @@
             android:id="@+id/editTextValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:minWidth="80dp"
             android:gravity="end" />
 

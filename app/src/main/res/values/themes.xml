@@ -1,8 +1,8 @@
 <!-- res/values/themes.xml -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Базовая тема Material 3 -->
-    <style name="Theme.AMP" parent="Theme.Material3.DayNight">
-        <!-- Настройки по желанию -->
+    <!-- Основная тема без ActionBar -->
+    <style name="Theme.AMP" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Цвета Material 3 -->
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
