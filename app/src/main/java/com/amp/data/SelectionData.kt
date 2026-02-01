@@ -1,43 +1,44 @@
+// com.amp.data.SelectionData.kt
 package com.amp.data
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class SelectionData {
-    var nominalSizeListSformirovan = false
-        get() = field
-        set(value) {
-            field = value
-        }
 
-    var nominalSizeAmperageMapSformirovan = false
-        get() = field
-        set(value) {
-            field = value
-        }
+    // === Список всех номинальных сечений ===
+    private val _allNominalSizeList = MutableStateFlow<List<Double>>(listOf(0.0))
+    val allNominalSizeList: StateFlow<List<Double>> = _allNominalSizeList.asStateFlow()
 
-    var allNominalSizeList: ArrayList<Double> = arrayListOf(0.0)
-        get() = field
-        set(value) {
-            field = value
-            Log.d("SelectionData", "allNominalSizeList updated: $value") // DEBUG
-        }
-
-    var nominalSizeAmperageMap: MutableMap<Double, Double> = mutableMapOf(0.5 to 0.0)
-
-    lateinit var RLiveData: LiveData<Double>
-    lateinit var XLiveData: LiveData<Double>
-
-    var pLiveData: MutableLiveData<Double> = MutableLiveData(1.0)
-
-    var countPhaseList: List<String> = listOf("1", "2", "3")
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    init {
-        Log.d("SelectionData", "SelectionData initialized with list: $allNominalSizeList") // DEBUG
+    fun updateNominalSizeList(list: List<Double>) {
+        _allNominalSizeList.value = list
     }
+
+    // === Карта "сечение → ток" ===
+    private val _nominalSizeAmperageMap = MutableStateFlow<Map<Double, Double>>(
+        mapOf(0.5 to 0.0)
+    )
+    val nominalSizeAmperageMap: StateFlow<Map<Double, Double>> = _nominalSizeAmperageMap.asStateFlow()
+
+    fun updateNominalSizeAmperageMap(map: Map<Double, Double>) {
+        _nominalSizeAmperageMap.value = map
+    }
+
+    // === Параметры R, X, p ===
+    private val _rValue = MutableStateFlow(0.0)
+    val rValue: StateFlow<Double> = _rValue.asStateFlow()
+
+    private val _xValue = MutableStateFlow(0.0)
+    val xValue: StateFlow<Double> = _xValue.asStateFlow()
+
+    private val _pValue = MutableStateFlow(1.0)
+    val pValue: StateFlow<Double> = _pValue.asStateFlow()
+
+    fun updateR(value: Double) { _rValue.value = value }
+    fun updateX(value: Double) { _xValue.value = value }
+    fun updateP(value: Double) { _pValue.value = value }
+
+    // === Количество фаз ===
+    val countPhaseList: List<String> = listOf("1", "2", "3")
 }
