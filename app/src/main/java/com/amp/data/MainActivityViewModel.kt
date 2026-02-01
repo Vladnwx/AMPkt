@@ -4,17 +4,13 @@ package com.amp.data
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.amp.calculation.Calculation
-import com.amp.data.entity.Feeder
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlin.math.roundToInt
 
 class MainActivityViewModel(
-    private val repository: AppRepository,
-    private val calculation: Calculation
+    private val repository: AppRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
@@ -24,47 +20,40 @@ class MainActivityViewModel(
         Log.i("MainActivityViewModel", "Created")
     }
 
-    fun calculateCable(electricalLoadAmperage: Double, countPhase: Int) {
+    fun calculateCable(amperageRequired: Double, countPhase: Int) {
         viewModelScope.launch {
             try {
-                // 1. Получаем все сечения
-                val allSizes = repository.getAllNominalSizeList()
+                _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
-                // 2. Подбираем минимальное сечение
-                var nominalSize = findSuitableNominalSize(
-                    amperageRequired = electricalLoadAmperage,
-                    countPhase = countPhase,
-                    allSizes = allSizes
-                )
+                val allSizes = repository.getAllNominalSizeList().sorted()
 
-                // 3. Если не нашли — увеличиваем количество жил и повторяем (но без рекурсии!)
-                var countJil = 1
-                while (nominalSize == null && countJil <= 5) {
-                    countJil++
-                    nominalSize = findSuitableNominalSize(
-                        amperageRequired = electricalLoadAmperage,
+                // Попытка подобрать кабель при countJil = 1..5
+                var result: Pair<Double, Int>? = null
+                for (countJil in 1..5) {
+                    val size = findSuitableSize(
+                        amperageRequired = amperageRequired,
                         countPhase = countPhase,
-                        allSizes = allSizes,
-                        countJil = countJil
+                        countJil = countJil,
+                        allSizes = allSizes
                     )
+                    if (size != null) {
+                        result = size to countJil
+                        break
+                    }
                 }
 
-                if (nominalSize != null) {
-                    // 4. Заполняем Feeder
-                    val feeder = Feeder().apply {
-                        this.countPhase = countPhase
-                        this.countJil = countJil
-                        this.nominalSize = nominalSize
-                        // остальные параметры — по умолчанию или из UI
-                        methodOfLaying = "Одиночная прокладка"
-                        materialType = "Cu"
-                        insulationType = "PVC"
-                        typeAmperage = "AC"
-                        numberOfCore = "multicore3"
-                        typeOfEnvironment = "В воздухе"
-                    }
+                if (result != null) {
+                    val (nominalSize, countJil) = result
 
-                    // 5. Получаем R, X, Iкз
+                    // Формируем Feeder
+                    val feeder = Feeder(
+                        countPhase = countPhase,
+                        nominalSize = nominalSize,
+                        countJil = countJil,
+                        // остальные параметры — по умолчанию (соответствуют справочникам)
+                    )
+
+                    // Получаем R, X, Iкз
                     val r = repository.getR(feeder.materialType, feeder.nominalSize)
                     val x = repository.getX(feeder.materialType, feeder.nominalSize)
                     val amperageShort = repository.getAmperageShort(
@@ -89,8 +78,7 @@ class MainActivityViewModel(
                             amperageShort = amperageShort,
                             amperage = amperage
                         ),
-                        isLoading = false,
-                        error = null
+                        isLoading = false
                     )
                 } else {
                     _uiState.value = _uiState.value.copy(
@@ -99,35 +87,34 @@ class MainActivityViewModel(
                     )
                 }
             } catch (e: Exception) {
-                Log.e("MainActivityViewModel", "Calculation error", e)
+                Log.e("MainActivityViewModel", "Ошибка расчёта", e)
                 _uiState.value = _uiState.value.copy(
                     isLoading = false,
-                    error = "Ошибка расчёта: ${e.message}"
+                    error = "Ошибка: ${e.message}"
                 )
             }
         }
     }
 
-    private suspend fun findSuitableNominalSize(
+    private suspend fun findSuitableSize(
         amperageRequired: Double,
         countPhase: Int,
-        allSizes: List<Double>,
-        countJil: Int = 1
+        countJil: Int,
+        allSizes: List<Double>
     ): Double? {
-        return allSizes
-            .sorted()
-            .firstOrNull { size ->
-                val amp = repository.getAmperage(
-                    methodOfLaying = "Одиночная прокладка",
-                    nominalSize = size,
-                    materialType = "Cu",
-                    insulationType = "PVC",
-                    typeAmperage = "AC",
-                    numberOfCore = if (countPhase == 1) "single" else "multicore3",
-                    typeOfEnvironment = "В воздухе"
-                ) * countJil
-                amp >= amperageRequired
-            }
+        return allSizes.firstOrNull { size ->
+            val coreType = if (countPhase == 1) "single" else "multicore3"
+            val amp = repository.getAmperage(
+                methodOfLaying = "Одиночная прокладка",
+                nominalSize = size,
+                materialType = "Cu",
+                insulationType = "PVC",
+                typeAmperage = "AC",
+                numberOfCore = coreType,
+                typeOfEnvironment = "В воздухе"
+            ) * countJil
+            amp >= amperageRequired
+        }
     }
 
     data class UiState(

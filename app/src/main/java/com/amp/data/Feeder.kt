@@ -1,145 +1,37 @@
+// com.amp.data.Feeder.kt
 package com.amp.data
 
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
-import java.util.UUID
+data class Feeder(
+    var name: String = "",
+    var countPhase: Int = 1,
+    var nominalSize: Double = 1.5,
+    var typeOfEnvironment: String = "В воздухе",
+    var typeAmperage: String = "AC",
+    var numberOfCore: String = "multicore3",
+    var methodOfLaying: String = "Одиночная прокладка",
+    var materialType: String = "Cu",
+    var insulationType: String = "PVC",
+    var r: Double = 0.0,
+    var x: Double = 0.0,
+    var amperageShort: Double = 0.0,
+    var amperage: Double = 1.0,
+    var countJil: Int = 1,
+    var parallelCableCount: Int = 1,
+    var cableTypeText: String = "ВВГнг(А)-LS"
+) {
+    val cableText: String
+        get() = buildCableText()
 
-// Это Класс для описанния фидера питающего нагрузку
-
-class Feeder {
-
-    val id = UUID.randomUUID()!!
-        get() = field
-
-    var name: String = ""
-        get() = field
-        set(value) {
-            field = value
+    private fun buildCableText(): String {
+        val sizeStr = if (nominalSize < 4) nominalSize.toString() else nominalSize.toInt().toString()
+        return if (countJil == 1) {
+            "${countPhase + 2}x$sizeStr"
+        } else {
+            "$countJil x ${countPhase + 2}x$sizeStr"
         }
-    var start= UUID.randomUUID()!!
-        get() = field
-        set(value) {
-            field = value
-        }
-    var finish= UUID.randomUUID()!!
-        get() = field
-        set(value) {
-            field = value
-        }
-    var countPhase : Int =1
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    var nominalSize: Double = 0.0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var typeOfEnvironment: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var typeAmperage: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var numberOfCore: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var methodOfLaying: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var materialType: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var insulationType: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var r: Double = 0.0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var x: Double = 0.0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var amperageShort: Double = 0.0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var amperage: Double = 0.0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var countJil: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var parallelCableCount: Int = 0
-        get() = field
-        set(value) {
-            field = value
-        }
-    var cableTypeText: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-    var cableText: String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
-
-    constructor(){
-        nominalSize = 1.5
-        typeOfEnvironment = "air"
-        typeAmperage = "AC"
-        numberOfCore = "multicore3"
-        methodOfLaying = "single laying"
-        materialType = "Cu"
-        insulationType = "PVC"
-        r = 0.0
-        x = 0.0
-        amperageShort = 0.0
-        amperage = 1.0
-        countJil = 1
-        parallelCableCount =1
-        cableTypeText = "ВВГнг(А)-LS"
-        cableText = "3x1.5"
     }
 
-    fun refresh () {
-        if (countJil==1) {
-
-            if (nominalSize < 4) {
-                cableText = (countPhase + 2).toString() + "x" + nominalSize.toString()
-            } else cableText = (countPhase + 2).toString() + "x" + nominalSize.toInt().toString()
-        }
-        else { if (nominalSize < 4) {
-            cableText = countJil.toString() +  "x" +  (countPhase + 2).toString() + nominalSize.toString()
-        } else cableText = countJil.toString() +  "x" + (countPhase + 2).toString() + "x" + nominalSize.toInt().toString()
-
-        }
-
+    fun isValid(): Boolean {
+        return countJil >= 1 && nominalSize > 0 && countPhase in 1..3
     }
-
-
 }
