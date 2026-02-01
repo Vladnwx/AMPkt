@@ -1,89 +1,58 @@
-package com.amp.RecyclerView
+// com.amp.ActivityExtended.kt
+package com.amp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import com.amp.MainActivity
-import com.amp.R
+import com.amp.data.MainActivityViewModel
+import com.amp.data.MainActivityViewModelFactory
 import com.amp.databinding.ActivityExtendedBinding
+import com.amp.ui.adapter.TableRowAdapter
+import com.amp.ui.model.TableRowModel
 
 class ActivityExtended : AppCompatActivity() {
 
-    lateinit var binding: ActivityExtendedBinding
-
-    lateinit var adapter : TableRowAdapter
-
-    lateinit var recyclerView : RecyclerView
-
-    var tableRowModelMap = TableRowModelMap().tableRowModelMap
+    private lateinit var binding: ActivityExtendedBinding
+    private lateinit var adapter: TableRowAdapter
+    private val viewModel: MainActivityViewModel by viewModels {
+        MainActivityViewModelFactory((application as AmperageApplication).repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExtendedBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
-        recyclerView = binding.recyclerViewActivityExtended
         adapter = TableRowAdapter()
-        recyclerView.adapter = adapter
-        adapter.setList(rowAdd())
+        binding.recyclerViewActivityExtended.adapter = adapter
+        binding.recyclerViewActivityExtended.setHasFixedSize(true)
 
-        val buttonActivityMain =  findViewById<Button>(R.id.ButtonActivityMain)
-
-        buttonActivityMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        binding.ButtonActivityMain.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-    }
 
-    fun rowAdd () : ArrayList<TableRowModel>{
-
-        val listRow = ArrayList<TableRowModel> ()
-
-        listRow.add(TableRowModel() )
-
-        val row1 = TableRowModel()
-        row1.title = getString(R.string.TypeOfEnvironment)
-        row1.titleValue = "air"
-        row1.viewType = TableRowModel.Text
-        listRow.add(row1)
-
-        val row2 = TableRowModel()
-        row1.title = getString(R.string.Voltage)
-        row1.titleValue = "230"
-        row1.viewType = TableRowModel.EditText
-        listRow.add(row2)
-
-      //  tableRowModelMap = TableRowModelMap().tableRowModelMap
-        /*
-
-        tableRowModelMap.put(getString(R.string.TypeOfEnvironment) , "1")
-        tableRowModelMap.put(getString(R.string.NumberOfCore), "2")
-        tableRowModelMap.put(getString(R.string.MaterialType), "3")
-        tableRowModelMap.put(getString(R.string.InsulationType), "4")
-        tableRowModelMap.put(getString(R.string.MethodOfLaying), "5")
-        tableRowModelMap.put(getString(R.string.ConductorCrossSection), "6")
-        tableRowModelMap.put(getString(R.string.CountPhase), "7")
-        tableRowModelMap.put(getString(R.string.TypeAmperage), "8")
-        tableRowModelMap.put(getString(R.string.cable), "9")
-        tableRowModelMap.put(getString(R.string.EquivalentSection), "10")
-        tableRowModelMap.put(getString(R.string.Resistance_r_ohm_km), "11")
-        tableRowModelMap.put(getString(R.string.Resistance_x_ohm_km), "12")
-        tableRowModelMap.put(getString(R.string.raschetniytok), "13")
-        tableRowModelMap.put(getString(R.string.amperage), "14")
-        tableRowModelMap.put(getString(R.string.Voltage), "15")
-        tableRowModelMap.put(getString(R.string.cos_phi), "16")
-        tableRowModelMap.put(getString(R.string.power), "17")
-        tableRowModelMap.remove("0")
-*/
-        /*
-        tableRowModelMap.forEach() {
-            var row = TableRowModel(it.key, it.value)
-            listRow.add(row)
-        }*/
-
-        return listRow
+        // Подписка на данные
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect { state ->
+                val feeder = state.feeder
+                val rows = listOf(
+                    TableRowModel("Окружающая среда", feeder.typeOfEnvironment),
+                    TableRowModel("Материал жилы", feeder.materialType),
+                    TableRowModel("Тип изоляции", feeder.insulationType),
+                    TableRowModel("Способ прокладки", feeder.methodOfLaying),
+                    TableRowModel("Конструкция жилы", feeder.numberOfCore),
+                    TableRowModel("Род тока", feeder.typeAmperage),
+                    TableRowModel("Сечение, мм²", "%.1f".format(feeder.nominalSize)),
+                    TableRowModel("Количество фаз", feeder.countPhase.toString()),
+                    TableRowModel("Кабель", feeder.cableText),
+                    TableRowModel("R, Ом/км", "%.4f".format(feeder.r)),
+                    TableRowModel("X, Ом/км", "%.4f".format(feeder.x)),
+                    TableRowModel("Iкз, А", "%.1f".format(feeder.amperageShort)),
+                    TableRowModel("Доп. ток, А", "%.1f".format(feeder.amperage))
+                )
+                adapter.updateList(rows)
+            }
+        }
     }
 }

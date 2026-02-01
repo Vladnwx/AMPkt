@@ -1,88 +1,42 @@
-package com.amp.RecyclerView
+// com.amp.ui.adapter.TableRowAdapter.kt
+package com.amp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.amp.R
+import com.amp.ui.model.TableRowModel
 
+class TableRowAdapter : RecyclerView.Adapter<TableRowAdapter.ViewHolder>() {
 
-class TableRowAdapter: RecyclerView.Adapter<TableRowAdapter.TableRowViewHolder> (){
+    private var items = emptyList<TableRowModel>()
 
-    private var tableRowList = emptyList<TableRowModel>()
-
-      class TableRowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableRowViewHolder {
-
-        var view : View = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
-        when (viewType){
-            TableRowModel.Text -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
-               // return TableRowViewHolder(view)
-            }
-            TableRowModel.EditText -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_text_edittext, parent, false)
-              //  return TableRowViewHolder(view)
-            }
-            TableRowModel.Spinner -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item_spinner, parent, false)
-             //   return TableRowViewHolder(view)
-            }
-            TableRowModel.Switch -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_switch, parent, false)
-             //   return TableRowViewHolder(view)
-            }
-
-            TableRowModel.Buttton -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_button, parent, false)
-                            }
-                            }
-        return TableRowViewHolder(view)
-
+    fun updateList(newItems: List<TableRowModel>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: TableRowViewHolder, position: Int) {
-        when (tableRowList[position].viewType) {
-            TableRowModel.Text -> {
-                holder.itemView.findViewById<TextView>(R.id.textViewRow).text =
-                    tableRowList[position].title
-                holder.itemView.findViewById<TextView>(R.id.textViewRowValue).text =
-                    tableRowList[position].titleValue
-            }
-            TableRowModel.EditText -> {
-                holder.itemView.findViewById<TextView>(R.id.editTextViewRow).text =
-                    tableRowList[position].title
-                holder.itemView.findViewById<EditText>(R.id.editTextViewRow).setText(tableRowList[position].titleValue)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recyclerview_item, parent, false) // ← твой существующий layout
+        return ViewHolder(view)
+    }
 
-            }
-            TableRowModel.Spinner -> {
-            holder.itemView.findViewById<TextView>(R.id.textViewRow).text =
-                tableRowList[position].title
-            holder.itemView.findViewById<TextView>(R.id.textViewRowValue).text =
-                tableRowList[position].titleValue
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(items[position])
+    }
+
+    override fun getItemCount() = items.size
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val titleView: TextView = itemView.findViewById(R.id.textViewRow)
+        private val valueView: TextView = itemView.findViewById(R.id.textViewRowValue)
+
+        fun bind(item: TableRowModel) {
+            titleView.text = item.title
+            valueView.text = item.value
         }
-            TableRowModel.Switch -> {
-                holder.itemView.findViewById<TextView>(R.id.textViewRow).text =
-                    tableRowList[position].title
-                holder.itemView.findViewById<TextView>(R.id.textViewRowValue).text =
-                    tableRowList[position].titleValue
-            }
-            TableRowModel.Buttton -> {
-                holder.itemView.findViewById<TextView>(R.id.textViewRow).text =
-                    tableRowList[position].title
-                holder.itemView.findViewById<TextView>(R.id.textViewRowValue).text =
-                    tableRowList[position].titleValue
-            }
-
-
-        }
-    }
-    override fun getItemCount(): Int {
-        return tableRowList.size
-    }
-     fun setList(list: List<TableRowModel>) {
-        tableRowList = list
     }
 }
