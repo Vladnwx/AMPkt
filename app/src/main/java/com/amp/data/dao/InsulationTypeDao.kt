@@ -5,34 +5,25 @@ import androidx.room.Query
 import com.amp.data.entity.InsulationType
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
-interface InsulationTypeDao:BaseDAO<InsulationType>{
+interface InsulationTypeDao : BaseDAO<InsulationType> {
 
-    @Query("SELECT * FROM InsulationType")
-    fun getAll(): List<String>
+    @Query("SELECT * FROM insulation_type")
+    fun getAll(): List<InsulationType>
 
-    @Query("SELECT * FROM InsulationType")
+    @Query("SELECT * FROM insulation_type")
     fun getAllFlow(): Flow<List<InsulationType>>
 
-
-    @Query("SELECT * FROM InsulationType ORDER BY value ASC")
+    @Query("SELECT * FROM insulation_type ORDER BY name ASC")
     fun getAlphabetized(): Flow<List<InsulationType>>
 
-    @Query("DELETE FROM InsulationType")
+    @Query("DELETE FROM insulation_type")
     suspend fun deleteAll()
 
-    @Query(
-        """INSERT INTO InsulationType (
-                                value
-                            )
-                            VALUES (
-                                'PEX'
-                            ),
-                            (
-                                'PVC'
-                            );"""
-    )
-    fun defaultgreate()
-
+    @Query("""
+        INSERT INTO insulation_type (id, name) VALUES
+        (1, 'PVC'),
+        (2, 'XLPE')
+    """)
+    suspend fun insertDefaultValues()
 }
