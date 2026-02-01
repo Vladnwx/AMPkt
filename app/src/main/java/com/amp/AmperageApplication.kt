@@ -1,3 +1,4 @@
+// com.amp.AmperageApplication.kt
 package com.amp
 
 import android.app.Application
@@ -7,23 +8,28 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 class AmperageApplication : Application() {
-    // No need to cancel this scope as it'll be torn down with the process
-    val applicationScope = CoroutineScope(SupervisorJob())
-    // Using by lazy so the database and the repository are only created when they're needed
-    // rather than when the application starts
-    val database by lazy { AppDatabase.getDatabase(this, applicationScope) }
-    val repository by lazy { AppRepository(
-        database.typeOfEnvironmentDao(),
-        database.typeAmperageDao(),
-        database.resistivityDao(),
-        database.numberOfCoreDao(),
-        database.nominalSizeDao(),
-        database.methodOfLayingDao(),
-        database.materialTypeDao(),
-        database.insulationTypeDao(),
-        database.amperageShortDao(),
-        database.amperageDao()
 
-                                            )
-                            }
+    // Scope для фоновых задач приложения
+    val applicationScope = CoroutineScope(SupervisorJob())
+
+    // База данных — создаётся один раз
+    val database by lazy {
+        AppDatabase.getDatabase(this, applicationScope)
+    }
+
+    // Репозиторий — зависит только от DAO, не от вставки
+    val repository by lazy {
+        AppRepository(
+            typeOfEnvironmentDao = database.typeOfEnvironmentDao(),
+            typeAmperageDao = database.typeAmperageDao(),
+            resistivityDao = database.resistivityDao(),
+            numberOfCoreDao = database.numberOfCoreDao(),
+            nominalSizeDao = database.nominalSizeDao(),
+            methodOfLayingDao = database.methodOfLayingDao(),
+            materialTypeDao = database.materialTypeDao(),
+            insulationTypeDao = database.insulationTypeDao(),
+            amperageShortDao = database.amperageShortDao(),
+            amperageDao = database.amperageDao()
+        )
+    }
 }
