@@ -1,21 +1,14 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
-@Entity(tableName = "methodOfLaying")
-
+/**
+ * Справочник: способ прокладки кабеля
+ */
+@Entity(tableName = "method_of_laying")
 data class MethodOfLaying(
-
-    @PrimaryKey
-    @ColumnInfo(name = "value")
-    val value: String) {
-
-    override fun toString(): String {
-        return value
-    }
-
-}
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String
+)
