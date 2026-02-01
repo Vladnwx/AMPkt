@@ -5,34 +5,25 @@ import androidx.room.Query
 import com.amp.data.entity.MaterialType
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
-interface MaterialTypeDao:BaseDAO<MaterialType>{
+interface MaterialTypeDao : BaseDAO<MaterialType> {
 
-    @Query("SELECT * FROM MaterialType")
-    fun getAll(): List<String>
+    @Query("SELECT * FROM material_type")
+    fun getAll(): List<MaterialType>
 
-    @Query("SELECT * FROM MaterialType")
+    @Query("SELECT * FROM material_type")
     fun getAllFlow(): Flow<List<MaterialType>>
 
-
-    @Query("SELECT * FROM MaterialType ORDER BY value ASC")
+    @Query("SELECT * FROM material_type ORDER BY name ASC")
     fun getAlphabetized(): Flow<List<MaterialType>>
 
-    @Query("DELETE FROM MaterialType")
+    @Query("DELETE FROM material_type")
     suspend fun deleteAll()
 
-    @Query(
-        """INSERT INTO MaterialType (
-                              value
-                          )
-                          VALUES (
-                              'Cu'
-                          ),
-                          (
-                              'Al'
-                          );"""
-    )
-    fun defaultgreate()
-
+    @Query("""
+        INSERT INTO material_type (id, name) VALUES
+        (1, 'Cu'),
+        (2, 'Al')
+    """)
+    suspend fun insertDefaultValues()
 }
