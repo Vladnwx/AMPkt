@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel.allNominalSize.observe(this) {
 
             for (i in it.indices) {
-                mainActivityViewModel.selectionData.allNominalSizeList.add(it[i].value)
+                mainActivityViewModel.selectionData.allNominalSizeList.add(it[i].sizeMm2)
             }
             mainActivityViewModel.selectionData.allNominalSizeList.remove(0.0)
             spinnerNominalSize.setSelection(0)

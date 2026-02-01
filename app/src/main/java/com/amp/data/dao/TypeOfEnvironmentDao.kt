@@ -1,40 +1,29 @@
 package com.amp.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.amp.data.entity.TypeOfEnvironment
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
-interface TypeOfEnvironmentDao:BaseDAO<TypeOfEnvironment>{
+interface TypeOfEnvironmentDao : BaseDAO<TypeOfEnvironment> {
 
-    @Query("SELECT * FROM typeOfEnvironment")
-    fun getAll(): List<String>
+    @Query("SELECT * FROM type_of_environment")
+    fun getAll(): List<TypeOfEnvironment>
 
-    @Query("SELECT * FROM typeOfEnvironment")
+    @Query("SELECT * FROM type_of_environment")
     fun getAllFlow(): Flow<List<TypeOfEnvironment>>
 
-
-    @Query("SELECT * FROM typeOfEnvironment ORDER BY value ASC")
+    @Query("SELECT * FROM type_of_environment ORDER BY name ASC")
     fun getAlphabetized(): Flow<List<TypeOfEnvironment>>
 
-    @Query("DELETE FROM typeOfEnvironment")
+    @Query("DELETE FROM type_of_environment")
     suspend fun deleteAll()
 
-  @Query("""INSERT INTO typeOfEnvironment
-      (
-      value
-  )
-          VALUES
-          (
-                  "earth"
-                  ),
-      (
-              "air"
-              )
+    @Query("""
+        INSERT INTO type_of_environment (id, name) VALUES
+        (1, 'В земле'),
+        (2, 'В воздухе')
     """)
-      fun defaultgreate()
-
+    suspend fun insertDefaultValues()
 }

@@ -20,7 +20,7 @@ class AppListAdapter : ListAdapter<TypeOfEnvironment, AppListAdapter.AppViewHold
 
     override fun onBindViewHolder(holder: AppViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.value)
+        holder.bind(current.name)
     }
 
 
@@ -46,7 +46,7 @@ class AppListAdapter : ListAdapter<TypeOfEnvironment, AppListAdapter.AppViewHold
         }
 
         override fun areContentsTheSame(oldItem: TypeOfEnvironment, newItem: TypeOfEnvironment): Boolean {
-            return oldItem.value == newItem.value
+            return oldItem.name == newItem.name
         }
     }
 
