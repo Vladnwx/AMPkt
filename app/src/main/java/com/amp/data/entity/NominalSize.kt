@@ -1,21 +1,15 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-
-@Entity(tableName = "nominalSize")
-
-data class NominalSize (
-
-    @PrimaryKey
-    @ColumnInfo (name = "value")
-
-
-    val value: Double) {
-
-    override fun toString(): String {
-        return String.format("%.1f", value)
-    }
-
-}
+/**
+ * Справочник стандартных номинальных сечений кабелей (в мм²)
+ * Примеры: 1.5, 2.5, 4.0, 6.0, 10.0 и т.д.
+ */
+@Entity(tableName = "nominal_size")
+data class NominalSize(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "size_mm2") val sizeMm2: Double
+)
