@@ -5,16 +5,28 @@
     app:startDestination="@id/cableSelectionFragment">
 
     <fragment
-        android:id="@+id/cableSelectionFragment"
-        android:name="com.amp.ui.CableSelectionFragment"
+        android:id="@+id/inputFragment"
+        android:name="com.amp.ui.InputFragment"
         android:label="Подбор кабеля" />
 
-    <!-- Добавь другие фрагменты позже -->
-    <!--
     <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.amp.ui.HistoryFragment"
-        android:label="История" />
-    -->
+        android:id="@+id/advancedInputFragment"
+        android:name="com.amp.ui.AdvancedInputFragment"
+        android:label="Расширенный ввод" />
 
+    <fragment
+        android:id="@+id/cableSelectionFragment"
+        android:name="com.amp.ui.CableSelectionFragment"
+        android:label="Результат" />
+
+    <!-- Переходы -->
+    <action
+        android:id="@+id/action_input_to_advanced"
+        app:destination="@id/advancedInputFragment" />
+    <action
+        android:id="@+id/action_input_to_result"
+        app:destination="@id/cableSelectionFragment" />
+    <action
+        android:id="@+id/action_advanced_to_result"
+        app:destination="@id/cableSelectionFragment" />
 </navigation>

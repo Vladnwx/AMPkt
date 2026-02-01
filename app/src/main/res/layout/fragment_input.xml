@@ -1,4 +1,4 @@
-<!-- res/layout/fragment_cable_selection.xml -->
+<!-- res/layout/fragment_input.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,7 +13,7 @@
         android:background="#6200EE"
         android:gravity="center"
         android:padding="12dp"
-        android:text="Результат подбора"
+        android:text="Подбор кабеля"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -21,24 +21,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView -->
+    <!-- RecyclerView для параметров -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewActivityExtended"
+        android:id="@+id/recyclerViewParameters"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/btnNewCalculation"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
 
-    <!-- Кнопка "Новый расчёт" -->
+    <!-- Кнопки -->
     <Button
-        android:id="@+id/btnNewCalculation"
+        android:id="@+id/btnCalculate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Новый расчёт"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Рассчитать"
+        app:layout_constraintBottom_toTopOf="@id/btnAdvanced"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAdvanced"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Расширенный режим"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

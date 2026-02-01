@@ -20,7 +20,19 @@ class MainActivityViewModel(
         Log.i("MainActivityViewModel", "Created")
     }
 
-    fun calculateCable(amperageRequired: Double, countPhase: Int) {
+    /**
+     * Рассчитывает кабель с учётом всех параметров
+     */
+    fun calculateCable(
+        amperageRequired: Double,
+        countPhase: Int,
+        materialType: String = "Cu",
+        insulationType: String = "PVC",
+        methodOfLaying: String = "Одиночная прокладка",
+        typeOfEnvironment: String = "В воздухе",
+        numberOfCore: String = "multicore3",
+        typeAmperage: String = "AC"
+    ) {
         viewModelScope.launch {
             try {
                 _uiState.value = _uiState.value.copy(isLoading = true, error = null)
@@ -34,7 +46,13 @@ class MainActivityViewModel(
                         amperageRequired = amperageRequired,
                         countPhase = countPhase,
                         countJil = countJil,
-                        allSizes = allSizes
+                        allSizes = allSizes,
+                        materialType = materialType,
+                        insulationType = insulationType,
+                        methodOfLaying = methodOfLaying,
+                        typeOfEnvironment = typeOfEnvironment,
+                        numberOfCore = numberOfCore,
+                        typeAmperage = typeAmperage
                     )
                     if (size != null) {
                         result = size to countJil
@@ -45,12 +63,17 @@ class MainActivityViewModel(
                 if (result != null) {
                     val (nominalSize, countJil) = result
 
-                    // Формируем Feeder
+                    // Формируем Feeder с ВСЕМИ параметрами
                     val feeder = Feeder(
                         countPhase = countPhase,
                         nominalSize = nominalSize,
                         countJil = countJil,
-                        // остальные параметры — по умолчанию (соответствуют справочникам)
+                        materialType = materialType,
+                        insulationType = insulationType,
+                        methodOfLaying = methodOfLaying,
+                        typeOfEnvironment = typeOfEnvironment,
+                        numberOfCore = numberOfCore,
+                        typeAmperage = typeAmperage
                     )
 
                     // Получаем R, X, Iкз
@@ -96,22 +119,30 @@ class MainActivityViewModel(
         }
     }
 
+    /**
+     * Находит подходящее сечение по всем параметрам
+     */
     private suspend fun findSuitableSize(
         amperageRequired: Double,
         countPhase: Int,
         countJil: Int,
-        allSizes: List<Double>
+        allSizes: List<Double>,
+        materialType: String,
+        insulationType: String,
+        methodOfLaying: String,
+        typeOfEnvironment: String,
+        numberOfCore: String,
+        typeAmperage: String
     ): Double? {
         return allSizes.firstOrNull { size ->
-            val coreType = if (countPhase == 1) "single" else "multicore3"
             val amp = repository.getAmperage(
-                methodOfLaying = "Одиночная прокладка",
+                methodOfLaying = methodOfLaying,
                 nominalSize = size,
-                materialType = "Cu",
-                insulationType = "PVC",
-                typeAmperage = "AC",
-                numberOfCore = coreType,
-                typeOfEnvironment = "В воздухе"
+                materialType = materialType,
+                insulationType = insulationType,
+                typeAmperage = typeAmperage,
+                numberOfCore = numberOfCore,
+                typeOfEnvironment = typeOfEnvironment
             ) * countJil
             amp >= amperageRequired
         }
