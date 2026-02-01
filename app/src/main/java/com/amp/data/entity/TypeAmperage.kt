@@ -1,23 +1,14 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//Класс род тока
-@Entity(tableName = "typeAmperage")
-
-data class TypeAmperage (
-
-    @PrimaryKey
-    @ColumnInfo(name = "value")
-    val value: String
-                        )
-{
-
-    override fun toString(): String {
-        return value
-    }
-
-}
+/**
+ * Справочник: род тока (например, "переменный", "постоянный")
+ */
+@Entity(tableName = "type_amperage")
+data class TypeAmperage(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String
+)

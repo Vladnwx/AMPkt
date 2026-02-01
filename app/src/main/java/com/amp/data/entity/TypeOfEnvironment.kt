@@ -1,17 +1,14 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//Класс для окружающей среды
-@Entity(tableName = "typeOfEnvironment")
-data class TypeOfEnvironment (
-   // @PrimaryKey(autoGenerate = true)
-   // val id: Int,
-
-    @PrimaryKey
-    @ColumnInfo(name = "value")
-    val value: String
-                            )
+/**
+ * Справочник: тип окружающей среды (например, "воздух", "земля", "бетон")
+ */
+@Entity(tableName = "type_of_environment")
+data class TypeOfEnvironment(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String
+)
