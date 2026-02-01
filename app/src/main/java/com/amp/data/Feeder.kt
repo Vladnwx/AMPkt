@@ -32,77 +32,77 @@ class Feeder {
             field = value
         }
 
-    var nominalSize: Double
+    var nominalSize: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var typeOfEnvironment: String
+    var typeOfEnvironment: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var typeAmperage: String
+    var typeAmperage: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var numberOfCore: String
+    var numberOfCore: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var methodOfLaying: String
+    var methodOfLaying: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var materialType: String
+    var materialType: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var insulationType: String
+    var insulationType: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var r: Double
+    var r: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var x: Double
+    var x: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var amperageShort: Double
+    var amperageShort: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var amperage: Double
+    var amperage: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var countJil: Int
+    var countJil: Int = 0
         get() = field
         set(value) {
             field = value
         }
-    var parallelCableCount: Int
+    var parallelCableCount: Int = 0
         get() = field
         set(value) {
             field = value
         }
-    var cableTypeText: String
+    var cableTypeText: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var cableText: String
+    var cableText: String = ""
         get() = field
         set(value) {
             field = value

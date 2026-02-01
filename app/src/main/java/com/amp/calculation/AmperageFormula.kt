@@ -2,33 +2,40 @@ package com.amp.calculation
 
 import kotlin.math.sqrt
 
- class AmperageFormula {
+// Объект без создания экземпляра
+object AmperageCalculator {
 
-    fun get (power :Double, voltage :Double) : Double{
-        if (power>0 && voltage>0){
-            return power/voltage
-        }
-        else  return 0.0
+    // Шаблонная функция для одиночного расчета (1 фаза)
+    fun <T : Number> calculateAmperage(power: T, voltage: T): Double {
+        val p = power.toDouble()
+        val v = voltage.toDouble()
+        return if (p > 0 && v > 0) p / v else 0.0
     }
 
-    fun get (power :Double, voltage :Double, cos :Double) : Double{
-        if (cos<=1 && cos>=-1 && cos !=0.0){
-            return get(power, voltage)/cos
-        }
-        else  return 1.0
+    // Шаблонная функция для расчета с cos (1 фаза)
+    fun <T : Number> calculateAmperage(power: T, voltage: T, cos: T): Double {
+        var c = cos.toDouble()
+        if (c !in -1.0..1.0 || c == 0.0) c = 1.0 // Замена ошибочного значения
+        val base = calculateAmperage(power, voltage)
+        return base / c
     }
 
-    fun get (power :Double, voltage :Double, cos :Double, countPhase: Double) : Double{
-        when (countPhase){
-            1.0 -> return get(power, voltage, cos)
-            2.0 -> return get(power, voltage, cos)/(sqrt(3.0))
-            3.0 -> return get(power, voltage, cos)/(sqrt(3.0))
-            else -> return 0.0
+    // Шаблонная функция для многофазного расчета
+    fun <T : Number> calculateAmperage(
+        power: T,
+        voltage: T,
+        cos: T,
+        phaseCount: Int
+    ): Double {
+        var c = cos.toDouble()
+        if (c !in -1.0..1.0 || c == 0.0) c = 1.0
+        val base = calculateAmperage(power, voltage, c.toBigDecimal().toDouble())
+
+        val result = when (phaseCount) {
+            1 -> base
+            2, 3 -> base / sqrt(3.0)
+            else -> 0.0
         }
-            }
-
-
-
-
-
+        return result
+    }
 }

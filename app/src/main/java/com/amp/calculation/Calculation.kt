@@ -1,37 +1,26 @@
 package com.amp.calculation
 
-import android.icu.math.BigDecimal
-import android.util.Log
 import com.amp.data.ElectricalLoad
 import com.amp.data.Feeder
-import kotlin.math.roundToLong
 
- class Calculation {
+class Calculation {
 
-     var amperageFormula : AmperageFormula = AmperageFormula()
-
-
-    fun electricalLoad (e: ElectricalLoad?){
-          if (e != null) {
-          e.amperageCalculate =  amperageFormula.get(e.p*1000, e.v, e.cos, e.countPhase)
+    fun electricalLoad(e: ElectricalLoad?) {
+        if (e != null) {
+            e.amperageCalculate = AmperageCalculator.calculateAmperage(
+                power = e.p * 1000, // Перевод в ватты
+                voltage = e.v,
+                cos = e.cos,
+                phaseCount = e.countPhase.toInt() // Предполагаем, что countPhase Int
+            )
         }
-                                             }
-
-    fun feeder (f: Feeder?) {
-
-                             }
-
-    private fun automaticSelectionOfStandardVoltage (b :Boolean){
-
-
-
     }
 
+    fun feeder(f: Feeder?) {
+        // TODO: Логика для feeder
+    }
+
+    private fun automaticSelectionOfStandardVoltage(b: Boolean) {
+        // TODO: Логика выбора напряжения
+    }
 }
-
-
-
-
-
-
-

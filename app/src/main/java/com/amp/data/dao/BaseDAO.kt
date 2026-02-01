@@ -15,7 +15,7 @@ interface BaseDAO <T> {
     suspend fun insert(entities: List<T>): LongArray
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(entitys: Iterable<T>?)
+    suspend fun insert(entitys: Iterable<T>)
 
     @Update
     suspend fun update(entity: T)

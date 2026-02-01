@@ -10,49 +10,44 @@ class ElectricalLoad {
     val id = UUID.randomUUID()
         get() = field
 
-    var name: String
+    var name: String = ""
         get() = field
         set(value) {
             field = value
         }
-    var p: Double
-        get() = field
-        set(value) {
-         if (value is Double)
-          field = value
-            else {
-             field = 1.0
-             logOrError = "ELectricalLoad : P не является допустимым числом, знчение устновлено = 1"
-         }
-        }
-    var v: Double
+    var p: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var cos: Double
+    var v: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var countPhase: Double
+    var cos: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var lineLength: Double
+    var countPhase: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
-    var amperageCalculate: Double
+    var lineLength: Double = 0.0
+        get() = field
+        set(value) {
+            field = value
+        }
+    var amperageCalculate: Double = 0.0
         get() = field
         set(value) {
             field = value
         }
 
     enum class TypeLoad {Single, MultiLoad}
-    var typeLoad : TypeLoad
+    var typeLoad : TypeLoad = TODO()
         get() = field
         set(value) {
             field = value
