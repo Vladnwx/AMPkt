@@ -1,21 +1,14 @@
 package com.amp.data.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Класс конструкция жилы
-@Entity(tableName = "numberOfCore")
-
-data class NumberOfCore (
-
-    @PrimaryKey
-    @ColumnInfo(name = "value")
-    val value: String) {
-
-    override fun toString(): String {
-        return value
-    }
-
-}
+/**
+ * Справочник: количество и конструкция жил кабеля (например, "1", "3+1", "5")
+ */
+@Entity(tableName = "number_of_core")
+data class NumberOfCore(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "name") val name: String
+)
